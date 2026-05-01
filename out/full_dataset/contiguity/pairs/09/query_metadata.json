@@ -1,0 +1,85 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 5,
+      "n_components": 2,
+      "components": [
+        [
+          33,
+          26
+        ],
+        [
+          29
+        ]
+      ],
+      "component_voters": [
+        1173,
+        777
+      ],
+      "largest_component_voters": 1173,
+      "disjoint_excess_voters": 777,
+      "worst_pair_separation_km": 1.887994555020403
+    },
+    {
+      "site": 8,
+      "n_components": 2,
+      "components": [
+        [
+          14,
+          20,
+          18,
+          16
+        ],
+        [
+          73
+        ]
+      ],
+      "component_voters": [
+        2630,
+        321
+      ],
+      "largest_component_voters": 2630,
+      "disjoint_excess_voters": 321,
+      "worst_pair_separation_km": 2.445367376459655
+    },
+    {
+      "site": 35,
+      "n_components": 2,
+      "components": [
+        [
+          74,
+          15
+        ],
+        [
+          0,
+          12
+        ]
+      ],
+      "component_voters": [
+        2550,
+        2382
+      ],
+      "largest_component_voters": 2550,
+      "disjoint_excess_voters": 2382,
+      "worst_pair_separation_km": 2.9723064861572848
+    }
+  ],
+  "n_split_sites_baseline": 3,
+  "total_disjoint_excess_voters_baseline": 3480,
+  "worst_culprit_site": 35,
+  "worst_culprit_disjoint_voters": 2382,
+  "smallest_component_centroid": [
+    3.7509651741128427,
+    0.71509345705255
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 55,
+  "attempt": 0,
+  "vague_text": "There are visible service-area splits: opened sites whose catchments appear in disconnected regions. Eliminate them.",
+  "precise_text": "Polling place 35 has a fragmented service area \u2014 voters in separated pockets are all routed to it. Fix the topology.",
+  "vague_template_idx": 4,
+  "precise_template_idx": 2,
+  "pair_id": "09"
+}

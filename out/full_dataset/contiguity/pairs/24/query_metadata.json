@@ -1,0 +1,107 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 3,
+      "n_components": 2,
+      "components": [
+        [
+          0,
+          22,
+          2,
+          8,
+          7,
+          4
+        ],
+        [
+          14
+        ]
+      ],
+      "component_voters": [
+        1284,
+        593
+      ],
+      "largest_component_voters": 1284,
+      "disjoint_excess_voters": 593,
+      "worst_pair_separation_km": 1.5898421537148717
+    },
+    {
+      "site": 4,
+      "n_components": 2,
+      "components": [
+        [
+          17,
+          25,
+          68
+        ],
+        [
+          32
+        ]
+      ],
+      "component_voters": [
+        2439,
+        479
+      ],
+      "largest_component_voters": 2439,
+      "disjoint_excess_voters": 479,
+      "worst_pair_separation_km": 1.2523640214896636
+    },
+    {
+      "site": 35,
+      "n_components": 2,
+      "components": [
+        [
+          24
+        ],
+        [
+          29
+        ]
+      ],
+      "component_voters": [
+        1351,
+        355
+      ],
+      "largest_component_voters": 1351,
+      "disjoint_excess_voters": 355,
+      "worst_pair_separation_km": 1.9201833051773414
+    },
+    {
+      "site": 36,
+      "n_components": 2,
+      "components": [
+        [
+          69
+        ],
+        [
+          74,
+          30,
+          31
+        ]
+      ],
+      "component_voters": [
+        3121,
+        1761
+      ],
+      "largest_component_voters": 3121,
+      "disjoint_excess_voters": 1761,
+      "worst_pair_separation_km": 3.5216197457067424
+    }
+  ],
+  "n_split_sites_baseline": 4,
+  "total_disjoint_excess_voters_baseline": 3188,
+  "worst_culprit_site": 36,
+  "worst_culprit_disjoint_voters": 1761,
+  "smallest_component_centroid": [
+    8.679264689936113,
+    3.8281473041712464
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 197,
+  "attempt": 0,
+  "vague_text": "The map shows polling places whose voters come from disjoint pockets \u2014 same colour on two separate patches with a gap between. Break up any such split-catchment.",
+  "precise_text": "Site 36's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 3,
+  "pair_id": "24"
+}

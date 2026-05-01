@@ -1,0 +1,64 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 1,
+      "n_components": 2,
+      "components": [
+        [
+          5
+        ],
+        [
+          0,
+          9,
+          2
+        ]
+      ],
+      "component_voters": [
+        1912,
+        1508
+      ],
+      "largest_component_voters": 1912,
+      "disjoint_excess_voters": 1508,
+      "worst_pair_separation_km": 1.563709824413339
+    },
+    {
+      "site": 33,
+      "n_components": 2,
+      "components": [
+        [
+          67,
+          19,
+          66
+        ],
+        [
+          13
+        ]
+      ],
+      "component_voters": [
+        3172,
+        140
+      ],
+      "largest_component_voters": 3172,
+      "disjoint_excess_voters": 140,
+      "worst_pair_separation_km": 1.9123597554285883
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 1648,
+  "worst_culprit_site": 1,
+  "worst_culprit_disjoint_voters": 1508,
+  "smallest_component_centroid": [
+    2.6637733687581164,
+    2.995927452273109
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 77,
+  "attempt": 0,
+  "vague_text": "Looking at the colored service areas, at least one polling place is serving voters from visibly separated pockets \u2014 its catchment splits into disjoint clumps. Each polling place should serve one contiguous region. Fix every site whose service area is split.",
+  "precise_text": "Polling place 1 is serving voters from at least two disjoint regions. That can't be right \u2014 make its catchment contiguous.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 4,
+  "pair_id": "11"
+}

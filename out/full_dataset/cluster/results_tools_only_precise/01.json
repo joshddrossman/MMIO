@@ -1,0 +1,90 @@
+{
+  "pair_id": "01",
+  "modality": "tools_only",
+  "query_type": "precise",
+  "status": "completed",
+  "metadata": {
+    "archetype": "cluster",
+    "cluster_center": [
+      4.570642978342526,
+      1.6610757076385323
+    ],
+    "cluster_radius": 1.3,
+    "affected_sites": [
+      3,
+      4,
+      8,
+      36
+    ],
+    "cluster_size": 4,
+    "cluster_density_ratio": 4.18553433509258,
+    "cluster_min_sites": 4,
+    "cluster_density_factor": 2.0,
+    "base_seed": 84,
+    "attempt": 0,
+    "vague_text": "There's an unnecessary concentration of opened sites somewhere on the map. Multiple sites within walking distance of each other is wasteful. Close one or two.",
+    "precise_text": "There's an over-concentration of polling places: sites 3, 4, 8, 36 are within walking distance of each other. Close some so we free budget for sparser areas.",
+    "vague_template_idx": 3,
+    "precise_template_idx": 2,
+    "pair_id": "01"
+  },
+  "proposal": {
+    "force_close": [
+      3,
+      8,
+      4
+    ],
+    "rationale": "The original concern is a dense south-central cluster: 3 (4.57,1.66), 4 (4.28,2.45), 8 (4.96,0.62), 36 (3.71,0.80). The previous re-solve replaced 3 and 8 with site 5 at (4.17,2.07), leaving three nearby opens in the same pocket (4, 5, 36). To free more budget from this over-concentrated area while retaining two nearby sites, close 3, 4, and 8 so the solver can cover the pocket with 5 and 36 and redirect capacity to sparser areas."
+  },
+  "score": {
+    "query_id": "cluster_01_precise",
+    "archetype": "cluster",
+    "target_direction": "minimize",
+    "target_baseline": 5.0,
+    "target_response": 0.0,
+    "raw_improvement": 5.0,
+    "fraction_improved": 1.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 54078.031086128656,
+        "response": 60823.40422202338,
+        "bound": 56781.932640435094,
+        "violation": 4041.4715815882882,
+        "passed": false
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.8178907254648398,
+        "response": 2.2229408308083856,
+        "bound": 1.8178907254648398,
+        "violation": 0.4050501053435458,
+        "passed": false
+      }
+    ],
+    "all_guards_passed": false,
+    "feasible": true,
+    "valid": false,
+    "baseline_assignment_distance": 54078.031086128656,
+    "final_assignment_distance": 60823.40422202338,
+    "assignment_distance_delta": 6745.373135894726,
+    "success": false
+  },
+  "log_summary": {
+    "n_assistant_messages": 7,
+    "n_resolves": 2,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 0,
+    "local_edit_tool_counts": {},
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 10,
+    "tool_call_counts": {
+      "list_sites": 3,
+      "get_distance_matrix": 2,
+      "get_current_assignments": 2,
+      "resolve": 2,
+      "submit_proposal": 1
+    }
+  },
+  "elapsed_sec": 25.78334903717041
+}

@@ -1,0 +1,86 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 2,
+      "n_components": 2,
+      "components": [
+        [
+          33
+        ],
+        [
+          24,
+          29,
+          26
+        ]
+      ],
+      "component_voters": [
+        1599,
+        1059
+      ],
+      "largest_component_voters": 1599,
+      "disjoint_excess_voters": 1059,
+      "worst_pair_separation_km": 1.7869309063755086
+    },
+    {
+      "site": 5,
+      "n_components": 2,
+      "components": [
+        [
+          68,
+          20,
+          16
+        ],
+        [
+          12,
+          18
+        ]
+      ],
+      "component_voters": [
+        3272,
+        1620
+      ],
+      "largest_component_voters": 3272,
+      "disjoint_excess_voters": 1620,
+      "worst_pair_separation_km": 1.8480710037387942
+    },
+    {
+      "site": 35,
+      "n_components": 2,
+      "components": [
+        [
+          19,
+          21,
+          69
+        ],
+        [
+          14
+        ]
+      ],
+      "component_voters": [
+        3336,
+        255
+      ],
+      "largest_component_voters": 3336,
+      "disjoint_excess_voters": 255,
+      "worst_pair_separation_km": 1.6561723162432918
+    }
+  ],
+  "n_split_sites_baseline": 3,
+  "total_disjoint_excess_voters_baseline": 2934,
+  "worst_culprit_site": 5,
+  "worst_culprit_disjoint_voters": 1620,
+  "smallest_component_centroid": [
+    5.108487542548573,
+    3.28376382600606
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 140,
+  "attempt": 0,
+  "vague_text": "There are visible service-area splits: opened sites whose catchments appear in disconnected regions. Eliminate them.",
+  "precise_text": "Polling place 5 is serving voters from at least two disjoint regions. That can't be right \u2014 make its catchment contiguous.",
+  "vague_template_idx": 4,
+  "precise_template_idx": 4,
+  "pair_id": "18"
+}

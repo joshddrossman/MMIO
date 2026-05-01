@@ -1,0 +1,25 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    2.7731622710351647,
+    3.3660469822112247
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    1,
+    3,
+    5,
+    7
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 197,
+  "attempt": 0,
+  "vague_text": "I see way too many polling locations bunched together. They're so close that closing one or two wouldn't really hurt coverage.",
+  "precise_text": "There's an over-concentration of polling places: sites 1, 3, 5, 7 are within walking distance of each other. Close some so we free budget for sparser areas.",
+  "vague_template_idx": 4,
+  "precise_template_idx": 2,
+  "pair_id": "09"
+}

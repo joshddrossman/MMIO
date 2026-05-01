@@ -1,0 +1,65 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 8,
+      "n_components": 2,
+      "components": [
+        [
+          21,
+          5
+        ],
+        [
+          0
+        ]
+      ],
+      "component_voters": [
+        730,
+        522
+      ],
+      "largest_component_voters": 730,
+      "disjoint_excess_voters": 522,
+      "worst_pair_separation_km": 1.2845111880001951
+    },
+    {
+      "site": 36,
+      "n_components": 3,
+      "components": [
+        [
+          68
+        ],
+        [
+          20
+        ],
+        [
+          9
+        ]
+      ],
+      "component_voters": [
+        2914,
+        1830,
+        191
+      ],
+      "largest_component_voters": 2914,
+      "disjoint_excess_voters": 2021,
+      "worst_pair_separation_km": 2.789683074683763
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 2543,
+  "worst_culprit_site": 36,
+  "worst_culprit_disjoint_voters": 2021,
+  "smallest_component_centroid": [
+    4.233785751185837,
+    2.6435917907293454
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 180,
+  "attempt": 0,
+  "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+  "precise_text": "Polling place 36 is serving voters from at least two disjoint regions. That can't be right \u2014 make its catchment contiguous.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 4,
+  "pair_id": "23"
+}

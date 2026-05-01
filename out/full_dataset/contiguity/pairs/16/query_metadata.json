@@ -1,0 +1,90 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 3,
+      "n_components": 2,
+      "components": [
+        [
+          9,
+          10,
+          17,
+          15
+        ],
+        [
+          22
+        ]
+      ],
+      "component_voters": [
+        2660,
+        223
+      ],
+      "largest_component_voters": 2660,
+      "disjoint_excess_voters": 223,
+      "worst_pair_separation_km": 1.6349464822572708
+    },
+    {
+      "site": 33,
+      "n_components": 3,
+      "components": [
+        [
+          66
+        ],
+        [
+          68,
+          74
+        ],
+        [
+          16
+        ]
+      ],
+      "component_voters": [
+        1389,
+        844,
+        752
+      ],
+      "largest_component_voters": 1389,
+      "disjoint_excess_voters": 1596,
+      "worst_pair_separation_km": 1.6325740210416573
+    },
+    {
+      "site": 35,
+      "n_components": 2,
+      "components": [
+        [
+          6,
+          72,
+          55,
+          53
+        ],
+        [
+          8
+        ]
+      ],
+      "component_voters": [
+        2278,
+        112
+      ],
+      "largest_component_voters": 2278,
+      "disjoint_excess_voters": 112,
+      "worst_pair_separation_km": 1.876921002106111
+    }
+  ],
+  "n_split_sites_baseline": 3,
+  "total_disjoint_excess_voters_baseline": 1931,
+  "worst_culprit_site": 33,
+  "worst_culprit_disjoint_voters": 1596,
+  "smallest_component_centroid": [
+    4.854345987362539,
+    0.5622170257226723
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 124,
+  "attempt": 0,
+  "vague_text": "Looking at the colored service areas, at least one polling place is serving voters from visibly separated pockets \u2014 its catchment splits into disjoint clumps. Each polling place should serve one contiguous region. Fix every site whose service area is split.",
+  "precise_text": "Polling place 33 has a fragmented service area \u2014 voters in separated pockets are all routed to it. Fix the topology.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 2,
+  "pair_id": "16"
+}

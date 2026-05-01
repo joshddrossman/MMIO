@@ -1,0 +1,59 @@
+{
+  "archetype": "coverage_gap",
+  "coverage_gap_center": [
+    2.5,
+    4.7
+  ],
+  "coverage_gap_radius": 1.2,
+  "severity_target": 1.4,
+  "severity_achieved": 1.4608069053134112,
+  "affected_precincts": [
+    9,
+    54
+  ],
+  "in_hole_mean_distance": 1.1640343543389937,
+  "in_hole_max_distance": 1.2555935215213188,
+  "surrounding_mean_distance": 0.7968434090125376,
+  "closed_candidates_in_coverage_gap": [
+    6
+  ],
+  "closed_candidates_near_gap_center": [
+    6
+  ],
+  "max_closed_candidate_center_distance": 0.6,
+  "coverage_gap_distance_threshold": 1.8403441853445428,
+  "coverage_gap_baseline_strand_count": 5,
+  "uniqueness_local_anomaly_radius": 2.0,
+  "uniqueness_top_k": 8,
+  "uniqueness_n_top_anomalies": 8,
+  "uniqueness_n_top_in_coverage_gap": 0,
+  "uniqueness_fraction_in_coverage_gap": 0.0,
+  "uniqueness_top_anomaly_indices": [
+    19,
+    67,
+    24,
+    66,
+    63,
+    50,
+    1,
+    45
+  ],
+  "uniqueness_outside_top_anomalies": [
+    19,
+    67,
+    24,
+    66,
+    63,
+    50,
+    1,
+    45
+  ],
+  "base_seed": 299,
+  "attempt": 0,
+  "sites_removed": 1,
+  "vague_text": "Looking at the solution, there's a noticeable hole in coverage somewhere \u2014 voters in a small interior region are stuck with much longer distances than their neighbours. Find that gap and fix it.",
+  "precise_text": "There's a coverage gap affecting precincts 9, 54. Their nearest polling place is much farther than their neighbours' \u2014 fix it, but be mindful about creating coverage gaps elsewhere.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 3,
+  "pair_id": "00"
+}

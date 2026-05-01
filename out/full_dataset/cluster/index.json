@@ -1,0 +1,211 @@
+{
+  "n_pairs": 25,
+  "n_pairs_requested": 25,
+  "archetype": "cluster",
+  "sampling_seed": 42,
+  "total_attempts": 513,
+  "n_rejected": 488,
+  "archetype_kwargs": {},
+  "pairs": [
+    {
+      "pair_id": "00",
+      "pair_dir": "pairs/00",
+      "archetype": "cluster",
+      "base_seed": 47,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "01",
+      "pair_dir": "pairs/01",
+      "archetype": "cluster",
+      "base_seed": 84,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "02",
+      "pair_dir": "pairs/02",
+      "archetype": "cluster",
+      "base_seed": 104,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "03",
+      "pair_dir": "pairs/03",
+      "archetype": "cluster",
+      "base_seed": 109,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "04",
+      "pair_dir": "pairs/04",
+      "archetype": "cluster",
+      "base_seed": 116,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "05",
+      "pair_dir": "pairs/05",
+      "archetype": "cluster",
+      "base_seed": 123,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "06",
+      "pair_dir": "pairs/06",
+      "archetype": "cluster",
+      "base_seed": 135,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "07",
+      "pair_dir": "pairs/07",
+      "archetype": "cluster",
+      "base_seed": 161,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "08",
+      "pair_dir": "pairs/08",
+      "archetype": "cluster",
+      "base_seed": 164,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "09",
+      "pair_dir": "pairs/09",
+      "archetype": "cluster",
+      "base_seed": 197,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "10",
+      "pair_dir": "pairs/10",
+      "archetype": "cluster",
+      "base_seed": 203,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "11",
+      "pair_dir": "pairs/11",
+      "archetype": "cluster",
+      "base_seed": 205,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "12",
+      "pair_dir": "pairs/12",
+      "archetype": "cluster",
+      "base_seed": 221,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "13",
+      "pair_dir": "pairs/13",
+      "archetype": "cluster",
+      "base_seed": 226,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "14",
+      "pair_dir": "pairs/14",
+      "archetype": "cluster",
+      "base_seed": 270,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "15",
+      "pair_dir": "pairs/15",
+      "archetype": "cluster",
+      "base_seed": 279,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "16",
+      "pair_dir": "pairs/16",
+      "archetype": "cluster",
+      "base_seed": 294,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "17",
+      "pair_dir": "pairs/17",
+      "archetype": "cluster",
+      "base_seed": 363,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "18",
+      "pair_dir": "pairs/18",
+      "archetype": "cluster",
+      "base_seed": 383,
+      "vague_template_idx": 4,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "19",
+      "pair_dir": "pairs/19",
+      "archetype": "cluster",
+      "base_seed": 387,
+      "vague_template_idx": 1,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "20",
+      "pair_dir": "pairs/20",
+      "archetype": "cluster",
+      "base_seed": 415,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "21",
+      "pair_dir": "pairs/21",
+      "archetype": "cluster",
+      "base_seed": 430,
+      "vague_template_idx": 3,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "22",
+      "pair_dir": "pairs/22",
+      "archetype": "cluster",
+      "base_seed": 468,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "23",
+      "pair_dir": "pairs/23",
+      "archetype": "cluster",
+      "base_seed": 478,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "24",
+      "pair_dir": "pairs/24",
+      "archetype": "cluster",
+      "base_seed": 513,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    }
+  ]
+}

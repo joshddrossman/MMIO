@@ -1,0 +1,89 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 3,
+      "n_components": 2,
+      "components": [
+        [
+          1,
+          11,
+          9,
+          2,
+          10,
+          8,
+          6
+        ],
+        [
+          76
+        ]
+      ],
+      "component_voters": [
+        3686,
+        1248
+      ],
+      "largest_component_voters": 3686,
+      "disjoint_excess_voters": 1248,
+      "worst_pair_separation_km": 2.471773468607904
+    },
+    {
+      "site": 8,
+      "n_components": 2,
+      "components": [
+        [
+          28,
+          30,
+          79
+        ],
+        [
+          67
+        ]
+      ],
+      "component_voters": [
+        2229,
+        1510
+      ],
+      "largest_component_voters": 2229,
+      "disjoint_excess_voters": 1510,
+      "worst_pair_separation_km": 1.9720317681988213
+    },
+    {
+      "site": 37,
+      "n_components": 2,
+      "components": [
+        [
+          16,
+          66,
+          69
+        ],
+        [
+          13
+        ]
+      ],
+      "component_voters": [
+        3806,
+        73
+      ],
+      "largest_component_voters": 3806,
+      "disjoint_excess_voters": 73,
+      "worst_pair_separation_km": 2.500719641179084
+    }
+  ],
+  "n_split_sites_baseline": 3,
+  "total_disjoint_excess_voters_baseline": 2831,
+  "worst_culprit_site": 8,
+  "worst_culprit_disjoint_voters": 1510,
+  "smallest_component_centroid": [
+    7.18013414470383,
+    0.4457590342712166
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 165,
+  "attempt": 0,
+  "vague_text": "Looking at the colored service areas, at least one polling place is serving voters from visibly separated pockets \u2014 its catchment splits into disjoint clumps. Each polling place should serve one contiguous region. Fix every site whose service area is split.",
+  "precise_text": "Site 8's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 3,
+  "pair_id": "20"
+}

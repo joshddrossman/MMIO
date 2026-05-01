@@ -1,0 +1,199 @@
+{
+  "pair_id": "00",
+  "modality": "multimodal",
+  "query_type": "precise",
+  "status": "completed",
+  "metadata": {
+    "archetype": "shape_niceness",
+    "per_catchment_npi": {
+      "0": {
+        "A": 5.555415267291231,
+        "P": 13.165829145728644,
+        "NPI": 1.5757416661830925,
+        "n_cells": 2200
+      },
+      "1": {
+        "A": 5.328148279083862,
+        "P": 12.261306532663317,
+        "NPI": 1.4984548670568683,
+        "n_cells": 2110
+      },
+      "4": {
+        "A": 2.5908436655640013,
+        "P": 8.743718592964825,
+        "NPI": 1.5323946810797384,
+        "n_cells": 1026
+      },
+      "5": {
+        "A": 7.085679654554179,
+        "P": 15.678391959798997,
+        "NPI": 1.6615209768708525,
+        "n_cells": 2806
+      },
+      "6": {
+        "A": 5.873589050781547,
+        "P": 17.185929648241206,
+        "NPI": 2.0003975724681498,
+        "n_cells": 2326
+      },
+      "8": {
+        "A": 3.6286962450443174,
+        "P": 12.56281407035176,
+        "NPI": 1.8604015496585613,
+        "n_cells": 1437
+      },
+      "9": {
+        "A": 6.959420216661196,
+        "P": 16.28140703517588,
+        "NPI": 1.7410068168202524,
+        "n_cells": 2756
+      },
+      "11": {
+        "A": 6.704376152117372,
+        "P": 12.361809045226131,
+        "NPI": 1.3467838887386274,
+        "n_cells": 2655
+      },
+      "12": {
+        "A": 7.810408828059899,
+        "P": 14.07035175879397,
+        "NPI": 1.4202445759150768,
+        "n_cells": 3093
+      },
+      "16": {
+        "A": 7.6538471250726,
+        "P": 13.969849246231156,
+        "NPI": 1.4244489706534655,
+        "n_cells": 3031
+      },
+      "22": {
+        "A": 4.318072775940002,
+        "P": 11.557788944723619,
+        "NPI": 1.5690068831228625,
+        "n_cells": 1710
+      },
+      "23": {
+        "A": 9.113406227115478,
+        "P": 14.07035175879397,
+        "NPI": 1.3147998876572904,
+        "n_cells": 3609
+      },
+      "26": {
+        "A": 5.6589480063634765,
+        "P": 12.06030150753769,
+        "NPI": 1.4301624839500766,
+        "n_cells": 2241
+      },
+      "33": {
+        "A": 5.186737708643721,
+        "P": 12.56281407035176,
+        "NPI": 1.5560905204077577,
+        "n_cells": 2054
+      },
+      "35": {
+        "A": 3.305472084038282,
+        "P": 9.34673366834171,
+        "NPI": 1.4502343546562446,
+        "n_cells": 1309
+      },
+      "36": {
+        "A": 4.310497209666423,
+        "P": 10.452261306532664,
+        "NPI": 1.420174277646659,
+        "n_cells": 1707
+      },
+      "37": {
+        "A": 7.211939092447161,
+        "P": 13.768844221105528,
+        "NPI": 1.4463271184893547,
+        "n_cells": 2856
+      },
+      "39": {
+        "A": 2.7120527259412643,
+        "P": 8.643216080402011,
+        "NPI": 1.480544189490724,
+        "n_cells": 1074
+      }
+    },
+    "mean_npi_baseline": 1.5404852933814253,
+    "max_npi_baseline": 2.0003975724681498,
+    "p90_npi_baseline": 1.7768252366717452,
+    "n_catchments_baseline": 18,
+    "worst_catchment_site": 6,
+    "worst_catchment_npi": 2.0003975724681498,
+    "min_mean_npi_threshold": 1.5,
+    "min_max_npi_threshold": 2.0,
+    "base_seed": 1,
+    "attempt": 0,
+    "vague_text": "Some of these service regions look weird on the map \u2014 too elongated, oddly twisted, or with strange thin tails. Make them more compact and reasonable in shape.",
+    "precise_text": "Polling place 6's service region has an ugly shape on the map \u2014 long and thin with awkward bumps. Tidy it up.",
+    "vague_template_idx": 0,
+    "precise_template_idx": 3,
+    "pair_id": "00"
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        29,
+        8
+      ]
+    ],
+    "rationale": "Tidy site 6's service region by removing the long eastward spur: precinct 29, located east of site 6 near site 8, should be served by site 8. Re-solve globally under that single fixing so the optimizer can rebalance surrounding precincts and maintain feasibility while making site 6's catchment more compact."
+  },
+  "score": {
+    "query_id": "shape_niceness_00_precise",
+    "archetype": "shape_niceness",
+    "target_direction": "minimize",
+    "target_baseline": 1.5404852933814253,
+    "target_response": 1.5404852933814253,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 49706.720467802545,
+        "response": 49706.720467802545,
+        "bound": 52192.05649119268,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.553178185557755,
+        "response": 1.553178185557755,
+        "bound": 1.553178185557755,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 49706.720467802545,
+    "final_assignment_distance": 49706.720467802545,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "log_summary": {
+    "n_assistant_messages": 9,
+    "n_resolves": 2,
+    "n_resolves_infeasible": 1,
+    "n_local_edits": 1,
+    "local_edit_tool_counts": {
+      "swap_assignments": 1
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 17,
+    "tool_call_counts": {
+      "view_solution": 3,
+      "list_sites": 3,
+      "get_current_assignments": 4,
+      "get_precinct_adjacency": 1,
+      "get_distance_matrix": 2,
+      "swap_assignments": 1,
+      "resolve": 2,
+      "submit_proposal": 1
+    }
+  },
+  "elapsed_sec": 38.7151517868042
+}

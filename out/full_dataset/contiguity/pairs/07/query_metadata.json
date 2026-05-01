@@ -1,0 +1,44 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 4,
+      "n_components": 2,
+      "components": [
+        [
+          71
+        ],
+        [
+          12,
+          30,
+          26,
+          23
+        ]
+      ],
+      "component_voters": [
+        2657,
+        2233
+      ],
+      "largest_component_voters": 2657,
+      "disjoint_excess_voters": 2233,
+      "worst_pair_separation_km": 2.880871263677621
+    }
+  ],
+  "n_split_sites_baseline": 1,
+  "total_disjoint_excess_voters_baseline": 2233,
+  "worst_culprit_site": 4,
+  "worst_culprit_disjoint_voters": 2233,
+  "smallest_component_centroid": [
+    6.895439933951494,
+    3.11927485286432
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 38,
+  "attempt": 0,
+  "vague_text": "The map shows polling places whose voters come from disjoint pockets \u2014 same colour on two separate patches with a gap between. Break up any such split-catchment.",
+  "precise_text": "Site 4's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 3,
+  "pair_id": "07"
+}

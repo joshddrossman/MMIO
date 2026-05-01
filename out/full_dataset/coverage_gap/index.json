@@ -1,0 +1,211 @@
+{
+  "n_pairs": 25,
+  "n_pairs_requested": 25,
+  "archetype": "coverage_gap",
+  "sampling_seed": 42,
+  "total_attempts": 1279,
+  "n_rejected": 1254,
+  "archetype_kwargs": {},
+  "pairs": [
+    {
+      "pair_id": "00",
+      "pair_dir": "pairs/00",
+      "archetype": "coverage_gap",
+      "base_seed": 34,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "01",
+      "pair_dir": "pairs/01",
+      "archetype": "coverage_gap",
+      "base_seed": 43,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "02",
+      "pair_dir": "pairs/02",
+      "archetype": "coverage_gap",
+      "base_seed": 80,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "03",
+      "pair_dir": "pairs/03",
+      "archetype": "coverage_gap",
+      "base_seed": 157,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "04",
+      "pair_dir": "pairs/04",
+      "archetype": "coverage_gap",
+      "base_seed": 299,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "05",
+      "pair_dir": "pairs/05",
+      "archetype": "coverage_gap",
+      "base_seed": 338,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "06",
+      "pair_dir": "pairs/06",
+      "archetype": "coverage_gap",
+      "base_seed": 340,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "07",
+      "pair_dir": "pairs/07",
+      "archetype": "coverage_gap",
+      "base_seed": 460,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "08",
+      "pair_dir": "pairs/08",
+      "archetype": "coverage_gap",
+      "base_seed": 495,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "09",
+      "pair_dir": "pairs/09",
+      "archetype": "coverage_gap",
+      "base_seed": 526,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "10",
+      "pair_dir": "pairs/10",
+      "archetype": "coverage_gap",
+      "base_seed": 539,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "11",
+      "pair_dir": "pairs/11",
+      "archetype": "coverage_gap",
+      "base_seed": 546,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "12",
+      "pair_dir": "pairs/12",
+      "archetype": "coverage_gap",
+      "base_seed": 610,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "13",
+      "pair_dir": "pairs/13",
+      "archetype": "coverage_gap",
+      "base_seed": 773,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "14",
+      "pair_dir": "pairs/14",
+      "archetype": "coverage_gap",
+      "base_seed": 798,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "15",
+      "pair_dir": "pairs/15",
+      "archetype": "coverage_gap",
+      "base_seed": 936,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "16",
+      "pair_dir": "pairs/16",
+      "archetype": "coverage_gap",
+      "base_seed": 987,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "17",
+      "pair_dir": "pairs/17",
+      "archetype": "coverage_gap",
+      "base_seed": 1012,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "18",
+      "pair_dir": "pairs/18",
+      "archetype": "coverage_gap",
+      "base_seed": 1090,
+      "vague_template_idx": 4,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "19",
+      "pair_dir": "pairs/19",
+      "archetype": "coverage_gap",
+      "base_seed": 1113,
+      "vague_template_idx": 1,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "20",
+      "pair_dir": "pairs/20",
+      "archetype": "coverage_gap",
+      "base_seed": 1127,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "21",
+      "pair_dir": "pairs/21",
+      "archetype": "coverage_gap",
+      "base_seed": 1186,
+      "vague_template_idx": 3,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "22",
+      "pair_dir": "pairs/22",
+      "archetype": "coverage_gap",
+      "base_seed": 1246,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "23",
+      "pair_dir": "pairs/23",
+      "archetype": "coverage_gap",
+      "base_seed": 1252,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "24",
+      "pair_dir": "pairs/24",
+      "archetype": "coverage_gap",
+      "base_seed": 1279,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    }
+  ]
+}

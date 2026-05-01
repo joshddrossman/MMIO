@@ -1,0 +1,236 @@
+{
+  "pair_id": "07",
+  "modality": "multimodal",
+  "query_type": "vague",
+  "status": "completed",
+  "metadata": {
+    "archetype": "shape_niceness",
+    "per_catchment_npi": {
+      "1": {
+        "A": 4.992298174288528,
+        "P": 19.095477386934675,
+        "NPI": 2.4108785331463007,
+        "n_cells": 1977
+      },
+      "2": {
+        "A": 5.477134415797582,
+        "P": 17.286432160804022,
+        "NPI": 2.0836450303880443,
+        "n_cells": 2169
+      },
+      "5": {
+        "A": 4.780182318628318,
+        "P": 10.653266331658292,
+        "NPI": 1.3745344274770408,
+        "n_cells": 1893
+      },
+      "6": {
+        "A": 3.2170904775131945,
+        "P": 13.366834170854272,
+        "NPI": 2.1022869316015433,
+        "n_cells": 1274
+      },
+      "7": {
+        "A": 6.075604151410318,
+        "P": 16.98492462311558,
+        "NPI": 1.9438554061725086,
+        "n_cells": 2406
+      },
+      "8": {
+        "A": 7.045276634428424,
+        "P": 14.070351758793972,
+        "NPI": 1.495378036762733,
+        "n_cells": 2790
+      },
+      "10": {
+        "A": 5.802883765561476,
+        "P": 12.663316582914574,
+        "NPI": 1.4829298137425282,
+        "n_cells": 2298
+      },
+      "11": {
+        "A": 5.754905179162143,
+        "P": 14.371859296482413,
+        "NPI": 1.6900086930061347,
+        "n_cells": 2279
+      },
+      "12": {
+        "A": 8.136158177823793,
+        "P": 14.974874371859297,
+        "NPI": 1.4809778530940845,
+        "n_cells": 3222
+      },
+      "15": {
+        "A": 5.434206206913967,
+        "P": 10.452261306532664,
+        "NPI": 1.2648448868570779,
+        "n_cells": 2152
+      },
+      "18": {
+        "A": 4.903916567763441,
+        "P": 13.969849246231156,
+        "NPI": 1.7795707184010507,
+        "n_cells": 1942
+      },
+      "21": {
+        "A": 8.191712330496706,
+        "P": 15.376884422110553,
+        "NPI": 1.5155702501063775,
+        "n_cells": 3244
+      },
+      "27": {
+        "A": 7.179111638594986,
+        "P": 16.78391959798995,
+        "NPI": 1.7670673599052185,
+        "n_cells": 2843
+      },
+      "30": {
+        "A": 6.845786722557512,
+        "P": 13.969849246231156,
+        "NPI": 1.5061738567693883,
+        "n_cells": 2711
+      },
+      "34": {
+        "A": 3.5049619959091944,
+        "P": 12.663316582914574,
+        "NPI": 1.9080988760135027,
+        "n_cells": 1388
+      },
+      "35": {
+        "A": 4.631196181914599,
+        "P": 15.075376884422113,
+        "NPI": 1.9761352132908065,
+        "n_cells": 1834
+      },
+      "38": {
+        "A": 3.1160829271988084,
+        "P": 9.045226130653267,
+        "NPI": 1.4454730311224606,
+        "n_cells": 1234
+      },
+      "39": {
+        "A": 5.919042448423021,
+        "P": 13.969849246231156,
+        "NPI": 1.619798752794631,
+        "n_cells": 2344
+      }
+    },
+    "mean_npi_baseline": 1.713734870591746,
+    "max_npi_baseline": 2.4108785331463007,
+    "p90_npi_baseline": 2.089237600752094,
+    "n_catchments_baseline": 18,
+    "worst_catchment_site": 1,
+    "worst_catchment_npi": 2.4108785331463007,
+    "min_mean_npi_threshold": 1.5,
+    "min_max_npi_threshold": 2.0,
+    "base_seed": 8,
+    "attempt": 0,
+    "vague_text": "Several polling places have catchments that look bizarre \u2014 stringy or with awkward protrusions. Reshape so the service areas are visually compact.",
+    "precise_text": "Polling place 1's service region has an ugly shape on the map \u2014 long and thin with awkward bumps. Tidy it up.",
+    "vague_template_idx": 3,
+    "precise_template_idx": 3,
+    "pair_id": "07"
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        58,
+        18
+      ]
+    ],
+    "rationale": "Reset the accidental infeasible local edits and keep only a minimal compactness improvement: move northern precinct 58 from site 30 to nearer site 18, which trims a small protrusion at the top of site 30's catchment while preserving feasibility and letting the MILP rebalance all other assignments."
+  },
+  "score": {
+    "query_id": "shape_niceness_07_vague",
+    "archetype": "shape_niceness",
+    "target_direction": "minimize",
+    "target_baseline": 1.713734870591746,
+    "target_response": 1.6967342375785108,
+    "raw_improvement": 0.017000633013235067,
+    "fraction_improved": 0.009920223545060279,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 57014.675058027016,
+        "response": 57038.76689288029,
+        "bound": 59865.40881092837,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 2.2621334655178416,
+        "response": 2.0989434992983935,
+        "bound": 2.2621334655178416,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 57014.675058027016,
+    "final_assignment_distance": 57038.76689288029,
+    "assignment_distance_delta": 24.091834853272303,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 1,
+    "selected_source": "resolve",
+    "selected_iteration": 6,
+    "selected_resolve_index": 1,
+    "selected_n_resolves": 1,
+    "selected_n_local_edits": 4,
+    "n_feasible_explored": 2,
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 1.713734870591746,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 6,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 4,
+        "target_response": 1.6967342375785108,
+        "fraction_improved": 0.009920223545060279,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 24.091834853272303
+      }
+    ]
+  },
+  "log_summary": {
+    "n_assistant_messages": 9,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 4,
+    "local_edit_tool_counts": {
+      "force_assign": 4
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 23,
+    "tool_call_counts": {
+      "view_solution": 3,
+      "list_sites": 4,
+      "get_current_assignments": 5,
+      "get_precinct_adjacency": 1,
+      "get_distance_matrix": 4,
+      "force_assign": 4,
+      "resolve": 1,
+      "submit_proposal": 1
+    }
+  },
+  "elapsed_sec": 38.72792911529541
+}

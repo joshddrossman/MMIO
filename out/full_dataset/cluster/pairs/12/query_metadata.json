@@ -1,0 +1,25 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    2.4550529701096586,
+    2.9994454397849935
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    3,
+    4,
+    5,
+    38
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 221,
+  "attempt": 0,
+  "vague_text": "There's an unnecessary concentration of opened sites somewhere on the map. Multiple sites within walking distance of each other is wasteful. Close one or two.",
+  "precise_text": "Polling sites 3, 4, 5, 38 are clustered together. That's wasteful \u2014 please reduce the cluster.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 3,
+  "pair_id": "12"
+}

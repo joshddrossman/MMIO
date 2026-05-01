@@ -1,0 +1,41 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 27,
+      "n_components": 2,
+      "components": [
+        [
+          22
+        ],
+        [
+          5
+        ]
+      ],
+      "component_voters": [
+        1955,
+        1555
+      ],
+      "largest_component_voters": 1955,
+      "disjoint_excess_voters": 1555,
+      "worst_pair_separation_km": 1.9887788032430949
+    }
+  ],
+  "n_split_sites_baseline": 1,
+  "total_disjoint_excess_voters_baseline": 1555,
+  "worst_culprit_site": 27,
+  "worst_culprit_disjoint_voters": 1555,
+  "smallest_component_centroid": [
+    3.2963583348842977,
+    4.352317141261887
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 99,
+  "attempt": 0,
+  "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+  "precise_text": "Polling place 27 is serving voters from at least two disjoint regions. That can't be right \u2014 make its catchment contiguous.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 4,
+  "pair_id": "13"
+}

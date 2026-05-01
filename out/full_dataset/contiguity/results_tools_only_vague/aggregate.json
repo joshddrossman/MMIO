@@ -1,0 +1,41 @@
+{
+  "n_pairs": 1,
+  "n_completed": 1,
+  "n_no_proposal": 0,
+  "n_error": 0,
+  "n_valid_responses": 0,
+  "n_substantial_improvement": 0,
+  "n_fully_closed_gap": 0,
+  "n_zero_improvement": 1,
+  "mean_fraction_improved": 0.0,
+  "median_fraction_improved": 0.0,
+  "fraction_valid": 0.0,
+  "n_with_success_criterion": 1,
+  "n_success": 0,
+  "fraction_success": 0.0,
+  "mean_baseline_assignment_distance": 51305.99336045208,
+  "mean_final_assignment_distance": 53434.7587858049,
+  "mean_assignment_distance_delta": 2128.7654253528235,
+  "median_assignment_distance_delta": 2128.7654253528235,
+  "pair_outcomes": [
+    {
+      "pair_id": "00",
+      "status": "completed",
+      "fraction_improved": 0.0,
+      "valid": false,
+      "success": false,
+      "target_baseline": 3.0,
+      "target_response": 3.0,
+      "baseline_assignment_distance": 51305.99336045208,
+      "final_assignment_distance": 53434.7587858049,
+      "assignment_distance_delta": 2128.7654253528235,
+      "n_actions": 10,
+      "n_local_edits": 10,
+      "elapsed_sec": 22.750779151916504
+    }
+  ],
+  "archetype": "contiguity",
+  "modality": "tools_only",
+  "query_type": "vague",
+  "model": "gpt-5.4"
+}

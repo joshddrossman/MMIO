@@ -1,0 +1,169 @@
+{
+  "pair_id": "00",
+  "modality": "multimodal",
+  "query_type": "precise",
+  "status": "completed",
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 1,
+        "n_components": 2,
+        "components": [
+          [
+            1,
+            11,
+            18,
+            8,
+            15
+          ],
+          [
+            73,
+            75
+          ]
+        ],
+        "component_voters": [
+          1875,
+          1535
+        ],
+        "largest_component_voters": 1875,
+        "disjoint_excess_voters": 1535,
+        "worst_pair_separation_km": 2.3463156279266695
+      },
+      {
+        "site": 27,
+        "n_components": 2,
+        "components": [
+          [
+            40,
+            63,
+            56,
+            55,
+            47,
+            45
+          ],
+          [
+            51
+          ]
+        ],
+        "component_voters": [
+          1682,
+          1057
+        ],
+        "largest_component_voters": 1682,
+        "disjoint_excess_voters": 1057,
+        "worst_pair_separation_km": 2.4064965595078545
+      },
+      {
+        "site": 36,
+        "n_components": 2,
+        "components": [
+          [
+            3,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        "component_voters": [
+          1659,
+          107
+        ],
+        "largest_component_voters": 1659,
+        "disjoint_excess_voters": 107,
+        "worst_pair_separation_km": 1.3872845631302555
+      }
+    ],
+    "n_split_sites_baseline": 3,
+    "total_disjoint_excess_voters_baseline": 2699,
+    "worst_culprit_site": 1,
+    "worst_culprit_disjoint_voters": 1535,
+    "smallest_component_centroid": [
+      1.0875807847513985,
+      1.5217172806135575
+    ],
+    "min_split_voters_threshold": 1500,
+    "min_separation_threshold_km": 1.5,
+    "base_seed": 3,
+    "attempt": 0,
+    "vague_text": "Looking at the colored service areas, at least one polling place is serving voters from visibly separated pockets \u2014 its catchment splits into disjoint clumps. Each polling place should serve one contiguous region. Fix every site whose service area is split.",
+    "precise_text": "Site 1's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity.",
+    "vague_template_idx": 0,
+    "precise_template_idx": 3,
+    "pair_id": "00"
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        73,
+        36
+      ],
+      [
+        75,
+        36
+      ],
+      [
+        5,
+        1
+      ]
+    ],
+    "rationale": "Repair site 1 contiguity by moving disconnected southwest precincts 73 and 75 from site 1 to adjacent opened site 36, and free site 36 capacity by moving border precinct 5 from site 36 to nearby opened site 1. This is a minimal reassignment-only fix."
+  },
+  "score": {
+    "query_id": "contiguity_00_precise",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 3.0,
+    "target_response": 2.0,
+    "raw_improvement": 1.0,
+    "fraction_improved": 0.3333333333333333,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 51305.99336045208,
+        "response": 51986.45154827032,
+        "bound": 53871.29302847468,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.7747527118936235,
+        "response": 1.7747527118936235,
+        "bound": 1.7747527118936235,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 51305.99336045208,
+    "final_assignment_distance": 51986.45154827032,
+    "assignment_distance_delta": 680.4581878182435,
+    "success": false
+  },
+  "log_summary": {
+    "n_assistant_messages": 7,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 2,
+    "local_edit_tool_counts": {
+      "force_assign": 2
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 12,
+    "tool_call_counts": {
+      "view_solution": 2,
+      "get_current_assignments": 2,
+      "get_precinct_adjacency": 1,
+      "get_distance_matrix": 1,
+      "force_assign": 2,
+      "list_sites": 2,
+      "resolve": 1,
+      "submit_proposal": 1
+    }
+  },
+  "elapsed_sec": 25.642858028411865
+}

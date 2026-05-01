@@ -1,0 +1,25 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    1.2751123867445049,
+    3.6579572329591366
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    0,
+    8,
+    31,
+    39
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 363,
+  "attempt": 0,
+  "vague_text": "I see way too many polling locations bunched together. They're so close that closing one or two wouldn't really hurt coverage.",
+  "precise_text": "Polling places 0, 8, 31, 39 are clustered too tightly together \u2014 I count 4 sites within roughly 1.3 km of each other. Close one or two of them and let the optimiser redistribute coverage.",
+  "vague_template_idx": 4,
+  "precise_template_idx": 0,
+  "pair_id": "17"
+}

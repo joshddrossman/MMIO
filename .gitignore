@@ -11,4 +11,6 @@ env/
 
 .DS_Store
 
-out/
+out/*
+!out/full_dataset/
+!out/full_dataset/**

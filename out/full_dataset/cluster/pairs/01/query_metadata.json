@@ -1,0 +1,25 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    4.570642978342526,
+    1.6610757076385323
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    3,
+    4,
+    8,
+    36
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 84,
+  "attempt": 0,
+  "vague_text": "There's an unnecessary concentration of opened sites somewhere on the map. Multiple sites within walking distance of each other is wasteful. Close one or two.",
+  "precise_text": "There's an over-concentration of polling places: sites 3, 4, 8, 36 are within walking distance of each other. Close some so we free budget for sparser areas.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 2,
+  "pair_id": "01"
+}

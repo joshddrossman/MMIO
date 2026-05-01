@@ -1,0 +1,90 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 1,
+      "n_components": 2,
+      "components": [
+        [
+          1,
+          11,
+          18,
+          8,
+          15
+        ],
+        [
+          73,
+          75
+        ]
+      ],
+      "component_voters": [
+        1875,
+        1535
+      ],
+      "largest_component_voters": 1875,
+      "disjoint_excess_voters": 1535,
+      "worst_pair_separation_km": 2.3463156279266695
+    },
+    {
+      "site": 27,
+      "n_components": 2,
+      "components": [
+        [
+          40,
+          63,
+          56,
+          55,
+          47,
+          45
+        ],
+        [
+          51
+        ]
+      ],
+      "component_voters": [
+        1682,
+        1057
+      ],
+      "largest_component_voters": 1682,
+      "disjoint_excess_voters": 1057,
+      "worst_pair_separation_km": 2.4064965595078545
+    },
+    {
+      "site": 36,
+      "n_components": 2,
+      "components": [
+        [
+          3,
+          7
+        ],
+        [
+          5
+        ]
+      ],
+      "component_voters": [
+        1659,
+        107
+      ],
+      "largest_component_voters": 1659,
+      "disjoint_excess_voters": 107,
+      "worst_pair_separation_km": 1.3872845631302555
+    }
+  ],
+  "n_split_sites_baseline": 3,
+  "total_disjoint_excess_voters_baseline": 2699,
+  "worst_culprit_site": 1,
+  "worst_culprit_disjoint_voters": 1535,
+  "smallest_component_centroid": [
+    1.0875807847513985,
+    1.5217172806135575
+  ],
+  "min_split_voters_threshold": 1500,
+  "min_separation_threshold_km": 1.5,
+  "base_seed": 3,
+  "attempt": 0,
+  "vague_text": "Looking at the colored service areas, at least one polling place is serving voters from visibly separated pockets \u2014 its catchment splits into disjoint clumps. Each polling place should serve one contiguous region. Fix every site whose service area is split.",
+  "precise_text": "Site 1's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 3,
+  "pair_id": "00"
+}

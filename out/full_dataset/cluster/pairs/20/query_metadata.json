@@ -1,0 +1,25 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    3.5425847547815983,
+    3.4620953668494328
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 415,
+  "attempt": 0,
+  "vague_text": "There's a cluster of polling places packed too tightly somewhere in the county. Multiple sites within a small radius is redundant when one or two would suffice. Spread them out by closing some, freeing budget for sparser areas.",
+  "precise_text": "Polling sites 0, 1, 3, 4 are clustered together. That's wasteful \u2014 please reduce the cluster.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 3,
+  "pair_id": "20"
+}

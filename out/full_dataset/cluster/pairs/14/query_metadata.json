@@ -1,0 +1,25 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    4.828791765752793,
+    1.6071511250321797
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    2,
+    4,
+    6,
+    7
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 270,
+  "attempt": 0,
+  "vague_text": "The current solution clusters too many sites in a small area. It looks redundant \u2014 please thin the cluster out.",
+  "precise_text": "There's an over-concentration of polling places: sites 2, 4, 6, 7 are within walking distance of each other. Close some so we free budget for sparser areas.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 2,
+  "pair_id": "14"
+}
