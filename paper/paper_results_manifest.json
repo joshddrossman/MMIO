@@ -1,10 +1,10 @@
 {
   "manifest_schema_version": 1,
   "benchmark_version": "v2",
-  "generated_at_utc": "2026-05-13T22:19:11.046637+00:00",
+  "generated_at_utc": "2026-05-13T22:22:41.643503+00:00",
   "repo_root": "/Users/cat2510/MMIO",
   "git": {
-    "commit": "8b63771628272507819435da46e7bf516813e8a3",
+    "commit": "91ea361d67c8d1f21440e62394ea9ca1f2f36548",
     "branch": "homework-5-mmai-submission",
     "is_dirty": true,
     "porcelain": [
@@ -37,11 +37,12 @@
     "queries.py": "eb26d8ca336d0e4c173fb6514c78c872f6be02e820eab93905be5c89e9e55108",
     "analysis/sweep.py": "4fe14628b5968e1366abfc1a43add677fad9224d896b21406d7ecbf62a716ecf",
     "run_dataset.py": "706cce703890379c618ee41dc834e560129cc5f802c88fc588b150a84a663daf",
-    "test_agent.py": "d91188ef1c92a27b2a10961fe6c9544662f14994ea37330459c6c5989619b399"
+    "test_agent.py": "d91188ef1c92a27b2a10961fe6c9544662f14994ea37330459c6c5989619b399",
+    "scripts/paper_headline_table.py": "9b78f777b35eabeb4f07e6cd9357e3cd028ce86e7fc9252b8e23ef33e876c6ad"
   },
   "results_roots_documented": [
     "full_dataset",
-    "out/runs"
+    "out/runs/shape_niceness_marker_free_vague"
   ],
   "notes": "Headline success in JSON is run-time score.success; pair metadata may include success_threshold_fraction_improved. Regenerate after changing queries.py, analysis/sweep.py, or agent scoring paths. Field git.commit is HEAD at generation time (often the parent of the commit that adds this file); use key_file_sha256 for exact code."
 }
