@@ -1,10 +1,10 @@
 """Layered renderer: produces the visual the agent's view tool returns.
 
 Supported layers (combine freely):
-    'precincts'            faint precinct boundaries + light fill
+    'precincts'            precinct boundaries + saturated categorical fill
     'population_density'   voters per km^2 heatmap
-    'closed_sites'         all candidate sites (light gray dots)
-    'solution'             opened sites (red) + closed sites (gray)
+    'closed_sites'         all candidate sites (high-contrast markers)
+    'solution'             opened sites (red) + unopened candidates
     'assignments'          precinct centroids -> assigned site lines, and
                            a categorical fill colouring each precinct by
                            its assigned opened site (so non-contiguous
@@ -18,10 +18,46 @@ from typing import List, Optional, Tuple, Union, Iterable
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as patheffects
-from matplotlib.colors import Normalize
+from matplotlib.colors import ListedColormap, Normalize
 from matplotlib.patches import Polygon as MplPolygon
 
 from instance import Instance, Solution
+
+
+def _plain_precinct_cmap() -> Tuple[ListedColormap, Normalize]:
+    """Saturated categorical colors for plain / precinct-only fills (not Pastel1)."""
+    colors = [
+        "#1f77b4",  # blue
+        "#ff7f0e",  # orange
+        "#2ca02c",  # green
+        "#d62728",  # red
+        "#9467bd",  # purple
+    ]
+    cmap = ListedColormap(colors)
+    norm = Normalize(vmin=0, vmax=len(colors) - 1)
+    return cmap, norm
+
+
+def _assignment_colormap(n_open: int) -> Tuple[ListedColormap, Normalize]:
+    """Distinct colors for opened-site catchments (high contrast for VLMs)."""
+    if n_open <= 1:
+        cmap = ListedColormap(["#d62728"])
+        return cmap, Normalize(vmin=0, vmax=1)
+    if n_open <= 10:
+        cmap = plt.cm.get_cmap("tab10", n_open)
+        return cmap, Normalize(vmin=0, vmax=max(n_open - 1, 1))
+    if n_open <= 20:
+        cmap = plt.cm.get_cmap("tab20", n_open)
+        return cmap, Normalize(vmin=0, vmax=n_open - 1)
+    # tab20 + tab20b gives up to 40 clearly separated hues.
+    t20 = plt.cm.tab20(np.linspace(0, 1, 20, endpoint=False))
+    t20b = plt.cm.tab20b(np.linspace(0, 1, 20, endpoint=False))
+    merged = np.vstack([t20, t20b])
+    if n_open <= len(merged):
+        cmap = ListedColormap(merged[:n_open])
+    else:
+        cmap = ListedColormap(np.vstack([merged] * ((n_open + 39) // 40))[:n_open])
+    return cmap, Normalize(vmin=0, vmax=n_open - 1)
 
 
 KNOWN_LAYERS = {
@@ -78,8 +114,8 @@ def render_all_pair_views(
             save_path=str(views_dir / f"{file_prefix}{fname}"),
         )
 
-    # (a) Plain map — no solution overlay.
-    _save(['closed_sites'], None,
+    # (a) Plain map — no solution overlay (precinct fill + candidate sites).
+    _save(['precincts', 'closed_sites'], None,
           "Plain map: precincts + candidate sites",
           "plain.png")
 
@@ -146,7 +182,7 @@ def render_view(
             vmax = vmin + 1e-6
         norm = Normalize(vmin=vmin, vmax=vmax)
         im = ax.pcolormesh(xs, ys, value_grid, cmap=cmap, norm=norm,
-                           shading='auto', alpha=0.85, rasterized=True)
+                           shading='auto', alpha=0.92, rasterized=True)
         cbar = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.02)
         cbar.set_label(cbar_label)
     elif 'assignments' in layers and solution is not None:
@@ -162,30 +198,31 @@ def render_view(
             assigned = solution.y.argmax(axis=1)
             precinct_color_idx = site_to_color[assigned]
             n_open = len(opened_idx)
-            cmap_name = 'tab20' if n_open <= 20 else 'gist_ncar'
             color_grid = precinct_color_idx[label_grid]
-            color_norm = Normalize(vmin=0, vmax=max(n_open - 1, 1))
-            ax.pcolormesh(xs, ys, color_grid, cmap=cmap_name, norm=color_norm,
-                          shading='auto', alpha=0.50, rasterized=True)
+            assign_cmap, color_norm = _assignment_colormap(n_open)
+            ax.pcolormesh(xs, ys, color_grid, cmap=assign_cmap, norm=color_norm,
+                          shading='auto', alpha=0.90, rasterized=True)
         else:
             n = instance.n_precincts
-            color_field = (np.arange(n) % 5).astype(float) / 5.0
+            color_field = (np.arange(n) % 5).astype(int)
             value_grid = color_field[label_grid]
-            ax.pcolormesh(xs, ys, value_grid, cmap='Pastel1', shading='auto',
-                          alpha=0.30, rasterized=True)
+            plain_cmap, plain_norm = _plain_precinct_cmap()
+            ax.pcolormesh(xs, ys, value_grid, cmap=plain_cmap, norm=plain_norm,
+                          shading='auto', alpha=0.78, rasterized=True)
     elif 'precincts' in layers:
-        # Plain precinct fill (variegated pastel) so boundaries are visible.
+        # Plain precinct fill: saturated categorical hues (high contrast).
         n = instance.n_precincts
-        color_field = (np.arange(n) % 5).astype(float) / 5.0
+        color_field = (np.arange(n) % 5).astype(int)
         value_grid = color_field[label_grid]
-        ax.pcolormesh(xs, ys, value_grid, cmap='Pastel1', shading='auto',
-                      alpha=0.30, rasterized=True)
+        plain_cmap, plain_norm = _plain_precinct_cmap()
+        ax.pcolormesh(xs, ys, value_grid, cmap=plain_cmap, norm=plain_norm,
+                      shading='auto', alpha=0.78, rasterized=True)
 
     # Precinct boundaries: ALWAYS drawn so the agent can see precinct
     # structure under any layer combination.
     ax.contour(xs, ys, label_grid.astype(float),
                levels=np.arange(instance.n_precincts + 1) - 0.5,
-               colors='gray', linewidths=0.4, alpha=0.6)
+               colors='#1a1a1a', linewidths=0.55, alpha=0.72)
 
     # Closed (candidate) sites
     if 'closed_sites' in layers or 'solution' in layers:
@@ -194,9 +231,9 @@ def render_view(
         if closed_mask.any():
             ax.scatter(instance.site_locations[closed_mask, 0],
                        instance.site_locations[closed_mask, 1],
-                       marker='o', c='lightgray', s=60,
-                       edgecolor='gray', linewidths=1.0,
-                       alpha=0.85, zorder=3, label='Candidate site')
+                       marker='o', c='#f5f5f5', s=72,
+                       edgecolor='#0d0d0d', linewidths=1.25,
+                       alpha=0.95, zorder=3, label='Candidate site')
 
     # Solution: opened sites (drawn on top, larger so the index label is legible)
     if 'solution' in layers and solution is not None:

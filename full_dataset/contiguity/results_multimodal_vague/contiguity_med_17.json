@@ -1,0 +1,427 @@
+{
+  "pair_id": "contiguity_med_17",
+  "modality": "multimodal",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": true,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "6db352750d5041c0dcd82e6f638ab47f8b038e10d92de9e1dee55e7e30c1e0b3",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 25,
+        "n_components": 2,
+        "components": [
+          [
+            25
+          ],
+          [
+            38
+          ]
+        ],
+        "component_voters": [
+          1163,
+          194
+        ],
+        "largest_component_voters": 1163,
+        "disjoint_excess_voters": 194,
+        "worst_pair_separation_km": 2.1206405943621562
+      }
+    ],
+    "n_split_sites_baseline": 1,
+    "total_disjoint_excess_voters_baseline": 194,
+    "worst_culprit_site": 25,
+    "worst_culprit_disjoint_voters": 194,
+    "smallest_component_centroid": [
+      7.640029415369519,
+      7.171221963475904
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7947,
+    "attempt": 0,
+    "pair_id": "contiguity_med_17",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "1": {
+        "A": 3.626171056286458,
+        "A_hull": 3.9203555465771065,
+        "solidity": 0.9249597423510468
+      },
+      "2": {
+        "A": 3.7145526628115455,
+        "A_hull": 3.948132622913565,
+        "solidity": 0.9408378637671886
+      },
+      "3": {
+        "A": 4.689275523345371,
+        "A_hull": 5.687987677078861,
+        "solidity": 0.8244173140954497
+      },
+      "5": {
+        "A": 7.482134289538144,
+        "A_hull": 8.269993181990355,
+        "solidity": 0.9047328244274809
+      },
+      "7": {
+        "A": 3.9746471048710896,
+        "A_hull": 6.369788641700969,
+        "solidity": 0.6239841427155599
+      },
+      "8": {
+        "A": 9.719451529001795,
+        "A_hull": 10.868412413827933,
+        "solidity": 0.8942843866171006
+      },
+      "15": {
+        "A": 5.078154592055757,
+        "A_hull": 4.9619959091942105,
+        "solidity": 1.0
+      },
+      "17": {
+        "A": 9.38612661296432,
+        "A_hull": 10.01994899118709,
+        "solidity": 0.9367439516129036
+      },
+      "18": {
+        "A": 6.391252746142775,
+        "A_hull": 7.66016009696725,
+        "solidity": 0.8343497610021426
+      },
+      "21": {
+        "A": 9.120981793389056,
+        "A_hull": 10.903765056437967,
+        "solidity": 0.8364983788791108
+      },
+      "22": {
+        "A": 7.090730032069898,
+        "A_hull": 7.345774096613721,
+        "solidity": 0.9652801650051566
+      },
+      "25": {
+        "A": 3.1034569834095103,
+        "A_hull": 6.042776697558139,
+        "solidity": 0.5135812787296284
+      },
+      "29": {
+        "A": 6.9669957829347755,
+        "A_hull": 7.636170803767581,
+        "solidity": 0.9123677248677251
+      },
+      "30": {
+        "A": 5.3938031867882135,
+        "A_hull": 5.586980126764475,
+        "solidity": 0.9654237288135596
+      },
+      "31": {
+        "A": 3.6640488876543524,
+        "A_hull": 3.778944976136968,
+        "solidity": 0.9695957233544935
+      },
+      "32": {
+        "A": 3.156485947324563,
+        "A_hull": 3.284007979596476,
+        "solidity": 0.9611687812379852
+      },
+      "34": {
+        "A": 4.522613065326634,
+        "A_hull": 4.633721370672458,
+        "solidity": 0.9760217983651227
+      },
+      "37": {
+        "A": 3.926668518471756,
+        "A_hull": 3.814297618747001,
+        "solidity": 1.0
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "There are visible service-area splits: opened sites whose catchments appear in disconnected regions. Eliminate them.",
+    "precise_text": "Polling place 25's service area is split into disconnected pockets \u2014 its catchment isn't a single contiguous region. Fix the split, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 4,
+    "precise_template_idx": 0
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        14,
+        8
+      ],
+      [
+        28,
+        32
+      ],
+      [
+        29,
+        25
+      ]
+    ],
+    "rationale": "Eliminate site 3's disconnected eastern fragment by forcing its stray precincts to nearby eastern sites: precinct 14 to site 8, precinct 28 to site 32, and precinct 29 to site 25. Let the MILP globally rebalance assignments to restore capacity feasibility while removing the visible split catchment."
+  },
+  "score": {
+    "query_id": "contiguity_contiguity_med_17_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 1.0,
+    "target_response": 1.0,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 47949.29648408222,
+        "response": 47949.29648408222,
+        "bound": 50346.76130828633,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.5418673768072413,
+        "response": 1.5418673768072413,
+        "bound": 1.5418673768072413,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 47949.29648408222,
+    "final_assignment_distance": 47949.29648408222,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 0,
+    "selected_source": "baseline",
+    "selected_iteration": -1,
+    "selected_resolve_index": null,
+    "selected_n_resolves": 0,
+    "selected_n_local_edits": 0,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 1,
+    "n_explored_primary_improved": 0,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Baseline selected: no explored candidate improved the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 1.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 6,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 2,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": false,
+        "success": false,
+        "assignment_distance_delta": 1456.7008299202498
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_17_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 1.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47949.29648408222,
+              "response": 47949.29648408222,
+              "bound": 50346.76130828633,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5418673768072413,
+              "response": 1.5418673768072413,
+              "bound": 1.5418673768072413,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47949.29648408222,
+          "final_assignment_distance": 47949.29648408222,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 6,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 2,
+        "proposal": {
+          "force_assign": [
+            [
+              14,
+              8
+            ],
+            [
+              28,
+              32
+            ],
+            [
+              29,
+              25
+            ]
+          ],
+          "rationale": "Eliminate site 3's disconnected eastern fragment by forcing its stray precincts to nearby eastern sites: precinct 14 to site 8, precinct 28 to site 32, and precinct 29 to site 25. Let the MILP globally rebalance assignments to restore capacity feasibility while removing the visible split catchment."
+        },
+        "score": {
+          "query_id": "contiguity_contiguity_med_17_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 2.0,
+          "raw_improvement": -1.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47949.29648408222,
+              "response": 49405.99731400247,
+              "bound": 50346.76130828633,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5418673768072413,
+              "response": 1.6239580226899408,
+              "bound": 1.5418673768072413,
+              "violation": 0.08209064588269954,
+              "passed": false
+            }
+          ],
+          "all_guards_passed": false,
+          "feasible": true,
+          "valid": false,
+          "baseline_assignment_distance": 47949.29648408222,
+          "final_assignment_distance": 49405.99731400247,
+          "assignment_distance_delta": 1456.7008299202498,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_17.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 11,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 2,
+    "local_edit_tool_counts": {
+      "force_assign": 2
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 15,
+    "tool_call_counts": {
+      "view_solution": 2,
+      "get_current_assignments": 3,
+      "get_precinct_adjacency": 2,
+      "get_distance_matrix": 3,
+      "list_sites": 1,
+      "force_assign": 2,
+      "resolve": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 11,
+    "usage": {
+      "prompt_tokens": 287008,
+      "completion_tokens": 1812,
+      "total_tokens": 288820,
+      "cached_tokens": 240256,
+      "reasoning_tokens": 0
+    },
+    "n_view_solution": 2,
+    "view_purpose_counts": {
+      "baseline_vs_critique": 1,
+      "post_action_vs_baseline": 1
+    },
+    "had_baseline_view": true,
+    "pending_post_action_view_at_end": false
+  },
+  "elapsed_sec": 100.81559610366821,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 17,
+    "modality_for_this_result": "multimodal",
+    "run_order_this_pair": [
+      "tools_only",
+      "multimodal"
+    ]
+  }
+}

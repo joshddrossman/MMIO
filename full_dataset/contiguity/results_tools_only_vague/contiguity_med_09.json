@@ -1,0 +1,414 @@
+{
+  "pair_id": "contiguity_med_09",
+  "modality": "tools_only",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": false,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "fbe7b11decc04f0e6741cca1a1bb11e759d9a6b6056d84911ba659bdeb17de93",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 0,
+        "n_components": 2,
+        "components": [
+          [
+            32,
+            27,
+            30,
+            25
+          ],
+          [
+            24
+          ]
+        ],
+        "component_voters": [
+          2154,
+          627
+        ],
+        "largest_component_voters": 2154,
+        "disjoint_excess_voters": 627,
+        "worst_pair_separation_km": 2.054121247982886
+      },
+      {
+        "site": 5,
+        "n_components": 2,
+        "components": [
+          [
+            26,
+            29
+          ],
+          [
+            16
+          ]
+        ],
+        "component_voters": [
+          2624,
+          143
+        ],
+        "largest_component_voters": 2624,
+        "disjoint_excess_voters": 143,
+        "worst_pair_separation_km": 2.2882647028950855
+      }
+    ],
+    "n_split_sites_baseline": 2,
+    "total_disjoint_excess_voters_baseline": 770,
+    "worst_culprit_site": 0,
+    "worst_culprit_disjoint_voters": 627,
+    "smallest_component_centroid": [
+      7.939529864085527,
+      1.9861050217530574
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7932,
+    "attempt": 0,
+    "pair_id": "contiguity_med_09",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 3.414055200626247,
+        "A_hull": 5.72081513093104,
+        "solidity": 0.5967777532553518
+      },
+      "2": {
+        "A": 1.5529910860836849,
+        "A_hull": 1.7057650059341936,
+        "solidity": 0.9104367135455219
+      },
+      "4": {
+        "A": 8.15635968788667,
+        "A_hull": 9.513648645236232,
+        "solidity": 0.8573324485733245
+      },
+      "5": {
+        "A": 3.358501047953335,
+        "A_hull": 5.4645084720082835,
+        "solidity": 0.6146025878003697
+      },
+      "6": {
+        "A": 3.2448675538496508,
+        "A_hull": 3.4696093532991594,
+        "solidity": 0.9352256186317323
+      },
+      "7": {
+        "A": 3.7019267190222473,
+        "A_hull": 4.7271533547132645,
+        "solidity": 0.7831196581196582
+      },
+      "8": {
+        "A": 6.439231332542108,
+        "A_hull": 7.645008964420091,
+        "solidity": 0.8422791081750619
+      },
+      "9": {
+        "A": 6.441756521299968,
+        "A_hull": 6.778869220474231,
+        "solidity": 0.9502700689141368
+      },
+      "15": {
+        "A": 6.747304361000985,
+        "A_hull": 7.642483775662229,
+        "solidity": 0.8828679993391709
+      },
+      "16": {
+        "A": 6.621044923108003,
+        "A_hull": 7.13492083533244,
+        "solidity": 0.927977349141745
+      },
+      "18": {
+        "A": 9.898739930809828,
+        "A_hull": 10.30277013206737,
+        "solidity": 0.9607843137254904
+      },
+      "23": {
+        "A": 6.833160778768214,
+        "A_hull": 8.405090780535843,
+        "solidity": 0.8129788192879678
+      },
+      "25": {
+        "A": 5.638746496300599,
+        "A_hull": 6.363475669806321,
+        "solidity": 0.8861111111111108
+      },
+      "30": {
+        "A": 11.653746117522287,
+        "A_hull": 13.158758617206638,
+        "solidity": 0.8856265592016888
+      },
+      "33": {
+        "A": 1.9393449660362114,
+        "A_hull": 1.859801520163632,
+        "solidity": 1.0
+      },
+      "36": {
+        "A": 2.7549809348248786,
+        "A_hull": 2.6501856013737033,
+        "solidity": 1.0
+      },
+      "37": {
+        "A": 6.5023610514886,
+        "A_hull": 6.883664553925405,
+        "solidity": 0.9446074834922967
+      },
+      "39": {
+        "A": 6.108431605262494,
+        "A_hull": 6.199338400545441,
+        "solidity": 0.9853360488798371
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "There are visible service-area splits: opened sites whose catchments appear in disconnected regions. Eliminate them.",
+    "precise_text": "Polling place 0 has a fragmented service area \u2014 voters in separated pockets are all routed to it. Fix the topology, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 4,
+    "precise_template_idx": 2
+  },
+  "proposal": {
+    "rationale": "Reset to the baseline feasible solution after infeasible exploratory local edits; next step is to repair split catchments with capacity-respecting changes."
+  },
+  "score": {
+    "query_id": "contiguity_contiguity_med_09_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 2.0,
+    "target_response": 2.0,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 55157.84948645301,
+        "response": 55157.84948645301,
+        "bound": 57915.74196077566,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 2.4620583871488204,
+        "response": 2.4620583871488204,
+        "bound": 2.4620583871488204,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 55157.84948645301,
+    "final_assignment_distance": 55157.84948645301,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 1,
+    "selected_source": "resolve",
+    "selected_iteration": 3,
+    "selected_resolve_index": 1,
+    "selected_n_resolves": 1,
+    "selected_n_local_edits": 7,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 2,
+    "n_explored_primary_improved": 0,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Selected explored candidate is valid but did not improve the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 3,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 7,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_09_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 55157.84948645301,
+              "response": 55157.84948645301,
+              "bound": 57915.74196077566,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 2.4620583871488204,
+              "response": 2.4620583871488204,
+              "bound": 2.4620583871488204,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 55157.84948645301,
+          "final_assignment_distance": 55157.84948645301,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 3,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 7,
+        "proposal": {
+          "rationale": "Reset to the baseline feasible solution after infeasible exploratory local edits; next step is to repair split catchments with capacity-respecting changes."
+        },
+        "score": {
+          "query_id": "contiguity_contiguity_med_09_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 55157.84948645301,
+              "response": 55157.84948645301,
+              "bound": 57915.74196077566,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 2.4620583871488204,
+              "response": 2.4620583871488204,
+              "bound": 2.4620583871488204,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 55157.84948645301,
+          "final_assignment_distance": 55157.84948645301,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_09.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 6,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 7,
+    "local_edit_tool_counts": {
+      "force_assign": 7
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 16,
+    "tool_call_counts": {
+      "list_sites": 2,
+      "get_current_assignments": 2,
+      "get_precinct_adjacency": 1,
+      "get_distance_matrix": 2,
+      "force_assign": 7,
+      "resolve": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 6,
+    "usage": {
+      "prompt_tokens": 161513,
+      "completion_tokens": 1182,
+      "total_tokens": 162695,
+      "cached_tokens": 112000,
+      "reasoning_tokens": 0
+    }
+  },
+  "elapsed_sec": 20.65497088432312,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 9,
+    "modality_for_this_result": "tools_only",
+    "run_order_this_pair": [
+      "tools_only",
+      "multimodal"
+    ]
+  }
+}

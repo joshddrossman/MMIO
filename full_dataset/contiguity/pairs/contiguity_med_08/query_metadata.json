@@ -1,0 +1,163 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 1,
+      "n_components": 2,
+      "components": [
+        [
+          8,
+          4,
+          67
+        ],
+        [
+          18
+        ]
+      ],
+      "component_voters": [
+        4152,
+        85
+      ],
+      "largest_component_voters": 4152,
+      "disjoint_excess_voters": 85,
+      "worst_pair_separation_km": 3.0101443882131336
+    },
+    {
+      "site": 5,
+      "n_components": 2,
+      "components": [
+        [
+          17
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "component_voters": [
+        1629,
+        1151
+      ],
+      "largest_component_voters": 1629,
+      "disjoint_excess_voters": 1151,
+      "worst_pair_separation_km": 1.7258800267356367
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 1236,
+  "worst_culprit_site": 5,
+  "worst_culprit_disjoint_voters": 1151,
+  "smallest_component_centroid": [
+    1.9903267104120719,
+    3.2177984156852633
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7931,
+  "attempt": 0,
+  "pair_id": "contiguity_med_08",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 4.742304487260423,
+      "A_hull": 5.434206206913967,
+      "solidity": 0.8726765799256505
+    },
+    "1": {
+      "A": 6.520037372793617,
+      "A_hull": 10.809070478018233,
+      "solidity": 0.6032005606821632
+    },
+    "2": {
+      "A": 4.646347314461757,
+      "A_hull": 5.56930380545946,
+      "solidity": 0.8342779415098616
+    },
+    "3": {
+      "A": 4.805434206206915,
+      "A_hull": 5.48976035958688,
+      "solidity": 0.875344986200552
+    },
+    "4": {
+      "A": 5.663998383879195,
+      "A_hull": 6.045301886316002,
+      "solidity": 0.9369256474519633
+    },
+    "5": {
+      "A": 3.186788212418879,
+      "A_hull": 5.5124870584076175,
+      "solidity": 0.5781035272560696
+    },
+    "6": {
+      "A": 4.664023635766774,
+      "A_hull": 6.127370520946441,
+      "solidity": 0.7611786523799712
+    },
+    "8": {
+      "A": 4.97967223049923,
+      "A_hull": 4.895078407110932,
+      "solidity": 1.0
+    },
+    "12": {
+      "A": 7.865962980732811,
+      "A_hull": 9.295219817681367,
+      "solidity": 0.8462374354794898
+    },
+    "15": {
+      "A": 6.239741420671196,
+      "A_hull": 6.898815686472562,
+      "solidity": 0.9044655929721819
+    },
+    "16": {
+      "A": 6.088230095199616,
+      "A_hull": 6.138733870356808,
+      "solidity": 0.9917729329494037
+    },
+    "23": {
+      "A": 6.669023509507336,
+      "A_hull": 7.199313148657862,
+      "solidity": 0.9263416345142056
+    },
+    "26": {
+      "A": 7.014974369334109,
+      "A_hull": 8.391202242367617,
+      "solidity": 0.835991573879025
+    },
+    "28": {
+      "A": 7.502335799601021,
+      "A_hull": 8.421504507461929,
+      "solidity": 0.8908545727136438
+    },
+    "35": {
+      "A": 5.025125628140704,
+      "A_hull": 5.489760359586877,
+      "solidity": 0.9153633854645818
+    },
+    "36": {
+      "A": 4.527663442842353,
+      "A_hull": 4.518825282189845,
+      "solidity": 1.0
+    },
+    "38": {
+      "A": 8.01494911744653,
+      "A_hull": 9.100780283326179,
+      "solidity": 0.8806881243063264
+    },
+    "39": {
+      "A": 2.8509381076235454,
+      "A_hull": 2.8357869750763864,
+      "solidity": 1.0
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+  "precise_text": "Polling place 5's service area is split into disconnected pockets \u2014 its catchment isn't a single contiguous region. Fix the split, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 0
+}

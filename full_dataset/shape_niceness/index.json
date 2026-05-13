@@ -1,0 +1,282 @@
+{
+  "n_pairs": 30,
+  "n_pairs_requested": 30,
+  "archetype": "shape_niceness",
+  "sampling_seed": 42,
+  "tiers_used": [
+    "med"
+  ],
+  "n_per_tier": 30,
+  "pairs": [
+    {
+      "pair_id": "shape_niceness_med_00",
+      "pair_dir": "pairs/shape_niceness_med_00",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7920,
+      "vague_template_idx": 4,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_01",
+      "pair_dir": "pairs/shape_niceness_med_01",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7921,
+      "vague_template_idx": 1,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "shape_niceness_med_02",
+      "pair_dir": "pairs/shape_niceness_med_02",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7922,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "shape_niceness_med_03",
+      "pair_dir": "pairs/shape_niceness_med_03",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7923,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "shape_niceness_med_04",
+      "pair_dir": "pairs/shape_niceness_med_04",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7924,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "shape_niceness_med_05",
+      "pair_dir": "pairs/shape_niceness_med_05",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7925,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "shape_niceness_med_06",
+      "pair_dir": "pairs/shape_niceness_med_06",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7926,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "shape_niceness_med_07",
+      "pair_dir": "pairs/shape_niceness_med_07",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7927,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "shape_niceness_med_08",
+      "pair_dir": "pairs/shape_niceness_med_08",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7928,
+      "vague_template_idx": 1,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "shape_niceness_med_09",
+      "pair_dir": "pairs/shape_niceness_med_09",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7929,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_10",
+      "pair_dir": "pairs/shape_niceness_med_10",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7930,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "shape_niceness_med_11",
+      "pair_dir": "pairs/shape_niceness_med_11",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7931,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "shape_niceness_med_12",
+      "pair_dir": "pairs/shape_niceness_med_12",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7932,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_13",
+      "pair_dir": "pairs/shape_niceness_med_13",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7933,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "shape_niceness_med_14",
+      "pair_dir": "pairs/shape_niceness_med_14",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7934,
+      "vague_template_idx": 3,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "shape_niceness_med_15",
+      "pair_dir": "pairs/shape_niceness_med_15",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7935,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "shape_niceness_med_16",
+      "pair_dir": "pairs/shape_niceness_med_16",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7936,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "shape_niceness_med_17",
+      "pair_dir": "pairs/shape_niceness_med_17",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7937,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "shape_niceness_med_18",
+      "pair_dir": "pairs/shape_niceness_med_18",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7938,
+      "vague_template_idx": 1,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_19",
+      "pair_dir": "pairs/shape_niceness_med_19",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7939,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "shape_niceness_med_20",
+      "pair_dir": "pairs/shape_niceness_med_20",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7940,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "shape_niceness_med_21",
+      "pair_dir": "pairs/shape_niceness_med_21",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7941,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "shape_niceness_med_22",
+      "pair_dir": "pairs/shape_niceness_med_22",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7942,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_23",
+      "pair_dir": "pairs/shape_niceness_med_23",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7943,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_24",
+      "pair_dir": "pairs/shape_niceness_med_24",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7944,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_25",
+      "pair_dir": "pairs/shape_niceness_med_25",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7945,
+      "vague_template_idx": 1,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "shape_niceness_med_26",
+      "pair_dir": "pairs/shape_niceness_med_26",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7946,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "shape_niceness_med_27",
+      "pair_dir": "pairs/shape_niceness_med_27",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7947,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "shape_niceness_med_28",
+      "pair_dir": "pairs/shape_niceness_med_28",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7948,
+      "vague_template_idx": 0,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "shape_niceness_med_29",
+      "pair_dir": "pairs/shape_niceness_med_29",
+      "archetype": "shape_niceness",
+      "difficulty": "med",
+      "base_seed": 7949,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    }
+  ]
+}

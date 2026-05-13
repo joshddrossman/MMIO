@@ -1,0 +1,507 @@
+{
+  "pair_id": "coverage_gap_med_07",
+  "modality": "tools_only",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": false,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "0339b7527751f7deb0371c6c9187e1224f7c51b26da922589280fa65707ae863",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "coverage_gap",
+    "current_max_distance_km": 2.6995389126561404,
+    "most_stranded_precinct": 60,
+    "most_stranded_distance_km": 2.6995389126561404,
+    "best_candidate_idx": 30,
+    "best_candidate_new_max_km": 1.685151010899689,
+    "best_improvement_km": 1.0143879017564514,
+    "per_candidate_improvement": {
+      "30": {
+        "improvement_km": 1.0143879017564514,
+        "new_max_km": 1.685151010899689
+      },
+      "33": {
+        "improvement_km": 1.0143879017564514,
+        "new_max_km": 1.685151010899689
+      },
+      "28": {
+        "improvement_km": 0.7684087907818671,
+        "new_max_km": 1.9311301218742734
+      },
+      "2": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "4": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "8": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "10": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "11": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "14": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "16": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "17": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "18": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "20": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "22": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "23": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "24": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "27": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "29": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "32": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "36": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "37": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      },
+      "39": {
+        "improvement_km": 0.0,
+        "new_max_km": 2.6995389126561404
+      }
+    },
+    "candidates_ranked_by_improvement": [
+      30,
+      33,
+      28,
+      2,
+      4,
+      8,
+      10,
+      11,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      23,
+      24,
+      27,
+      29,
+      32,
+      36,
+      37,
+      39
+    ],
+    "coverage_gap_center": [
+      0.8826883066731144,
+      8.773893612939153
+    ],
+    "coverage_gap_radius": 1.2590771188960197,
+    "affected_precincts": [
+      40,
+      49,
+      54,
+      60,
+      72
+    ],
+    "coverage_gap_distance_threshold": 1.8587202554425084,
+    "coverage_gap_baseline_strand_count": 5,
+    "n_opened": 18,
+    "n_closed_candidates": 22,
+    "min_max_distance_threshold_km": 2.6,
+    "min_improvement_threshold_km": 1.0,
+    "base_seed": 10738,
+    "attempt": 0,
+    "uncapacitated": true,
+    "pair_id": "coverage_gap_med_07",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_max_distance": 2.6,
+      "min_improvement": 1.0
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 3.848387666978107,
+        "A_hull": 4.238529330067422,
+        "solidity": 0.9079535299374444
+      },
+      "1": {
+        "A": 2.116108179086387,
+        "A_hull": 2.409030074998107,
+        "solidity": 0.8784067085953877
+      },
+      "3": {
+        "A": 8.30534582460039,
+        "A_hull": 9.064165046337216,
+        "solidity": 0.9162836049589079
+      },
+      "5": {
+        "A": 4.8988661902477215,
+        "A_hull": 6.1008560389889155,
+        "solidity": 0.8029801324503311
+      },
+      "6": {
+        "A": 3.335774349132598,
+        "A_hull": 3.3547132648165463,
+        "solidity": 0.9943545351900638
+      },
+      "7": {
+        "A": 4.55291533042095,
+        "A_hull": 5.642534279437389,
+        "solidity": 0.8068919221302304
+      },
+      "9": {
+        "A": 4.25999343450923,
+        "A_hull": 4.512512310295193,
+        "solidity": 0.9440402909904873
+      },
+      "12": {
+        "A": 6.391252746142775,
+        "A_hull": 6.689225019570212,
+        "solidity": 0.9554548886372218
+      },
+      "13": {
+        "A": 8.737153102194391,
+        "A_hull": 9.422741849953285,
+        "solidity": 0.9272410558756533
+      },
+      "15": {
+        "A": 8.999772733011794,
+        "A_hull": 10.983308502310548,
+        "solidity": 0.8194045292562364
+      },
+      "19": {
+        "A": 4.568066462968107,
+        "A_hull": 5.047852326961442,
+        "solidity": 0.9049524762381189
+      },
+      "21": {
+        "A": 9.560364637256637,
+        "A_hull": 9.57930355294058,
+        "solidity": 0.9980229339659948
+      },
+      "25": {
+        "A": 4.989772985530669,
+        "A_hull": 5.039014166308933,
+        "solidity": 0.9902280130293158
+      },
+      "26": {
+        "A": 6.126107926567512,
+        "A_hull": 6.900078280851489,
+        "solidity": 0.8878316559926813
+      },
+      "31": {
+        "A": 2.1640867654857203,
+        "A_hull": 2.108532612812808,
+        "solidity": 1.0
+      },
+      "34": {
+        "A": 5.949344713517336,
+        "A_hull": 6.0793919345471075,
+        "solidity": 0.9786085150571132
+      },
+      "35": {
+        "A": 8.15888487664453,
+        "A_hull": 8.17529860357062,
+        "solidity": 0.9979922779922776
+      },
+      "38": {
+        "A": 4.04535239009116,
+        "A_hull": 3.9254059240928254,
+        "solidity": 1.0
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "I see a precinct (or a small set) whose voters face an unusually long trip to reach their assigned polling place. The worst case sticks out from the rest of the map. Address it without creating new long-travel precincts elsewhere.",
+    "precise_text": "Precinct 60 is the worst-served in this plan \u2014 its voters travel 2.7 km to reach their assigned polling place, much farther than typical. Reduce the maximum travel distance any precinct faces, but be mindful about not making other precincts worse.",
+    "vague_template_idx": 2,
+    "precise_template_idx": 0
+  },
+  "proposal": {
+    "force_open": [
+      30
+    ],
+    "force_close": [
+      12
+    ],
+    "rationale": "Address the standout worst-case long-trip pocket in the far northwest corner of the county. Precinct 60 currently has the longest assigned trip at 2.70 km to open site 15, and several nearby precincts in the same pocket (40, 49, 54, 72) also have unusually long trips. Closed site 30 at (0.738, 8.971) sits directly inside that pocket and is much closer to those precincts (e.g. precinct 60 would drop from 2.70 km assigned / 2.70 km nearest-open to about 0.52 km to site 30; precinct 54 from 1.98 to 0.31; precinct 49 from 2.02 to 1.19; precinct 40 from 2.01 to 0.69; precinct 72 from 2.10 to 1.41). To avoid increasing the site count and creating new long-travel precincts elsewhere, close site 12 at (3.504, 8.771), whose current catchment is moderate and can be absorbed by nearby open northern sites 15 and 21 and the new site 30. This is a small geographic swap intended to reduce the maximum long-trip outlier without introducing a new underserved pocket."
+  },
+  "score": {
+    "query_id": "coverage_gap_coverage_gap_med_07_vague",
+    "archetype": "coverage_gap",
+    "target_direction": "minimize",
+    "target_baseline": 2.6995389126561404,
+    "target_response": 2.6995389126561404,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 46081.81533424553,
+        "response": 46081.81533424553,
+        "bound": 48385.906100957814,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.4260328328746181,
+        "response": 1.4260328328746181,
+        "bound": 1.4260328328746181,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 46081.81533424553,
+    "final_assignment_distance": 46081.81533424553,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 0,
+    "selected_source": "baseline",
+    "selected_iteration": -1,
+    "selected_resolve_index": null,
+    "selected_n_resolves": 0,
+    "selected_n_local_edits": 0,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 1,
+    "n_explored_primary_improved": 1,
+    "n_explored_primary_improved_but_invalid": 1,
+    "selection_reason": "Baseline selected: all explored primary-improving candidates were invalid.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 2.6995389126561404,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 5,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 0,
+        "target_response": 2.1460855691043554,
+        "fraction_improved": 0.20501773134554638,
+        "valid": false,
+        "success": false,
+        "assignment_distance_delta": 487.8845868534845
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "coverage_gap_coverage_gap_med_07_vague",
+          "archetype": "coverage_gap",
+          "target_direction": "minimize",
+          "target_baseline": 2.6995389126561404,
+          "target_response": 2.6995389126561404,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 46081.81533424553,
+              "response": 46081.81533424553,
+              "bound": 48385.906100957814,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.4260328328746181,
+              "response": 1.4260328328746181,
+              "bound": 1.4260328328746181,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 46081.81533424553,
+          "final_assignment_distance": 46081.81533424553,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 5,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 0,
+        "proposal": {
+          "force_open": [
+            30
+          ],
+          "force_close": [
+            12
+          ],
+          "rationale": "Address the standout worst-case long-trip pocket in the far northwest corner of the county. Precinct 60 currently has the longest assigned trip at 2.70 km to open site 15, and several nearby precincts in the same pocket (40, 49, 54, 72) also have unusually long trips. Closed site 30 at (0.738, 8.971) sits directly inside that pocket and is much closer to those precincts (e.g. precinct 60 would drop from 2.70 km assigned / 2.70 km nearest-open to about 0.52 km to site 30; precinct 54 from 1.98 to 0.31; precinct 49 from 2.02 to 1.19; precinct 40 from 2.01 to 0.69; precinct 72 from 2.10 to 1.41). To avoid increasing the site count and creating new long-travel precincts elsewhere, close site 12 at (3.504, 8.771), whose current catchment is moderate and can be absorbed by nearby open northern sites 15 and 21 and the new site 30. This is a small geographic swap intended to reduce the maximum long-trip outlier without introducing a new underserved pocket."
+        },
+        "score": {
+          "query_id": "coverage_gap_coverage_gap_med_07_vague",
+          "archetype": "coverage_gap",
+          "target_direction": "minimize",
+          "target_baseline": 2.6995389126561404,
+          "target_response": 2.1460855691043554,
+          "raw_improvement": 0.553453343551785,
+          "fraction_improved": 0.20501773134554638,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 46081.81533424553,
+              "response": 46569.69992109902,
+              "bound": 48385.906100957814,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.4260328328746181,
+              "response": 1.4488854026150206,
+              "bound": 1.4260328328746181,
+              "violation": 0.022852569740402506,
+              "passed": false
+            }
+          ],
+          "all_guards_passed": false,
+          "feasible": true,
+          "valid": false,
+          "baseline_assignment_distance": 46081.81533424553,
+          "final_assignment_distance": 46569.69992109902,
+          "assignment_distance_delta": 487.8845868534845,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "coverage_gap_med_07.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 8,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 0,
+    "local_edit_tool_counts": {},
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 8,
+    "tool_call_counts": {
+      "list_sites": 2,
+      "get_current_assignments": 2,
+      "get_distance_matrix": 2,
+      "resolve": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 8,
+    "usage": {
+      "prompt_tokens": 182795,
+      "completion_tokens": 724,
+      "total_tokens": 183519,
+      "cached_tokens": 149632,
+      "reasoning_tokens": 0
+    }
+  },
+  "elapsed_sec": 15.997402906417847,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 7,
+    "modality_for_this_result": "tools_only",
+    "run_order_this_pair": [
+      "tools_only",
+      "multimodal"
+    ]
+  }
+}

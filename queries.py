@@ -17,7 +17,9 @@ The 4 archetypes are emergent solution properties:
                      non-contiguous (renamed from split_catchment).
     shape_niceness : opened sites whose catchments have ugly normalised
                      perimeter index (NPI = P / (2*sqrt(pi*A)); 1 = circle,
-                     larger = elongated/jagged).
+                     larger = elongated/jagged). Primary target is the mean
+                     of the **worst-k** catchment NPIs (default k=6), not the
+                     global mean NPI, so scoring tracks the tail shapes.
 
 Every score dict includes `final_assignment_distance` — the voter-weighted
 total travel distance under the response solution — as a secondary metric
@@ -107,25 +109,16 @@ def n_sites_in_dense_cluster(
 def n_precincts_in_coverage_gap(
     distance_threshold: float = 2.0,
 ) -> Callable[[Instance, Solution], float]:
-    """Count precincts whose nearest-open-site distance exceeds
-    `distance_threshold` km. A simple absolute threshold for "stranded
-    voters" — voters who have to travel substantially farther than the
-    typical precinct.
+    """Legacy stranded-precinct count metric (kept for back-compat).
 
-    This is the coverage_gap archetype's target metric. GLOBAL — it
-    flags every stranded precinct anywhere on the map. An agent who
-    fixes the engineered gap but inadvertently creates a new one
-    elsewhere (e.g., by closing a site that was serving its
-    neighbourhood) is penalised: the newly-stranded precincts cross
-    the threshold.
-
-    The metric is MONOTONIC under site additions: opening a new site
-    can only reduce or preserve a precinct's nearest distance, hence
-    can only reduce or preserve the count. (Closing sites can
-    increase the count, which is the desired penalty.)
-
-    Direction: minimize. Success: fraction_improved >= 0.5 (combined
-    with feasibility + guards).
+    Counts precincts whose nearest-open-site distance exceeds
+    `distance_threshold` km. The current coverage_gap factory does NOT
+    use this anymore — it switched to `max_assignment_distance` to
+    reflect the perception harness's uncapacitated coverage_gap design,
+    where the agent's job is to reduce the worst precinct's travel
+    distance, not the count above an arbitrary threshold. The function
+    is preserved here in case anyone still wants to use it as a
+    secondary diagnostic metric.
     """
     T = float(distance_threshold)
 
@@ -135,6 +128,32 @@ def n_precincts_in_coverage_gap(
             return float(instance.n_precincts)
         nearest = instance.distance_matrix[:, opened_idx].min(axis=1)
         return float((nearest > T).sum())
+    return fn
+
+
+def max_assignment_distance() -> Callable[[Instance, Solution], float]:
+    """Maximum distance from any precinct to its nearest opened site.
+
+    The coverage_gap archetype's target metric under the uncapacitated
+    formulation: the agent's task is to *reduce the worst precinct's
+    travel distance*. Direction: minimize. Improvement is the absolute
+    drop in this maximum from baseline to response.
+
+    Robust to closed-site moves: if the agent closes the site that was
+    serving the most-stranded precinct, the precinct gets reassigned
+    to its new nearest-opened-site, and the metric reflects that new
+    (potentially much worse) distance — which correctly penalises a
+    fix that breaks something else.
+    """
+    def fn(instance: Instance, solution: Solution) -> float:
+        opened_idx = np.where(solution.x == 1)[0]
+        if len(opened_idx) == 0:
+            # Degenerate: nobody opened — return diameter of the
+            # bounding box as a worst-case stand-in.
+            xmin, ymin, xmax, ymax = instance.bounds
+            return float(np.hypot(xmax - xmin, ymax - ymin))
+        nearest = instance.distance_matrix[:, opened_idx].min(axis=1)
+        return float(nearest.max())
     return fn
 
 
@@ -159,16 +178,44 @@ def n_discontiguous_catchments() -> Callable[[Instance, Solution], float]:
 
 
 def mean_npi() -> Callable[[Instance, Solution], float]:
-    """Mean normalised perimeter index across opened catchments. The
-    shape_niceness archetype's primary target (direction: minimize).
+    """Mean normalised perimeter index across opened catchments.
+
     NPI = P / (2 * sqrt(pi * A)); 1.0 for a circle, larger for elongated
-    or jagged shapes."""
+    or jagged shapes. Used where a plain spatial average is needed; the
+    **shape_niceness** live benchmark uses :func:`mean_worst_k_npi` instead.
+    """
     def fn(instance: Instance, solution: Solution) -> float:
         from generation import _per_catchment_npi, aggregate_npi
         per = _per_catchment_npi(instance, solution)
         agg = aggregate_npi(per)
         v = agg["mean_npi"]
         return float('inf') if (isinstance(v, float) and np.isnan(v)) else float(v)
+    return fn
+
+
+def mean_worst_k_npi(k: int = 6) -> Callable[[Instance, Solution], float]:
+    """Mean of the *k* largest per-catchment NPI values (opened sites only).
+
+    Matches the offline ``npi_mean_worst6`` scalar in
+    ``analysis.shape_niceness_replay_metrics.shape_metric_bundle``. Direction
+    for shape_niceness remains **minimize** (lower = rounder catchments on
+    the worst tail).
+    """
+    kk = int(k)
+
+    def fn(instance: Instance, solution: Solution) -> float:
+        from generation import _per_catchment_npi
+        per = _per_catchment_npi(instance, solution)
+        if not per:
+            return float("inf")
+        vals = np.array([d["NPI"] for d in per.values()], dtype=np.float64)
+        if not np.all(np.isfinite(vals)):
+            return float("inf")
+        take = min(kk, int(vals.size))
+        arr = np.sort(vals)
+        v = float(arr[-take:].mean())
+        return float("inf") if np.isnan(v) else v
+
     return fn
 
 
@@ -208,6 +255,31 @@ class GuardSpec:
             "violation": float(violation),
             "passed": bool(violation == 0.0),
         }
+
+
+def guard_specs_to_public_config(
+    guards: Sequence[GuardSpec],
+) -> List[Dict[str, Any]]:
+    """JSON-serializable description of guard parameters (for logs / replay).
+
+    Omits metric_fn callables; records which bound type each guard uses.
+    """
+    out: List[Dict[str, Any]] = []
+    for g in guards:
+        d: Dict[str, Any] = {"name": g.name}
+        if g.max_pct_increase is not None:
+            d["bound_kind"] = "max_pct_increase"
+            d["max_pct_increase"] = float(g.max_pct_increase)
+        elif g.max_abs_increase is not None:
+            d["bound_kind"] = "max_abs_increase"
+            d["max_abs_increase"] = float(g.max_abs_increase)
+        elif g.max_abs_value is not None:
+            d["bound_kind"] = "max_abs_value"
+            d["max_abs_value"] = float(g.max_abs_value)
+        else:
+            d["bound_kind"] = "none"
+        out.append(d)
+    return out
 
 
 @dataclass
@@ -342,32 +414,28 @@ def make_cluster_query_from_metadata(
 def make_coverage_gap_query_from_metadata(
     query_id: str, text: str, metadata_dict: Dict[str, Any],
     description: str = "",
-    success_fraction: float = 0.5,
-    distance_threshold: Optional[float] = None,
+    success_fraction: float = 0.3,
 ) -> ArchetypeQuery:
-    """Coverage-gap archetype.
+    """Coverage-gap archetype (uncapacitated regime).
 
-    Target metric: GLOBAL count of precincts whose nearest-open-site
-    distance exceeds `distance_threshold` km — i.e., voters who are
-    "stranded" anywhere on the map. Direction: minimize.
+    Target metric: the MAXIMUM distance from any precinct to its
+    nearest opened polling place. The agent's task is to reduce the
+    worst-precinct travel distance — pure max-distance reduction.
+    Direction: minimize.
 
-    The metric is global — an agent who fixes the engineered gap but
-    inadvertently creates a new stranded pocket elsewhere (by closing
-    a site that was serving it) is penalised: the newly-stranded
-    precincts cross the threshold.
+    This replaces the prior stranded-precinct-count metric to reflect
+    the perception harness's uncapacitated coverage_gap design (each
+    precinct goes to its nearest opened site; the worst-served
+    precinct's distance is the natural quantity to reduce). It also
+    handles fixes that close sites: closing a site that was serving
+    the most-stranded precinct will reassign that precinct to its
+    new nearest opened site and correctly penalise the resulting
+    distance increase.
 
-    Success: fraction_improved >= `success_fraction` (default 0.5 — at
-    least half the stranded precincts have been brought within
-    threshold without creating new ones). Combined with feasibility +
-    guards.
+    Success: fraction_improved >= `success_fraction` (default 0.3 —
+    a 30% reduction in the worst-served precinct's distance counts as
+    a meaningful fix). Combined with feasibility + guards.
     """
-    # If the caller didn't pass an explicit threshold, use the per-pair
-    # value the generator stored in metadata (calibrated so the baseline
-    # has ~5 stranded precincts). Fallback to 2.0 km for legacy pairs.
-    if distance_threshold is None:
-        distance_threshold = float(
-            metadata_dict.get("coverage_gap_distance_threshold", 2.0))
-
     def _success(score_dict, instance, baseline, response):
         return score_dict.get("fraction_improved", 0.0) >= success_fraction
 
@@ -375,17 +443,14 @@ def make_coverage_gap_query_from_metadata(
         query_id=query_id,
         archetype="coverage_gap",
         text=text,
-        target_metric_fn=n_precincts_in_coverage_gap(
-            distance_threshold=distance_threshold,
-        ),
+        target_metric_fn=max_assignment_distance(),
         target_direction="minimize",
         guards=default_guards(pct_total_dist_increase=0.05),
         description=description,
         metadata={**metadata_dict,
-                   "coverage_gap_distance_threshold":
-                       float(distance_threshold),
                    "success_threshold_fraction_improved":
-                       float(success_fraction)},
+                       float(success_fraction),
+                   "target_metric": "max_assignment_distance"},
         success_criterion_fn=_success,
     )
 
@@ -426,16 +491,19 @@ def make_contiguity_query_from_metadata(
 def make_shape_niceness_query_from_metadata(
     query_id: str, text: str, metadata_dict: Dict[str, Any],
     description: str = "",
-    success_fraction: float = 0.2,
+    success_fraction: float = 0.02,
+    worst_k: int = 6,
 ) -> ArchetypeQuery:
     """Shape-niceness archetype.
 
-    Target metric: mean NPI across opened catchments. Direction: minimize
-    (lower NPI means rounder / more compact shapes; 1.0 = perfect circle).
+    Target metric: **mean of the worst-k** per-catchment NPI values among
+    opened sites (default k=6), i.e. the mean NPI of the k ugliest
+    catchments. Direction: minimize.
 
-    Success: fraction_improved >= `success_fraction` (default 0.2 — a 20%
-    reduction in mean NPI; shapes are visibly nicer overall). Combined
-    with feasibility + guards.
+    Success: ``fraction_improved`` ≥ ``success_fraction`` (default **0.02** —
+    a 2% relative reduction in that worst-k mean; tuned from offline τ
+    sweeps so the criterion is attainable vs the legacy 0.2 on mean NPI).
+    Combined with feasibility + guards.
     """
     def _success(score_dict, instance, baseline, response):
         return score_dict.get("fraction_improved", 0.0) >= success_fraction
@@ -444,13 +512,14 @@ def make_shape_niceness_query_from_metadata(
         query_id=query_id,
         archetype="shape_niceness",
         text=text,
-        target_metric_fn=mean_npi(),
+        target_metric_fn=mean_worst_k_npi(worst_k),
         target_direction="minimize",
         guards=default_guards(pct_total_dist_increase=0.05),
         description=description,
         metadata={**metadata_dict,
                    "success_threshold_fraction_improved":
-                       float(success_fraction)},
+                       float(success_fraction),
+                   "shape_primary_worst_k": int(worst_k)},
         success_criterion_fn=_success,
     )
 

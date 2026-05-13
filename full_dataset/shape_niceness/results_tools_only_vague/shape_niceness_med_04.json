@@ -1,0 +1,827 @@
+{
+  "pair_id": "shape_niceness_med_04",
+  "modality": "tools_only",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": false,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "43eaed89cc8963832cfaa55ac0042fd30f23398cf576d4c88abb565cc6675ef0",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "shape_niceness",
+    "per_catchment_npi": {
+      "0": {
+        "A": 4.2271659806570545,
+        "P": 10.35175879396985,
+        "NPI": 1.4203146332491425,
+        "n_cells": 1674
+      },
+      "1": {
+        "A": 4.610994671851722,
+        "P": 13.768844221105528,
+        "NPI": 1.8088195538565428,
+        "n_cells": 1826
+      },
+      "2": {
+        "A": 5.2347162950430555,
+        "P": 11.959798994974875,
+        "NPI": 1.4745936996309024,
+        "n_cells": 2073
+      },
+      "4": {
+        "A": 7.7144516552612314,
+        "P": 15.477386934673369,
+        "NPI": 1.571955245292586,
+        "n_cells": 3055
+      },
+      "5": {
+        "A": 4.353425418550037,
+        "P": 10.954773869346734,
+        "NPI": 1.4810950512707988,
+        "n_cells": 1724
+      },
+      "6": {
+        "A": 3.5201131284563525,
+        "P": 10.954773869346734,
+        "NPI": 1.64710078704669,
+        "n_cells": 1394
+      },
+      "7": {
+        "A": 4.876139491426985,
+        "P": 13.969849246231156,
+        "NPI": 1.7846322096577238,
+        "n_cells": 1931
+      },
+      "10": {
+        "A": 8.979571222948916,
+        "P": 14.673366834170855,
+        "NPI": 1.3813287254584354,
+        "n_cells": 3556
+      },
+      "15": {
+        "A": 4.6160450493674405,
+        "P": 10.85427135678392,
+        "NPI": 1.4251504800671897,
+        "n_cells": 1828
+      },
+      "16": {
+        "A": 7.090730032069898,
+        "P": 12.160804020100503,
+        "NPI": 1.2882847985153683,
+        "n_cells": 2808
+      },
+      "19": {
+        "A": 8.098280346455898,
+        "P": 18.994974874371863,
+        "NPI": 1.8829439300157504,
+        "n_cells": 3207
+      },
+      "23": {
+        "A": 6.287720007070529,
+        "P": 13.668341708542714,
+        "NPI": 1.5376740969581235,
+        "n_cells": 2490
+      },
+      "24": {
+        "A": 7.045276634428424,
+        "P": 12.56281407035176,
+        "NPI": 1.3351589613952972,
+        "n_cells": 2790
+      },
+      "28": {
+        "A": 5.893790560844423,
+        "P": 12.864321608040202,
+        "NPI": 1.4948052257439455,
+        "n_cells": 2334
+      },
+      "29": {
+        "A": 4.487260422716599,
+        "P": 12.964824120603016,
+        "NPI": 1.7265177994637646,
+        "n_cells": 1777
+      },
+      "34": {
+        "A": 9.224514532461303,
+        "P": 15.376884422110553,
+        "NPI": 1.4282086476875204,
+        "n_cells": 3653
+      },
+      "38": {
+        "A": 2.954470846695791,
+        "P": 11.859296482412061,
+        "NPI": 1.9463195280628744,
+        "n_cells": 1170
+      },
+      "39": {
+        "A": 1.7928840180803518,
+        "P": 11.758793969849247,
+        "NPI": 2.4773179590799717,
+        "n_cells": 710
+      }
+    },
+    "mean_npi_baseline": 1.6173456295807016,
+    "max_npi_baseline": 2.4773179590799717,
+    "p90_npi_baseline": 1.9019566094298876,
+    "n_catchments_baseline": 18,
+    "worst_catchment_site": 39,
+    "worst_catchment_npi": 2.4773179590799717,
+    "min_mean_npi_threshold": 1.2,
+    "min_max_npi_threshold": 1.45,
+    "base_seed": 7924,
+    "attempt": 0,
+    "uncapacitated": true,
+    "pair_id": "shape_niceness_med_04",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_mean_npi": 1.2,
+      "min_max_npi": 1.45
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 4.2271659806570545,
+        "A_hull": 4.083230221459055,
+        "solidity": 1.0
+      },
+      "1": {
+        "A": 4.610994671851722,
+        "A_hull": 5.6008686649327055,
+        "solidity": 0.823264201983769
+      },
+      "2": {
+        "A": 5.2347162950430555,
+        "A_hull": 5.828135653140072,
+        "solidity": 0.8981802426343156
+      },
+      "4": {
+        "A": 7.7144516552612314,
+        "A_hull": 8.699275270826496,
+        "solidity": 0.8867924528301886
+      },
+      "5": {
+        "A": 4.353425418550037,
+        "A_hull": 4.578167217999547,
+        "solidity": 0.9509100937672363
+      },
+      "6": {
+        "A": 3.5201131284563525,
+        "A_hull": 3.9355066791242654,
+        "solidity": 0.8944497914661532
+      },
+      "7": {
+        "A": 4.876139491426985,
+        "A_hull": 6.412716850584584,
+        "solidity": 0.760385902736759
+      },
+      "10": {
+        "A": 8.979571222948916,
+        "A_hull": 9.205575616777354,
+        "solidity": 0.9754491839253876
+      },
+      "15": {
+        "A": 4.6160450493674405,
+        "A_hull": 4.513774904674121,
+        "solidity": 1.0
+      },
+      "16": {
+        "A": 7.090730032069898,
+        "A_hull": 7.3129466427615455,
+        "solidity": 0.9696132596685084
+      },
+      "19": {
+        "A": 8.098280346455898,
+        "A_hull": 11.482033281987828,
+        "solidity": 0.7053001979327029
+      },
+      "23": {
+        "A": 6.287720007070529,
+        "A_hull": 7.079366682659526,
+        "solidity": 0.8881754949170685
+      },
+      "24": {
+        "A": 7.045276634428424,
+        "A_hull": 7.367238201055527,
+        "solidity": 0.956298200514139
+      },
+      "28": {
+        "A": 5.893790560844423,
+        "A_hull": 6.078129340168178,
+        "solidity": 0.9696717906107187
+      },
+      "29": {
+        "A": 4.487260422716599,
+        "A_hull": 5.4998611146183185,
+        "solidity": 0.8158861340679522
+      },
+      "34": {
+        "A": 9.224514532461303,
+        "A_hull": 9.321734299638896,
+        "solidity": 0.9895706352431264
+      },
+      "38": {
+        "A": 2.954470846695791,
+        "A_hull": 4.138784374131967,
+        "solidity": 0.7138499084807809
+      },
+      "39": {
+        "A": 1.7928840180803518,
+        "A_hull": 2.7979091437084933,
+        "solidity": 0.6407942238267147
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "Some of these service regions look weird on the map \u2014 too elongated, oddly twisted, or with strange thin tails. Make them more compact and reasonable in shape.",
+    "precise_text": "Site 39 is serving an awkwardly-shaped catchment. The service area should be more circular / compact, not elongated, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 0,
+    "precise_template_idx": 2
+  },
+  "proposal": {
+    "force_open": [
+      31
+    ],
+    "force_close": [
+      15
+    ],
+    "rationale": "Improve compactness in the northeast by replacing remote corner site 15 with candidate site 31 near precincts around (8.16,4.86). Site 15 currently serves a tiny top-right cluster and may induce elongated or disconnected northeast catchments; opening site 31 should shorten east-side tails and let the MILP rebalance assignments more compactly while keeping the 18-site budget."
+  },
+  "score": {
+    "query_id": "shape_niceness_shape_niceness_med_04_vague",
+    "archetype": "shape_niceness",
+    "target_direction": "minimize",
+    "target_baseline": 1.6173456295807016,
+    "target_response": 1.6173456295807016,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 47275.45102681836,
+        "response": 47275.45102681836,
+        "bound": 49639.223578159275,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.488847055989425,
+        "response": 1.488847055989425,
+        "bound": 1.488847055989425,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 47275.45102681836,
+    "final_assignment_distance": 47275.45102681836,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 0,
+    "selected_source": "baseline",
+    "selected_iteration": -1,
+    "selected_resolve_index": null,
+    "selected_n_resolves": 0,
+    "selected_n_local_edits": 0,
+    "n_feasible_explored": 8,
+    "selected_valid": true,
+    "n_explored_valid": 6,
+    "n_explored_primary_improved": 1,
+    "n_explored_primary_improved_but_invalid": 1,
+    "selection_reason": "Baseline selected: all explored primary-improving candidates were invalid.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 1.6173456295807016,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "force_assign",
+        "iteration": 3,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 1,
+        "target_response": 1.6209991111017419,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 124.9907888563539
+      },
+      {
+        "explored_index": 2,
+        "source": "force_assign",
+        "iteration": 4,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 2,
+        "target_response": 1.6210071138403064,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 139.8286202932286
+      },
+      {
+        "explored_index": 3,
+        "source": "force_assign",
+        "iteration": 5,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 3,
+        "target_response": 1.6423368292427944,
+        "fraction_improved": 0.0,
+        "valid": false,
+        "success": false,
+        "assignment_distance_delta": 718.3284872581062
+      },
+      {
+        "explored_index": 4,
+        "source": "force_assign",
+        "iteration": 6,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 4,
+        "target_response": 1.6210071138403064,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 139.8286202932286
+      },
+      {
+        "explored_index": 5,
+        "source": "force_assign",
+        "iteration": 7,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 5,
+        "target_response": 1.613801969588052,
+        "fraction_improved": 0.002191034450421208,
+        "valid": false,
+        "success": false,
+        "assignment_distance_delta": 289.2531875751956
+      },
+      {
+        "explored_index": 6,
+        "source": "force_assign",
+        "iteration": 8,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 6,
+        "target_response": 1.6210071138403064,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 139.8286202932286
+      },
+      {
+        "explored_index": 7,
+        "source": "resolve",
+        "iteration": 9,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 6,
+        "target_response": 1.6173456295807016,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 109.80455706935754
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6173456295807016,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47275.45102681836,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.488847055989425,
+              "bound": 1.488847055989425,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47275.45102681836,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "force_assign",
+        "iteration": 3,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 1,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6209991111017419,
+          "raw_improvement": -0.0036534815210402805,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47400.44181567471,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.488847055989425,
+              "bound": 1.488847055989425,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47400.44181567471,
+          "assignment_distance_delta": 124.9907888563539,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 2,
+        "source": "force_assign",
+        "iteration": 4,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 2,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6210071138403064,
+          "raw_improvement": -0.0036614842596047747,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47415.27964711159,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.488847055989425,
+              "bound": 1.488847055989425,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47415.27964711159,
+          "assignment_distance_delta": 139.8286202932286,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 3,
+        "source": "force_assign",
+        "iteration": 5,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 3,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6423368292427944,
+          "raw_improvement": -0.024991199662092844,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47993.779514076465,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.5620291960916501,
+              "bound": 1.488847055989425,
+              "violation": 0.07318214010222523,
+              "passed": false
+            }
+          ],
+          "all_guards_passed": false,
+          "feasible": true,
+          "valid": false,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47993.779514076465,
+          "assignment_distance_delta": 718.3284872581062,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 4,
+        "source": "force_assign",
+        "iteration": 6,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 4,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6210071138403064,
+          "raw_improvement": -0.0036614842596047747,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47415.27964711159,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.488847055989425,
+              "bound": 1.488847055989425,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47415.27964711159,
+          "assignment_distance_delta": 139.8286202932286,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 5,
+        "source": "force_assign",
+        "iteration": 7,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 5,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.613801969588052,
+          "raw_improvement": 0.003543659992649495,
+          "fraction_improved": 0.002191034450421208,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47564.704214393554,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.5620291960916501,
+              "bound": 1.488847055989425,
+              "violation": 0.07318214010222523,
+              "passed": false
+            }
+          ],
+          "all_guards_passed": false,
+          "feasible": true,
+          "valid": false,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47564.704214393554,
+          "assignment_distance_delta": 289.2531875751956,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 6,
+        "source": "force_assign",
+        "iteration": 8,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 6,
+        "proposal": null,
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6210071138403064,
+          "raw_improvement": -0.0036614842596047747,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47415.27964711159,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.488847055989425,
+              "bound": 1.488847055989425,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47415.27964711159,
+          "assignment_distance_delta": 139.8286202932286,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 7,
+        "source": "resolve",
+        "iteration": 9,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 6,
+        "proposal": {
+          "force_open": [
+            31
+          ],
+          "force_close": [
+            15
+          ],
+          "rationale": "Improve compactness in the northeast by replacing remote corner site 15 with candidate site 31 near precincts around (8.16,4.86). Site 15 currently serves a tiny top-right cluster and may induce elongated or disconnected northeast catchments; opening site 31 should shorten east-side tails and let the MILP rebalance assignments more compactly while keeping the 18-site budget."
+        },
+        "score": {
+          "query_id": "shape_niceness_shape_niceness_med_04_vague",
+          "archetype": "shape_niceness",
+          "target_direction": "minimize",
+          "target_baseline": 1.6173456295807016,
+          "target_response": 1.6173456295807016,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 47275.45102681836,
+              "response": 47385.255583887716,
+              "bound": 49639.223578159275,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.488847055989425,
+              "response": 1.488847055989425,
+              "bound": 1.488847055989425,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 47275.45102681836,
+          "final_assignment_distance": 47385.255583887716,
+          "assignment_distance_delta": 109.80455706935754,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "shape_niceness_med_04.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 12,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 6,
+    "local_edit_tool_counts": {
+      "force_assign": 6
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 15,
+    "tool_call_counts": {
+      "list_sites": 3,
+      "get_current_assignments": 2,
+      "get_precinct_adjacency": 1,
+      "get_distance_matrix": 1,
+      "force_assign": 6,
+      "resolve": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 12,
+    "usage": {
+      "prompt_tokens": 204292,
+      "completion_tokens": 938,
+      "total_tokens": 205230,
+      "cached_tokens": 177408,
+      "reasoning_tokens": 0
+    }
+  },
+  "elapsed_sec": 21.31915283203125,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 4,
+    "modality_for_this_result": "tools_only",
+    "run_order_this_pair": [
+      "multimodal",
+      "tools_only"
+    ]
+  }
+}

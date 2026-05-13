@@ -1,0 +1,397 @@
+{
+  "pair_id": "contiguity_med_25",
+  "modality": "multimodal",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": true,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "7020eed90a1025d283cf98e441aa888a7f25481cca56841866ecd9cf08ab589e",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 6,
+        "n_components": 2,
+        "components": [
+          [
+            77,
+            79
+          ],
+          [
+            1,
+            4,
+            3
+          ]
+        ],
+        "component_voters": [
+          1353,
+          825
+        ],
+        "largest_component_voters": 1353,
+        "disjoint_excess_voters": 825,
+        "worst_pair_separation_km": 2.1447797573240384
+      }
+    ],
+    "n_split_sites_baseline": 1,
+    "total_disjoint_excess_voters_baseline": 825,
+    "worst_culprit_site": 6,
+    "worst_culprit_disjoint_voters": 825,
+    "smallest_component_centroid": [
+      2.8194539744095324,
+      2.7334224792745423
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7956,
+    "attempt": 0,
+    "pair_id": "contiguity_med_25",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 5.989747733643091,
+        "A_hull": 6.403878689932073,
+        "solidity": 0.9353312302839117
+      },
+      "1": {
+        "A": 6.951844650387617,
+        "A_hull": 8.097017752076969,
+        "solidity": 0.858568532668018
+      },
+      "2": {
+        "A": 4.613519860609581,
+        "A_hull": 4.6829625514507205,
+        "solidity": 0.9851712051765976
+      },
+      "3": {
+        "A": 4.047877578849019,
+        "A_hull": 4.3698391454761225,
+        "solidity": 0.9263218722912457
+      },
+      "6": {
+        "A": 4.300396454634985,
+        "A_hull": 7.9215171334057235,
+        "solidity": 0.5428753586228882
+      },
+      "7": {
+        "A": 2.0757051589606323,
+        "A_hull": 1.9885861468144745,
+        "solidity": 1.0
+      },
+      "8": {
+        "A": 3.704451907780107,
+        "A_hull": 3.866063988283125,
+        "solidity": 0.9581972566949705
+      },
+      "12": {
+        "A": 6.229640665639757,
+        "A_hull": 7.006136208681598,
+        "solidity": 0.8891692196792217
+      },
+      "13": {
+        "A": 2.8989166940228785,
+        "A_hull": 3.5617787429610357,
+        "solidity": 0.8138957816377174
+      },
+      "14": {
+        "A": 10.681548445746321,
+        "A_hull": 11.954243579707581,
+        "solidity": 0.893536121673004
+      },
+      "18": {
+        "A": 5.537738945986213,
+        "A_hull": 5.92788060907553,
+        "solidity": 0.9341853035143769
+      },
+      "20": {
+        "A": 8.275043559506074,
+        "A_hull": 9.119719199010124,
+        "solidity": 0.9073792053163509
+      },
+      "25": {
+        "A": 6.815484457463196,
+        "A_hull": 7.315471831519406,
+        "solidity": 0.9316534345875044
+      },
+      "27": {
+        "A": 6.1008560389889155,
+        "A_hull": 7.129870457816721,
+        "solidity": 0.8556755799539582
+      },
+      "30": {
+        "A": 6.312971894649126,
+        "A_hull": 6.805383702431758,
+        "solidity": 0.9276437847866419
+      },
+      "31": {
+        "A": 3.9544455948082122,
+        "A_hull": 4.155198101058055,
+        "solidity": 0.9516864175022789
+      },
+      "36": {
+        "A": 6.527612939067196,
+        "A_hull": 7.310421454003686,
+        "solidity": 0.8929188255613127
+      },
+      "38": {
+        "A": 5.989747733643091,
+        "A_hull": 6.261205525113002,
+        "solidity": 0.9566444847751564
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "The map shows polling places whose voters come from disjoint pockets \u2014 same colour on two separate patches with a gap between. Break up any such split-catchment.",
+    "precise_text": "Polling place 6's service area is split into disconnected pockets \u2014 its catchment isn't a single contiguous region. Fix the split, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 3,
+    "precise_template_idx": 0
+  },
+  "proposal": null,
+  "score": {
+    "query_id": "contiguity_contiguity_med_25_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 1.0,
+    "target_response": 1.0,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 46328.78994970684,
+        "response": 46328.78994970684,
+        "bound": 48645.229447192185,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.5620073205917537,
+        "response": 1.5620073205917537,
+        "bound": 1.5620073205917537,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 46328.78994970684,
+    "final_assignment_distance": 46328.78994970684,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 0,
+    "selected_source": "baseline",
+    "selected_iteration": -1,
+    "selected_resolve_index": null,
+    "selected_n_resolves": 0,
+    "selected_n_local_edits": 0,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 1,
+    "n_explored_primary_improved": 0,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Baseline selected: no explored candidate improved the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 1.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "force_assign",
+        "iteration": 3,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 1,
+        "target_response": 1.0,
+        "fraction_improved": 0.0,
+        "valid": false,
+        "success": false,
+        "assignment_distance_delta": 162.62898015388055
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_25_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 1.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 46328.78994970684,
+              "response": 46328.78994970684,
+              "bound": 48645.229447192185,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5620073205917537,
+              "response": 1.5620073205917537,
+              "bound": 1.5620073205917537,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 46328.78994970684,
+          "final_assignment_distance": 46328.78994970684,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "force_assign",
+        "iteration": 3,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 1,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_25_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 1.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 46328.78994970684,
+              "response": 46491.41892986072,
+              "bound": 48645.229447192185,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5620073205917537,
+              "response": 1.5699399267605434,
+              "bound": 1.5620073205917537,
+              "violation": 0.007932606168789658,
+              "passed": false
+            }
+          ],
+          "all_guards_passed": false,
+          "feasible": true,
+          "valid": false,
+          "baseline_assignment_distance": 46328.78994970684,
+          "final_assignment_distance": 46491.41892986072,
+          "assignment_distance_delta": 162.62898015388055,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_25.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 6,
+    "n_resolves": 0,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 1,
+    "local_edit_tool_counts": {
+      "force_assign": 1
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 8,
+    "tool_call_counts": {
+      "view_solution": 2,
+      "get_current_assignments": 1,
+      "get_precinct_adjacency": 1,
+      "list_sites": 1,
+      "get_distance_matrix": 1,
+      "force_assign": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 6,
+    "usage": {
+      "prompt_tokens": 139846,
+      "completion_tokens": 355,
+      "total_tokens": 140201,
+      "cached_tokens": 104192,
+      "reasoning_tokens": 0
+    },
+    "n_view_solution": 2,
+    "view_purpose_counts": {
+      "baseline_vs_critique": 1,
+      "post_action_vs_baseline": 1
+    },
+    "had_baseline_view": true,
+    "pending_post_action_view_at_end": false
+  },
+  "elapsed_sec": 40.92532396316528,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 25,
+    "modality_for_this_result": "multimodal",
+    "run_order_this_pair": [
+      "tools_only",
+      "multimodal"
+    ]
+  }
+}

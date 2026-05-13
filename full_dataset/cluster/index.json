@@ -1,0 +1,282 @@
+{
+  "n_pairs": 30,
+  "n_pairs_requested": 30,
+  "archetype": "cluster",
+  "sampling_seed": 42,
+  "tiers_used": [
+    "med"
+  ],
+  "n_per_tier": 30,
+  "pairs": [
+    {
+      "pair_id": "cluster_med_00",
+      "pair_dir": "pairs/cluster_med_00",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 7928,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_01",
+      "pair_dir": "pairs/cluster_med_01",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 7961,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_02",
+      "pair_dir": "pairs/cluster_med_02",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8005,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_03",
+      "pair_dir": "pairs/cluster_med_03",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8019,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_04",
+      "pair_dir": "pairs/cluster_med_04",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8028,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_05",
+      "pair_dir": "pairs/cluster_med_05",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8089,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_06",
+      "pair_dir": "pairs/cluster_med_06",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8114,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_07",
+      "pair_dir": "pairs/cluster_med_07",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8124,
+      "vague_template_idx": 3,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "cluster_med_08",
+      "pair_dir": "pairs/cluster_med_08",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8174,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "cluster_med_09",
+      "pair_dir": "pairs/cluster_med_09",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8283,
+      "vague_template_idx": 1,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_10",
+      "pair_dir": "pairs/cluster_med_10",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8290,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "cluster_med_11",
+      "pair_dir": "pairs/cluster_med_11",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8326,
+      "vague_template_idx": 1,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_12",
+      "pair_dir": "pairs/cluster_med_12",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8338,
+      "vague_template_idx": 4,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "cluster_med_13",
+      "pair_dir": "pairs/cluster_med_13",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8364,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "cluster_med_14",
+      "pair_dir": "pairs/cluster_med_14",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8387,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "cluster_med_15",
+      "pair_dir": "pairs/cluster_med_15",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8388,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "cluster_med_16",
+      "pair_dir": "pairs/cluster_med_16",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8410,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "cluster_med_17",
+      "pair_dir": "pairs/cluster_med_17",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8429,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_18",
+      "pair_dir": "pairs/cluster_med_18",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8447,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_19",
+      "pair_dir": "pairs/cluster_med_19",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8514,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_20",
+      "pair_dir": "pairs/cluster_med_20",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8569,
+      "vague_template_idx": 4,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_21",
+      "pair_dir": "pairs/cluster_med_21",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8579,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_22",
+      "pair_dir": "pairs/cluster_med_22",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8583,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "cluster_med_23",
+      "pair_dir": "pairs/cluster_med_23",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8609,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "cluster_med_24",
+      "pair_dir": "pairs/cluster_med_24",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8617,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "cluster_med_25",
+      "pair_dir": "pairs/cluster_med_25",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8632,
+      "vague_template_idx": 0,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "cluster_med_26",
+      "pair_dir": "pairs/cluster_med_26",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8658,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "cluster_med_27",
+      "pair_dir": "pairs/cluster_med_27",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8717,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "cluster_med_28",
+      "pair_dir": "pairs/cluster_med_28",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8737,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "cluster_med_29",
+      "pair_dir": "pairs/cluster_med_29",
+      "archetype": "cluster",
+      "difficulty": "med",
+      "base_seed": 8762,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    }
+  ]
+}

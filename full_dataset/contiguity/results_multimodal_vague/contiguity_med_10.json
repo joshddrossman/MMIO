@@ -1,0 +1,429 @@
+{
+  "pair_id": "contiguity_med_10",
+  "modality": "multimodal",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": true,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "429db691730c5cc4a6f6e6507a788c28b39824783b1da867c07ce830153f6f91",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 8,
+        "n_components": 2,
+        "components": [
+          [
+            25,
+            41
+          ],
+          [
+            16,
+            17
+          ]
+        ],
+        "component_voters": [
+          2151,
+          699
+        ],
+        "largest_component_voters": 2151,
+        "disjoint_excess_voters": 699,
+        "worst_pair_separation_km": 2.432948630078691
+      }
+    ],
+    "n_split_sites_baseline": 1,
+    "total_disjoint_excess_voters_baseline": 699,
+    "worst_culprit_site": 8,
+    "worst_culprit_disjoint_voters": 699,
+    "smallest_component_centroid": [
+      5.408133184515095,
+      2.529783170486687
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7934,
+    "attempt": 0,
+    "pair_id": "contiguity_med_10",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 4.484735233958739,
+        "A_hull": 4.806696800585843,
+        "solidity": 0.9330181245074866
+      },
+      "1": {
+        "A": 3.9897982374182477,
+        "A_hull": 4.55039014166309,
+        "solidity": 0.8768035516093229
+      },
+      "2": {
+        "A": 4.946844776647055,
+        "A_hull": 5.763743339814652,
+        "solidity": 0.8582694414019715
+      },
+      "3": {
+        "A": 4.7751319411125985,
+        "A_hull": 5.997323299916669,
+        "solidity": 0.7962105263157895
+      },
+      "5": {
+        "A": 3.4923360521198963,
+        "A_hull": 3.891315875861723,
+        "solidity": 0.8974691758598309
+      },
+      "8": {
+        "A": 3.893841064619581,
+        "A_hull": 6.624832706244791,
+        "solidity": 0.5877644368210407
+      },
+      "11": {
+        "A": 9.012398676801093,
+        "A_hull": 10.13484507966971,
+        "solidity": 0.8892487853494454
+      },
+      "21": {
+        "A": 8.845736218782354,
+        "A_hull": 10.677760662609531,
+        "solidity": 0.8284261558472271
+      },
+      "23": {
+        "A": 8.88108886139239,
+        "A_hull": 11.066639731319915,
+        "solidity": 0.8025099828864805
+      },
+      "27": {
+        "A": 7.2725436226357925,
+        "A_hull": 7.845761470669928,
+        "solidity": 0.9269391696169944
+      },
+      "28": {
+        "A": 5.830660841897933,
+        "A_hull": 5.852124946339739,
+        "solidity": 0.9963322545846819
+      },
+      "29": {
+        "A": 9.257341986313477,
+        "A_hull": 10.365899851013863,
+        "solidity": 0.8930572472594398
+      },
+      "31": {
+        "A": 2.808009898739931,
+        "A_hull": 2.7398298022777205,
+        "solidity": 1.0
+      },
+      "32": {
+        "A": 5.0226004393828445,
+        "A_hull": 4.929168455342038,
+        "solidity": 1.0
+      },
+      "33": {
+        "A": 8.8053331986566,
+        "A_hull": 10.950481048458375,
+        "solidity": 0.8041046927245472
+      },
+      "34": {
+        "A": 3.3256735941011595,
+        "A_hull": 3.2372919875760715,
+        "solidity": 1.0
+      },
+      "37": {
+        "A": 2.5681169667432644,
+        "A_hull": 2.518875785965001,
+        "solidity": 1.0
+      },
+      "38": {
+        "A": 3.7953587030630542,
+        "A_hull": 4.747354864776144,
+        "solidity": 0.7994680851063828
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+    "precise_text": "The catchment of polling place 8 is non-contiguous: its assigned precincts come in disjoint clumps. Reassign so the service area is one connected piece, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 2,
+    "precise_template_idx": 1
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        51,
+        33
+      ],
+      [
+        65,
+        23
+      ],
+      [
+        76,
+        1
+      ]
+    ],
+    "rationale": "Repair fragmented catchments with a minimal set of surgical precinct reassignments: precinct 51 from site 21 to 33, precinct 65 from site 11 to 23, and precinct 76 from site 33 to 1, while letting the MILP rebalance the rest to restore feasibility and preserve travel efficiency."
+  },
+  "score": {
+    "query_id": "contiguity_contiguity_med_10_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 1.0,
+    "target_response": 0.0,
+    "raw_improvement": 1.0,
+    "fraction_improved": 1.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 48264.34300855665,
+        "response": 48402.61769816688,
+        "bound": 50677.56015898449,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.6376048910782766,
+        "response": 1.6094846754114696,
+        "bound": 1.6376048910782766,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 48264.34300855665,
+    "final_assignment_distance": 48402.61769816688,
+    "assignment_distance_delta": 138.2746896102326,
+    "success": true
+  },
+  "superscore": {
+    "selected_explored_index": 1,
+    "selected_source": "resolve",
+    "selected_iteration": 3,
+    "selected_resolve_index": 1,
+    "selected_n_resolves": 1,
+    "selected_n_local_edits": 3,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 2,
+    "n_explored_primary_improved": 1,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Selected explored candidate is valid and improves the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 1.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 3,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 3,
+        "target_response": 0.0,
+        "fraction_improved": 1.0,
+        "valid": true,
+        "success": true,
+        "assignment_distance_delta": 138.2746896102326
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_10_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 1.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 48264.34300855665,
+              "response": 48264.34300855665,
+              "bound": 50677.56015898449,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.6376048910782766,
+              "response": 1.6376048910782766,
+              "bound": 1.6376048910782766,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 48264.34300855665,
+          "final_assignment_distance": 48264.34300855665,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 3,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 3,
+        "proposal": {
+          "force_assign": [
+            [
+              51,
+              33
+            ],
+            [
+              65,
+              23
+            ],
+            [
+              76,
+              1
+            ]
+          ],
+          "rationale": "Repair fragmented catchments with a minimal set of surgical precinct reassignments: precinct 51 from site 21 to 33, precinct 65 from site 11 to 23, and precinct 76 from site 33 to 1, while letting the MILP rebalance the rest to restore feasibility and preserve travel efficiency."
+        },
+        "score": {
+          "query_id": "contiguity_contiguity_med_10_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 0.0,
+          "raw_improvement": 1.0,
+          "fraction_improved": 1.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 48264.34300855665,
+              "response": 48402.61769816688,
+              "bound": 50677.56015898449,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.6376048910782766,
+              "response": 1.6094846754114696,
+              "bound": 1.6376048910782766,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 48264.34300855665,
+          "final_assignment_distance": 48402.61769816688,
+          "assignment_distance_delta": 138.2746896102326,
+          "success": true
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_10.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 6,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 3,
+    "local_edit_tool_counts": {
+      "force_assign": 3
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 11,
+    "tool_call_counts": {
+      "view_solution": 2,
+      "get_current_assignments": 1,
+      "get_precinct_adjacency": 1,
+      "list_sites": 1,
+      "get_distance_matrix": 1,
+      "force_assign": 3,
+      "resolve": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 6,
+    "usage": {
+      "prompt_tokens": 102017,
+      "completion_tokens": 731,
+      "total_tokens": 102748,
+      "cached_tokens": 79744,
+      "reasoning_tokens": 0
+    },
+    "n_view_solution": 2,
+    "view_purpose_counts": {
+      "baseline_vs_critique": 1,
+      "post_action_vs_baseline": 1
+    },
+    "had_baseline_view": true,
+    "pending_post_action_view_at_end": false
+  },
+  "elapsed_sec": 35.59443998336792,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 10,
+    "modality_for_this_result": "multimodal",
+    "run_order_this_pair": [
+      "multimodal",
+      "tools_only"
+    ]
+  }
+}

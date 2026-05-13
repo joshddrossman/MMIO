@@ -1,0 +1,3 @@
+# Optional extras for homework_5 (install on top of repo requirements.txt)
+discord.py>=2.3.0
+langfuse>=2.0.0

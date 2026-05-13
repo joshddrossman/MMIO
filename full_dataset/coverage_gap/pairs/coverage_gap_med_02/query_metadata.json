@@ -1,0 +1,249 @@
+{
+  "archetype": "coverage_gap",
+  "current_max_distance_km": 3.096175204597743,
+  "most_stranded_precinct": 72,
+  "most_stranded_distance_km": 3.096175204597743,
+  "best_candidate_idx": 20,
+  "best_candidate_new_max_km": 2.042976117669405,
+  "best_improvement_km": 1.053199086928338,
+  "per_candidate_improvement": {
+    "20": {
+      "improvement_km": 1.053199086928338,
+      "new_max_km": 2.042976117669405
+    },
+    "12": {
+      "improvement_km": 1.0407967624671435,
+      "new_max_km": 2.0553784421305994
+    },
+    "26": {
+      "improvement_km": 0.6388770821093477,
+      "new_max_km": 2.457298122488395
+    },
+    "6": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "9": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "13": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "14": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "15": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "17": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "19": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "21": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "22": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "24": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "25": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "27": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "28": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "29": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "31": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "34": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "35": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "37": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    },
+    "39": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.096175204597743
+    }
+  },
+  "candidates_ranked_by_improvement": [
+    20,
+    12,
+    26,
+    6,
+    9,
+    13,
+    14,
+    15,
+    17,
+    19,
+    21,
+    22,
+    24,
+    25,
+    27,
+    28,
+    29,
+    31,
+    34,
+    35,
+    37,
+    39
+  ],
+  "coverage_gap_center": [
+    0.9379047324388867,
+    7.667834948372753
+  ],
+  "coverage_gap_radius": 3.6935487576650514,
+  "affected_precincts": [
+    41,
+    52,
+    61,
+    72,
+    73
+  ],
+  "coverage_gap_distance_threshold": 1.8496227189166774,
+  "coverage_gap_baseline_strand_count": 5,
+  "n_opened": 18,
+  "n_closed_candidates": 22,
+  "min_max_distance_threshold_km": 2.6,
+  "min_improvement_threshold_km": 1.0,
+  "base_seed": 9276,
+  "attempt": 0,
+  "uncapacitated": true,
+  "pair_id": "coverage_gap_med_02",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_max_distance": 2.6,
+    "min_improvement": 1.0
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 4.181712583015581,
+      "A_hull": 4.83068609378551,
+      "solidity": 0.8656560376372192
+    },
+    "1": {
+      "A": 4.414029948738668,
+      "A_hull": 5.679149516426353,
+      "solidity": 0.7772343263672743
+    },
+    "2": {
+      "A": 2.073179970202773,
+      "A_hull": 3.1640615135981407,
+      "solidity": 0.6552274541101359
+    },
+    "3": {
+      "A": 5.722077725309967,
+      "A_hull": 7.031388096260195,
+      "solidity": 0.8137906266834262
+    },
+    "4": {
+      "A": 3.3458751041640364,
+      "A_hull": 3.2006767505871063,
+      "solidity": 1.0
+    },
+    "5": {
+      "A": 5.48976035958688,
+      "A_hull": 7.090730032069897,
+      "solidity": 0.7742165242165243
+    },
+    "7": {
+      "A": 4.313022398424283,
+      "A_hull": 5.1109820459079325,
+      "solidity": 0.8438735177865613
+    },
+    "8": {
+      "A": 6.810434079947477,
+      "A_hull": 8.285144314537511,
+      "solidity": 0.8220054861322769
+    },
+    "10": {
+      "A": 6.924067574051161,
+      "A_hull": 7.5515769803792825,
+      "solidity": 0.9169035278381544
+    },
+    "11": {
+      "A": 5.92156763718088,
+      "A_hull": 6.61725713997121,
+      "solidity": 0.8948673917191381
+    },
+    "16": {
+      "A": 9.509860862099442,
+      "A_hull": 10.144945834701145,
+      "solidity": 0.9373988799004355
+    },
+    "18": {
+      "A": 6.520037372793617,
+      "A_hull": 6.960682811040125,
+      "solidity": 0.9366950843460912
+    },
+    "23": {
+      "A": 9.716926340243935,
+      "A_hull": 11.081790863867074,
+      "solidity": 0.8768371881052753
+    },
+    "30": {
+      "A": 8.0856544026666,
+      "A_hull": 8.684124138279335,
+      "solidity": 0.9310846176214018
+    },
+    "32": {
+      "A": 3.5781924698871244,
+      "A_hull": 4.184237771773439,
+      "solidity": 0.855159927579964
+    },
+    "33": {
+      "A": 5.550364889775511,
+      "A_hull": 5.7826822554985995,
+      "solidity": 0.959825327510917
+    },
+    "36": {
+      "A": 2.6438726294790538,
+      "A_hull": 2.5453902679225284,
+      "solidity": 1.0
+    },
+    "38": {
+      "A": 6.2069139668190205,
+      "A_hull": 6.223327693745103,
+      "solidity": 0.9973625481842167
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "I see a precinct (or a small set) whose voters face an unusually long trip to reach their assigned polling place. The worst case sticks out from the rest of the map. Address it without creating new long-travel precincts elsewhere.",
+  "precise_text": "Precinct 72 is stranded at 3.1 km from its assigned polling place. Bring the worst-case travel distance down, but be careful not to create new long-travel precincts elsewhere.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 3
+}

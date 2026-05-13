@@ -1,0 +1,131 @@
+{
+  "archetype": "cluster",
+  "cluster_center": [
+    7.547800608719372,
+    3.3480370195662874
+  ],
+  "cluster_radius": 1.3,
+  "affected_sites": [
+    1,
+    3,
+    4,
+    8
+  ],
+  "cluster_size": 4,
+  "cluster_density_ratio": 4.18553433509258,
+  "cluster_min_sites": 4,
+  "cluster_density_factor": 2.0,
+  "base_seed": 8326,
+  "attempt": 0,
+  "pair_id": "cluster_med_11",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "cluster_radius": 1.3,
+    "cluster_min_sites": 4,
+    "cluster_density_factor": 2.0
+  },
+  "per_catchment_solidity": {
+    "1": {
+      "A": 3.9620211610817915,
+      "A_hull": 4.544077169768441,
+      "solidity": 0.8719088635732148
+    },
+    "2": {
+      "A": 5.0756294032978975,
+      "A_hull": 7.544001414105707,
+      "solidity": 0.6728033472803346
+    },
+    "3": {
+      "A": 3.199414156208177,
+      "A_hull": 3.435519305068053,
+      "solidity": 0.9312752664461599
+    },
+    "4": {
+      "A": 2.9948738668215453,
+      "A_hull": 5.105931668392214,
+      "solidity": 0.5865479723046488
+    },
+    "6": {
+      "A": 7.176586449837126,
+      "A_hull": 7.9707583141839855,
+      "solidity": 0.9003643275780137
+    },
+    "8": {
+      "A": 3.381227746774072,
+      "A_hull": 3.9607585667028613,
+      "solidity": 0.8536818616512593
+    },
+    "14": {
+      "A": 11.133557233403199,
+      "A_hull": 11.633544607459408,
+      "solidity": 0.9570219231604082
+    },
+    "15": {
+      "A": 9.451781520668671,
+      "A_hull": 11.142395394055704,
+      "solidity": 0.8482719546742212
+    },
+    "18": {
+      "A": 5.189262897401582,
+      "A_hull": 5.903891315875864,
+      "solidity": 0.8789563729683488
+    },
+    "19": {
+      "A": 4.0680790889118965,
+      "A_hull": 4.641296936946037,
+      "solidity": 0.8764961915125137
+    },
+    "25": {
+      "A": 9.646221055023863,
+      "A_hull": 10.119693947122546,
+      "solidity": 0.9532127261384905
+    },
+    "28": {
+      "A": 10.03762531249211,
+      "A_hull": 11.36461200474735,
+      "solidity": 0.8832351960893239
+    },
+    "29": {
+      "A": 6.658922754475898,
+      "A_hull": 8.200550491149212,
+      "solidity": 0.812009237875289
+    },
+    "31": {
+      "A": 3.272644630186107,
+      "A_hull": 3.5516779879295988,
+      "solidity": 0.9214361891219338
+    },
+    "34": {
+      "A": 4.419080326254388,
+      "A_hull": 4.297871265877124,
+      "solidity": 1.0
+    },
+    "35": {
+      "A": 4.684225145829651,
+      "A_hull": 4.674124390798213,
+      "solidity": 1.0
+    },
+    "37": {
+      "A": 2.9595212242115103,
+      "A_hull": 2.863564051412843,
+      "solidity": 1.0
+    },
+    "38": {
+      "A": 3.696876341506528,
+      "A_hull": 4.756193025428652,
+      "solidity": 0.7772763472259091
+    }
+  },
+  "globally_clustered_sites": [
+    1,
+    3,
+    4,
+    8
+  ],
+  "clustered_sites_radius": 1.3,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "Looking at the solution, I see an over-concentration of polling sites \u2014 several bunched together in a small area while other regions are sparser. Re-balance by reducing the cluster.",
+  "precise_text": "There's an over-concentration of polling places: sites 1, 3, 4, 8 are within walking distance of each other. Close some so we free budget for sparser areas, but be mindful about creating clusters elsewhere.",
+  "vague_template_idx": 1,
+  "precise_template_idx": 2
+}

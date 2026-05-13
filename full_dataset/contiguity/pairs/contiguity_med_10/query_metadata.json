@@ -1,0 +1,143 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 8,
+      "n_components": 2,
+      "components": [
+        [
+          25,
+          41
+        ],
+        [
+          16,
+          17
+        ]
+      ],
+      "component_voters": [
+        2151,
+        699
+      ],
+      "largest_component_voters": 2151,
+      "disjoint_excess_voters": 699,
+      "worst_pair_separation_km": 2.432948630078691
+    }
+  ],
+  "n_split_sites_baseline": 1,
+  "total_disjoint_excess_voters_baseline": 699,
+  "worst_culprit_site": 8,
+  "worst_culprit_disjoint_voters": 699,
+  "smallest_component_centroid": [
+    5.408133184515095,
+    2.529783170486687
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7934,
+  "attempt": 0,
+  "pair_id": "contiguity_med_10",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 4.484735233958739,
+      "A_hull": 4.806696800585843,
+      "solidity": 0.9330181245074866
+    },
+    "1": {
+      "A": 3.9897982374182477,
+      "A_hull": 4.55039014166309,
+      "solidity": 0.8768035516093229
+    },
+    "2": {
+      "A": 4.946844776647055,
+      "A_hull": 5.763743339814652,
+      "solidity": 0.8582694414019715
+    },
+    "3": {
+      "A": 4.7751319411125985,
+      "A_hull": 5.997323299916669,
+      "solidity": 0.7962105263157895
+    },
+    "5": {
+      "A": 3.4923360521198963,
+      "A_hull": 3.891315875861723,
+      "solidity": 0.8974691758598309
+    },
+    "8": {
+      "A": 3.893841064619581,
+      "A_hull": 6.624832706244791,
+      "solidity": 0.5877644368210407
+    },
+    "11": {
+      "A": 9.012398676801093,
+      "A_hull": 10.13484507966971,
+      "solidity": 0.8892487853494454
+    },
+    "21": {
+      "A": 8.845736218782354,
+      "A_hull": 10.677760662609531,
+      "solidity": 0.8284261558472271
+    },
+    "23": {
+      "A": 8.88108886139239,
+      "A_hull": 11.066639731319915,
+      "solidity": 0.8025099828864805
+    },
+    "27": {
+      "A": 7.2725436226357925,
+      "A_hull": 7.845761470669928,
+      "solidity": 0.9269391696169944
+    },
+    "28": {
+      "A": 5.830660841897933,
+      "A_hull": 5.852124946339739,
+      "solidity": 0.9963322545846819
+    },
+    "29": {
+      "A": 9.257341986313477,
+      "A_hull": 10.365899851013863,
+      "solidity": 0.8930572472594398
+    },
+    "31": {
+      "A": 2.808009898739931,
+      "A_hull": 2.7398298022777205,
+      "solidity": 1.0
+    },
+    "32": {
+      "A": 5.0226004393828445,
+      "A_hull": 4.929168455342038,
+      "solidity": 1.0
+    },
+    "33": {
+      "A": 8.8053331986566,
+      "A_hull": 10.950481048458375,
+      "solidity": 0.8041046927245472
+    },
+    "34": {
+      "A": 3.3256735941011595,
+      "A_hull": 3.2372919875760715,
+      "solidity": 1.0
+    },
+    "37": {
+      "A": 2.5681169667432644,
+      "A_hull": 2.518875785965001,
+      "solidity": 1.0
+    },
+    "38": {
+      "A": 3.7953587030630542,
+      "A_hull": 4.747354864776144,
+      "solidity": 0.7994680851063828
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+  "precise_text": "The catchment of polling place 8 is non-contiguous: its assigned precincts come in disjoint clumps. Reassign so the service area is one connected piece, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 1
+}

@@ -332,21 +332,92 @@ python dataset_generator.py --archetype contiguity --n_pairs 25
 
 ```sh
 # All four cells per archetype, written to results_<modality>_<query_type>/
+# Optional: --temperature 0 --seed 42 for reproducibility on models that
+# accept temperature=0 (omit --temperature for gpt-5-mini — API may reject it).
 for arch in cluster coverage_gap contiguity shape_niceness; do
   for qt in vague precise; do
     for vis in "" "--no_visual"; do
       python run_dataset.py \
           --dataset_dir out/full_dataset/$arch \
           --query_type $qt $vis \
-          --model gpt-4o
+          --model gpt-5-mini \
+          --temperature 0 --seed 42
     done
   done
 done
-
-# Or one cell at a time:
-python run_dataset.py --dataset_dir out/full_dataset/contiguity \
-                      --query_type vague --no_visual --first_n 5
 ```
+
+**zsh:** unquoted `$EXTRA` is *not* word-split by default. If you use a variable for extra flags, either put them on the line explicitly (as above), use an array — `extra=(--temperature 0 --seed 42); python run_dataset.py ... "${extra[@]}"` — or force splitting with `${=EXTRA}`.
+
+```sh
+# Or one cell at a time:
+python run_dataset.py --dataset_dir out/full_dataset/cluster \
+                      --query_type vague --first_n 5 --model gpt-5-mini
+```
+
+
+
+Command **to re-run with a saved log**
+
+```
+cd /Users/cat2510/MMIO 
+
+python test_agent.py \
+
+  --pair_dir out/full_dataset/cluster/pairs/03 \
+
+  --query_type vague \
+
+  --model gpt-5-mini \
+
+  --save_log /verbose_logs/cluster_03_vague_log.json 
+```
+
+Then inspect the full trajectory:
+
+```
+python3 -c "import json
+
+log = json.load(open('/verbose_logs/cluster_03_vague_log.json'))
+
+for e in log:
+
+    ev = e.get('event')
+
+    if ev in ('tool_call', 'resolve_applied', 'local_edit', 'solution_submitted', 'trajectory_summary'):
+
+        print(json.dumps(e, indent=2))"
+```
+
+Or, to see just the resolve outcome and the view_solution purposes:
+
+```
+python3 -c " import json log = json.load(open('/verbose_logs/cluster_03_vague_log.json'))
+
+for e in log:
+
+    ev = e.get('event')
+
+    if ev == 'resolve_applied':
+
+        print('RESOLVE:', json.dumps({k:v for k,v in e.items() if k != 'proposal'}, indent=2))
+
+        print('  fixings:', e.get('proposal', {}).get('force_close'), e.get('proposal', {}).get('force_open'))
+
+    elif ev == 'tool_call' and e.get('name') == 'view_solution':
+
+        print('VIEW_SOLUTION: purpose=', e.get('view_purpose'), 'layers=', e.get('layers'))
+
+    elif ev == 'trajectory_summary':
+
+        print('SUMMARY:', json.dumps(e, indent=2))
+
+"
+```
+
+
+
+The key thing to look for in the log: after the resolve, `explore_scores[1].valid = false` tells you the guard failed. The `rationale` field in the `resolve_applied` event will show the agent thought it was closing a cluster site, but `affected_sites` in the pair metadata shows the actual cluster was `[1, 8, 33, 36]` — the agent closed site 5 by mistake after mis-reading the visual.
 
 ### Single-pair smoke against the agent
 

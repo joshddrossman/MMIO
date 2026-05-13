@@ -1,0 +1,500 @@
+{
+  "pair_id": "contiguity_med_18",
+  "modality": "tools_only",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": false,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "aa70ee439ea11580dac521bfa63ba55752f2506ca0fc50560363dbbe358d6f10",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 0,
+        "n_components": 2,
+        "components": [
+          [
+            43,
+            12
+          ],
+          [
+            21
+          ]
+        ],
+        "component_voters": [
+          2705,
+          18
+        ],
+        "largest_component_voters": 2705,
+        "disjoint_excess_voters": 18,
+        "worst_pair_separation_km": 2.072827583219845
+      },
+      {
+        "site": 5,
+        "n_components": 2,
+        "components": [
+          [
+            20,
+            28,
+            29,
+            30,
+            26
+          ],
+          [
+            33
+          ]
+        ],
+        "component_voters": [
+          3813,
+          187
+        ],
+        "largest_component_voters": 3813,
+        "disjoint_excess_voters": 187,
+        "worst_pair_separation_km": 1.074809945900246
+      }
+    ],
+    "n_split_sites_baseline": 2,
+    "total_disjoint_excess_voters_baseline": 205,
+    "worst_culprit_site": 5,
+    "worst_culprit_disjoint_voters": 187,
+    "smallest_component_centroid": [
+      7.599172332249491,
+      3.8025421223765887
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7948,
+    "attempt": 0,
+    "pair_id": "contiguity_med_18",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 4.674124390798212,
+        "A_hull": 5.862225701371178,
+        "solidity": 0.7973293129442172
+      },
+      "1": {
+        "A": 6.174086512966845,
+        "A_hull": 6.8255852124946355,
+        "solidity": 0.9045504994450609
+      },
+      "2": {
+        "A": 3.4569834095098613,
+        "A_hull": 4.051665361985809,
+        "solidity": 0.8532253038329697
+      },
+      "4": {
+        "A": 3.199414156208177,
+        "A_hull": 3.129971465367037,
+        "solidity": 1.0
+      },
+      "5": {
+        "A": 4.860988358879827,
+        "A_hull": 6.874826393272898,
+        "solidity": 0.7070707070707071
+      },
+      "6": {
+        "A": 3.1186081159566683,
+        "A_hull": 4.1791873942577205,
+        "solidity": 0.746223564954683
+      },
+      "8": {
+        "A": 5.047852326961441,
+        "A_hull": 8.828059897477338,
+        "solidity": 0.5717963386727688
+      },
+      "12": {
+        "A": 8.598267720512109,
+        "A_hull": 9.417691472437566,
+        "solidity": 0.9129910175626759
+      },
+      "14": {
+        "A": 5.2700689376530905,
+        "A_hull": 6.49478548521502,
+        "solidity": 0.8114307931570762
+      },
+      "19": {
+        "A": 6.28519481831267,
+        "A_hull": 6.602106007424056,
+        "solidity": 0.9519984700707592
+      },
+      "22": {
+        "A": 7.5553647635160734,
+        "A_hull": 8.398777808641192,
+        "solidity": 0.8995790739627184
+      },
+      "24": {
+        "A": 8.552814322870635,
+        "A_hull": 11.470669932577458,
+        "solidity": 0.7456246560264174
+      },
+      "25": {
+        "A": 8.876038483876671,
+        "A_hull": 9.825509456831895,
+        "solidity": 0.9033667437676695
+      },
+      "26": {
+        "A": 7.383651927981617,
+        "A_hull": 7.527587687179615,
+        "solidity": 0.9808788996980882
+      },
+      "32": {
+        "A": 3.3484002929218963,
+        "A_hull": 4.672861796419281,
+        "solidity": 0.7165630910564715
+      },
+      "34": {
+        "A": 5.171586576096564,
+        "A_hull": 5.068053837024318,
+        "solidity": 1.0
+      },
+      "35": {
+        "A": 6.184187267998284,
+        "A_hull": 6.535188505340775,
+        "solidity": 0.94629057187017
+      },
+      "38": {
+        "A": 3.24991793136537,
+        "A_hull": 3.1388096260195453,
+        "solidity": 1.0
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "There are visible service-area splits: opened sites whose catchments appear in disconnected regions. Eliminate them.",
+    "precise_text": "Polling place 5 is serving voters from at least two disjoint regions. That can't be right \u2014 make its catchment contiguous, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 4,
+    "precise_template_idx": 4
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        21,
+        0
+      ]
+    ],
+    "rationale": "Previous coordinated reassignment worsened the split metric. Revert the speculative move of precinct 21 and let the optimizer restore the original baseline structure; this returns to the known better contiguity state while keeping the session feasible."
+  },
+  "score": {
+    "query_id": "contiguity_contiguity_med_18_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 2.0,
+    "target_response": 2.0,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 48543.74890235807,
+        "response": 48543.74890235807,
+        "bound": 50970.936347475974,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.5958961088843686,
+        "response": 1.5958961088843686,
+        "bound": 1.5958961088843686,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 48543.74890235807,
+    "final_assignment_distance": 48543.74890235807,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 2,
+    "selected_source": "resolve",
+    "selected_iteration": 13,
+    "selected_resolve_index": 2,
+    "selected_n_resolves": 2,
+    "selected_n_local_edits": 4,
+    "n_feasible_explored": 3,
+    "selected_valid": true,
+    "n_explored_valid": 3,
+    "n_explored_primary_improved": 0,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Selected explored candidate is valid but did not improve the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 11,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 4,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 2214.2502047809976
+      },
+      {
+        "explored_index": 2,
+        "source": "resolve",
+        "iteration": 13,
+        "resolve_index": 2,
+        "n_resolves": 2,
+        "n_local_edits": 4,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_18_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 48543.74890235807,
+              "response": 48543.74890235807,
+              "bound": 50970.936347475974,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5958961088843686,
+              "response": 1.5958961088843686,
+              "bound": 1.5958961088843686,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 48543.74890235807,
+          "final_assignment_distance": 48543.74890235807,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 11,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 4,
+        "proposal": {
+          "force_assign": [
+            [
+              21,
+              5
+            ],
+            [
+              33,
+              6
+            ],
+            [
+              26,
+              26
+            ]
+          ],
+          "rationale": "Eliminate disconnected catchment pieces with a minimal coordinated rebalance: move precinct 21 from site 0 into adjacent site-5 territory to remove site 0's singleton fragment; move precinct 33 from site 5 to nearby site 6; and move precinct 26 from overloaded site 5 to site 26, which has ample spare capacity. This is intended to restore capacity while making eastern/western service areas more contiguous."
+        },
+        "score": {
+          "query_id": "contiguity_contiguity_med_18_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 48543.74890235807,
+              "response": 50757.99910713907,
+              "bound": 50970.936347475974,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5958961088843686,
+              "response": 1.583765211483645,
+              "bound": 1.5958961088843686,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 48543.74890235807,
+          "final_assignment_distance": 50757.99910713907,
+          "assignment_distance_delta": 2214.2502047809976,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 2,
+        "source": "resolve",
+        "iteration": 13,
+        "resolve_index": 2,
+        "n_resolves": 2,
+        "n_local_edits": 4,
+        "proposal": {
+          "force_assign": [
+            [
+              21,
+              0
+            ]
+          ],
+          "rationale": "Previous coordinated reassignment worsened the split metric. Revert the speculative move of precinct 21 and let the optimizer restore the original baseline structure; this returns to the known better contiguity state while keeping the session feasible."
+        },
+        "score": {
+          "query_id": "contiguity_contiguity_med_18_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 48543.74890235807,
+              "response": 48543.74890235807,
+              "bound": 50970.936347475974,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.5958961088843686,
+              "response": 1.5958961088843686,
+              "bound": 1.5958961088843686,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 48543.74890235807,
+          "final_assignment_distance": 48543.74890235807,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_18.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 15,
+    "n_resolves": 2,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 4,
+    "local_edit_tool_counts": {
+      "force_assign": 4
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 22,
+    "tool_call_counts": {
+      "list_sites": 4,
+      "get_current_assignments": 4,
+      "get_precinct_adjacency": 2,
+      "get_distance_matrix": 2,
+      "force_assign": 4,
+      "swap_assignments": 3,
+      "resolve": 2,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 15,
+    "usage": {
+      "prompt_tokens": 371740,
+      "completion_tokens": 1275,
+      "total_tokens": 373015,
+      "cached_tokens": 333312,
+      "reasoning_tokens": 0
+    }
+  },
+  "elapsed_sec": 28.184705018997192,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 18,
+    "modality_for_this_result": "tools_only",
+    "run_order_this_pair": [
+      "multimodal",
+      "tools_only"
+    ]
+  }
+}

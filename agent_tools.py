@@ -6,8 +6,10 @@ The agent's typical workflow:
        to perceive the spatial pattern that motivates the user's critique.
     2. Identify which precincts and sites are relevant to acting on. There are
        two complementary identification paths:
-         (a) Visual: the rendered map carries site index labels (and optional
-             precinct index labels) so the agent can read indices directly.
+         (a) Visual: the default ``rendering`` views carry site index labels
+             (and optional precinct labels). The ``v2_no_markers`` view
+             deliberately omits markers — use it for catchment **shape** and
+             then recover indices from structured tools.
          (b) Structured lookup: list_precincts_in_region(polygon),
              get_precinct_at(x, y), list_sites(opened_only=True),
              get_site_at(x, y) return precinct/site indices and metadata
@@ -19,6 +21,37 @@ The agent's typical workflow:
        to force-assign to which site.
     4. Call apply_proposal(instance, proposal) to re-solve under the fixings
        and obtain a new Solution.
+
+Coverage-gap archetype (``queries.make_coverage_gap_query_from_metadata``)
+---------------------------------------------------------------------------
+The benchmark primary target is **not** a count of “stranded” precincts above
+a distance threshold (see legacy ``n_precincts_in_coverage_gap`` in
+``queries.py``). It is ``max_assignment_distance``: the **maximum**, over all
+precincts, of **distance to the nearest currently opened site** (uncapacitated
+nearest-facility on the opened set). Direction: minimize.
+
+**Important:** ``get_current_assignments`` reports each precinct's distance to
+its **assigned** opened site. Under capacity constraints that assignment can
+be farther than the geographically nearest opened site. For coverage-gap
+diagnostics, compute nearest-opened distances via
+``nearest_open_site_km_per_precinct`` / ``coverage_gap_max_nearest_open_km``
+or by taking row-wise minima over opened-site columns in
+``get_distance_matrix_data`` (``opened_only=True``).
+
+To reason about **opening one extra closed candidate** *j* in the same
+uncapacitated sense as the perception harness (``coverage_gap.py``), use
+``max_nearest_open_km_if_site_opened``: for each precinct *i*,
+``new_dist_i = min(current_nearest_open_i, dist[i, j])``; the quantity to
+minimize is ``max_i new_dist_i``. After an MILP ``resolve``, assignments and
+opens may differ; the scored metric is always nearest-to-opened on the
+**resulting** opened set.
+
+Renderer note: ``rendering_v2_no_markers`` hides site markers and labels but
+shows saturated catchment fills with black catchment outlines — ideal for
+**shape** and **coverage-pattern** reasoning in interactive optimization when
+paired with structured tools (``list_sites``, ``get_distance_matrix``) for
+indices and distances. It is exposed as the ``v2_no_markers`` ``view_solution``
+layer in ``test_agent``.
 """
 from __future__ import annotations
 
@@ -32,6 +65,109 @@ from matplotlib.path import Path
 from instance import Instance, Solution
 from solver import solve_baseline, FixingConstraints
 from rendering import render_view
+
+
+# ---------------------------------------------------------------------------
+# Coverage-gap metric helpers (aligned with ``queries.max_assignment_distance``)
+# ---------------------------------------------------------------------------
+COVERAGE_GAP_TOOL_NOTE = (
+    "Coverage-gap scoring (``queries.max_assignment_distance``) minimizes the "
+    "MAX over precincts of distance-to-nearest-OPENED-site (not a stranded "
+    "precinct count). assigned_distance from get_current_assignments can "
+    "exceed nearest-opened distance when capacity forces a longer assignment; "
+    "use get_distance_matrix(opened_only=True) row-wise minima. For spatial "
+    "patterning of catchments, multimodal agents can call view_solution with "
+    "layers=['v2_no_markers'] (no site labels on the map — use list_sites for "
+    "indices)."
+)
+
+COVERAGE_GAP_AGENT_GUIDANCE = """
+ARCHETYPE HINT — coverage_gap (aligned with queries.make_coverage_gap_query_from_metadata)
+- Primary metric (``max_assignment_distance`` in ``queries.py``): minimize the
+  **maximum** over all precincts of distance to the **nearest currently opened**
+  site (row-wise min over opened columns of the precinct×site distance matrix).
+  This is **not** a count of precincts beyond a threshold.
+- Success (benchmark): ``fraction_improved`` ≥ the query metadata threshold
+  (default **0.3** — 30% reduction in that worst-case nearest-open distance),
+  together with feasibility and travel guards.
+- ``get_current_assignments`` reports each precinct's **assigned** site and
+  ``assigned_distance``. That distance can exceed nearest-opened distance when
+  the MILP assigns a precinct to a farther opened site for capacity. For
+  **coverage-gap diagnostics and scoring alignment**, always reason from
+  **nearest opened** per precinct: ``get_distance_matrix(..., opened_only=true)``
+  row minima (or ``nearest_open_site_km_per_precinct`` / ``coverage_gap_max_nearest_open_km``
+  in ``agent_tools.py``), then take the **max** over precincts.
+- When comparing **opening one closed candidate** j in the uncapacitated sense
+  used by ``coverage_gap.py`` / perception harness: for each precinct i,
+  ``new_i = min(current_nearest_open_i, dist[i,j])``; minimize ``max_i new_i``.
+  After a full ``resolve``, the scored quantity is nearest-to-opened on the
+  **resulting** opened set.
+
+VISION (multimodal) — coverage_gap
+- At least once early in the session, call ``view_solution`` with
+  ``layers=['v2_no_markers']`` and an appropriate ``view_purpose``. This view
+  has **no** site index labels or assignment lines: each opened site's service
+  area is a saturated color patch with a **black outer catchment boundary**,
+  which makes **elongated gaps**, **thin corridors**, and **uneven coverage**
+  easy to see. **Do not** read site indices from this map — use
+  ``list_sites(opened_only=true)`` and ``get_distance_matrix`` for indices and
+  numeric distances, then relate those back to the shapes you saw.
+- Use ``baseline`` or ``population_density`` when you need site labels or
+  demand context; use ``v2_no_markers`` when the stakeholder question is about
+  **where** the worst-served pocket *looks* spatially relative to opened
+  catchments, then confirm the worst precinct and distance with tools.
+""".strip()
+
+
+def nearest_open_site_km_per_precinct(
+    instance: Instance,
+    solution: Solution,
+) -> np.ndarray:
+    """Distance from each precinct centroid to its nearest **opened** site (km).
+
+    Row *i* is ``min_{j : x[j]=1} D[i,j]``. The coverage-gap primary metric
+    in ``queries.py`` is ``max`` of this vector (see ``max_assignment_distance``).
+    """
+    opened_idx = np.where(solution.x == 1)[0]
+    if len(opened_idx) == 0:
+        xmin, ymin, xmax, ymax = instance.bounds
+        diam = float(np.hypot(xmax - xmin, ymax - ymin))
+        return np.full(instance.n_precincts, diam, dtype=float)
+    return np.asarray(
+        instance.distance_matrix[:, opened_idx].min(axis=1),
+        dtype=float,
+    )
+
+
+def coverage_gap_max_nearest_open_km(
+    instance: Instance,
+    solution: Solution,
+) -> float:
+    """Return the coverage-gap primary metric value for ``solution`` (km)."""
+    from queries import max_assignment_distance
+
+    return float(max_assignment_distance()(instance, solution))
+
+
+def max_nearest_open_km_if_site_opened(
+    instance: Instance,
+    solution: Solution,
+    site_index: int,
+) -> float:
+    """Uncapacitated hypothetical: opened set ∪ {{site_index}}, then max nearest.
+
+    For each precinct *i*, distance is the min over **current opened** sites
+    plus ``site_index`` (if *j* is already opened, behavior is unchanged).
+    Matches the ``coverage_gap`` perception harness's “open candidate *j*”
+    evaluation (see ``coverage_gap.score`` / ground-truth improvement).
+    """
+    j = int(site_index)
+    if not (0 <= j < instance.n_sites):
+        return float("nan")
+    opened_idx = np.where(solution.x == 1)[0]
+    cols = np.unique(np.concatenate([opened_idx, np.array([j], dtype=int)]))
+    dists = instance.distance_matrix[:, cols].min(axis=1)
+    return float(np.max(dists))
 
 
 # ---------------------------------------------------------------------------
@@ -108,7 +244,7 @@ def list_precincts_in_region(
                     include any precinct whose label-grid raster has any cell
                     inside the polygon (more inclusive).
 
-    Returned per precinct: index, x, y, voters.
+    Returned per precinct: index, x, y, voters (no demographic fields).
     """
     region_arr = np.asarray(region)
     path = Path(region_arr)
@@ -197,6 +333,10 @@ def get_current_assignments(
     Each assignment includes the precinct centroid, voter count, assigned site,
     and assigned travel distance. The optional precinct filter keeps outputs
     manageable when an agent is investigating a specific region.
+
+    For **coverage_gap**, the benchmark target uses distance to the **nearest
+    opened** site, which may be **less than** ``assigned_distance`` when the
+    MILP assigns a precinct to a farther site for capacity or routing reasons.
     """
     if precinct_indices is None:
         idx = list(range(instance.n_precincts))
@@ -245,7 +385,14 @@ def get_distance_matrix_data(
     site_indices: Optional[Iterable[int]] = None,
     opened_only: bool = False,
 ) -> Dict[str, Any]:
-    """Return a JSON-friendly precinct -> site distance matrix slice."""
+    """Return a JSON-friendly precinct -> site distance matrix slice.
+
+    With ``opened_only=True`` (and ``site_indices`` omitted), each row's
+    minimum is the nearest-**opened**-site distance for that precinct — the
+    per-precinct building block of the **coverage_gap** primary metric
+    (``max`` over rows). To evaluate hypothetically opening a closed site *j*,
+    include column *j* alongside opened columns and recompute row-wise minima.
+    """
     if precinct_indices is None:
         precinct_idx = list(range(instance.n_precincts))
     else:
@@ -572,6 +719,21 @@ def get_precinct_adjacency_data(instance: 'Instance') -> Dict[str, Any]:
 # ---------------------------------------------------------------------------
 # View tool: render to PNG bytes for VLM consumption
 # ---------------------------------------------------------------------------
+def view_solution_v2_no_markers_png(
+    instance: Instance,
+    solution: Solution,
+) -> bytes:
+    """Marker-free catchment view (``rendering_v2_no_markers``) for VLMs.
+
+    Shows saturated assignment-colored precinct fills and black catchment
+    outlines only — no site labels, closed-site dots, or assignment lines.
+    Pair with structured tools for indices and distances.
+    """
+    from rendering_v2_no_markers import render as render_v2_nm
+
+    return render_v2_nm(instance, solution)
+
+
 def view_solution_png(
     instance: Instance,
     solution: Optional[Solution] = None,

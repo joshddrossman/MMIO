@@ -7,7 +7,9 @@ For each pair in the dataset:
      --query_type flag.
   3. Construct an ArchetypeQuery from metadata via the dispatch table in
      queries.ARCHETYPE_FACTORIES.
-  4. Run the agent (modality controlled by --no_visual).
+  4. Run the agent (default: paired multimodal + tools-only per pair,
+     counterbalanced order; use --no_paired_modalities for a single modality
+     and --no_visual for tools-only-only).
   5. Score the agent's final solution and save the per-pair result.
 
 Aggregate metrics across all completed pairs are printed at the end and
@@ -18,19 +20,39 @@ The 2x2 experimental matrix is:
 
 Run:
     export OPENAI_API_KEY=...
-    python run_dataset.py --dataset_dir out/full_dataset/contiguity \\
-                          --query_type vague --no_visual
+
+    Full per-pair trajectories (tool calls, resolve_applied, stall nudges):
+    python run_dataset.py --dataset_dir out/full_dataset/cluster \
+        --trajectory_log_dir verbose_logs/cluster_vague_mm --query_type vague
+
+    Compare multimodal vs tools-only aggregates (+ per-pair resolves/nudges):
+    .venv/bin/python scripts/compare_modality_results.py \
+        out/full_dataset/cluster/results_multimodal_vague/aggregate.json \
+        out/full_dataset/cluster/results_tools_only_vague/aggregate.json \
+        --label_a multimodal --label_b tools_only --enrich_from_pair_json \
+        --trajectory_dir_a verbose_logs/cluster_vague_mm \
+        --trajectory_dir_b verbose_logs/cluster_vague_tools_only
+
+    Default paired benchmark (multimodal ↔ tools-only each pair, balanced order):
+    python run_dataset.py --dataset_dir out/full_dataset/cluster \
+        --query_type vague --model gpt-5.4 \
+        --results_parent out/full_dataset/cluster/results_vague_gpt54_paired
+
+    Legacy single-modality run (one invocation = one modality):
+    python run_dataset.py --dataset_dir ... --no_paired_modalities --no_visual ...
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import pickle
 import sys
 import time
 import traceback
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
@@ -41,8 +63,48 @@ except ImportError:
     pass
 
 from instance import Instance, Solution
-from queries import ARCHETYPE_FACTORIES, ARCHETYPE_NAMES
+from queries import (
+    ARCHETYPE_FACTORIES,
+    ARCHETYPE_NAMES,
+    guard_specs_to_public_config,
+)
 from agent_tools import Proposal, apply_proposal
+
+# Per-pair JSON schema; bump when adding required result keys.
+RESULT_SCHEMA_VERSION = 1
+# Pickle bundle written alongside pair JSON for offline superscore / guard sweeps.
+EXPLORE_REPLAY_SCHEMA_VERSION = 1
+
+
+def _baseline_solution_digest(baseline: Solution) -> str:
+    """Stable hash of baseline open/assign pattern and objective (drift check)."""
+    h = hashlib.sha256()
+    h.update(np.asarray(baseline.x).astype(np.int8).tobytes())
+    h.update(np.asarray(baseline.y).astype(np.int8).tobytes())
+    h.update(repr(float(baseline.objective)).encode("ascii"))
+    return h.hexdigest()
+
+
+def _merge_cache_result_defaults(result: Dict[str, Any]) -> None:
+    """When loading --skip_existing JSON from an older schema, add stub keys."""
+    if "result_schema_version" not in result:
+        result["result_schema_version"] = 0
+    if "termination_reason" not in result:
+        result["termination_reason"] = "unknown_legacy"
+    if "baseline_digest" not in result:
+        result["baseline_digest"] = None
+    if "guard_config" not in result:
+        result["guard_config"] = None
+    ss = result.get("superscore")
+    if isinstance(ss, dict):
+        ss.setdefault("explored_scores_full", None)
+        ss.setdefault("explore_replay_path", None)
+
+
+def _write_explore_replay_pickle(path: Path, bundle: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "wb") as f:
+        pickle.dump(bundle, f, protocol=4)
 
 
 def _make_json_safe(obj: Any) -> Any:
@@ -69,7 +131,25 @@ def _summarise_log(log: List[Dict[str, Any]]) -> Dict[str, Any]:
                           if e.get("event") == "local_edit"]
     submit_events = [e for e in log
                        if e.get("event") == "solution_submitted"]
-    return {
+
+    # View-solution breakdown (multimodal only; empty for tools-only runs).
+    view_events = [e for e in log
+                   if e.get("event") == "tool_call" and e.get("name") == "view_solution"]
+    view_purpose_counts: Dict[str, int] = {}
+    for e in view_events:
+        p = e.get("view_purpose") or "unspecified"
+        view_purpose_counts[p] = view_purpose_counts.get(p, 0) + 1
+
+    # Pull view stats from trajectory_summary if present (avoids re-counting).
+    traj = next((e for e in log if e.get("event") == "trajectory_summary"), {})
+    stall_from_events = sum(
+        1 for e in log if e.get("event") == "primary_target_stall_nudge")
+    stall_from_traj = traj.get("primary_stall_nudges_sent")
+    primary_stall_nudges_sent = (
+        int(stall_from_traj) if stall_from_traj is not None else stall_from_events
+    )
+
+    summary: Dict[str, Any] = {
         "n_assistant_messages": sum(1 for e in log
                                       if e.get("event") == "assistant"),
         "n_resolves": len(resolve_events),
@@ -85,7 +165,30 @@ def _summarise_log(log: List[Dict[str, Any]]) -> Dict[str, Any]:
         "n_submitted_explicit": len(submit_events),
         "n_tool_calls": sum(v for v in tools_used.values()),
         "tool_call_counts": tools_used,
+        "primary_stall_nudges_sent": primary_stall_nudges_sent,
     }
+    usage_events = [e for e in log if e.get("event") == "api_usage"]
+    if usage_events:
+        summary["n_model_calls"] = len(usage_events)
+        summary["usage"] = {
+            "prompt_tokens": int(sum(int(e.get("prompt_tokens", 0))
+                                      for e in usage_events)),
+            "completion_tokens": int(sum(int(e.get("completion_tokens", 0))
+                                          for e in usage_events)),
+            "total_tokens": int(sum(int(e.get("total_tokens", 0))
+                                     for e in usage_events)),
+            "cached_tokens": int(sum(int(e.get("cached_tokens", 0))
+                                      for e in usage_events)),
+            "reasoning_tokens": int(sum(int(e.get("reasoning_tokens", 0))
+                                         for e in usage_events)),
+        }
+    if view_events:
+        summary["n_view_solution"] = len(view_events)
+        summary["view_purpose_counts"] = view_purpose_counts
+        summary["had_baseline_view"] = traj.get("had_baseline_view", False)
+        summary["pending_post_action_view_at_end"] = traj.get(
+            "pending_post_action_view_at_end", False)
+    return summary
 
 
 def _select_best_explored_solution(
@@ -135,6 +238,7 @@ def _select_best_explored_solution(
             float(score.get("fraction_improved", 0.0)),
             float(score.get("raw_improvement", 0.0)),
             -float(score.get("assignment_distance_delta", 0.0)),
+            item["source"] != "baseline",  # prefer agent action over baseline on tie
         )
 
     best = max(scored, key=key)
@@ -156,7 +260,78 @@ def _select_best_explored_solution(
         }
         for item in scored
     ]
-    return best
+    # Full production score dict per feasible explore (offline guard sweeps).
+    best["all_scores_full"] = [
+        _make_json_safe(
+            {
+                "explored_index": item["explored_index"],
+                "source": item["source"],
+                "iteration": item["iteration"],
+                "resolve_index": item["resolve_index"],
+                "n_resolves": item["n_resolves"],
+                "n_local_edits": item["n_local_edits"],
+                "proposal": item.get("proposal"),
+                "score": item["score"],
+            }
+        )
+        for item in scored
+    ]
+    return best, scored
+
+
+def _summarise_superscore_diagnostics(
+    best_explored: Dict[str, Any],
+) -> Dict[str, Any]:
+    """Derive human-readable superscore diagnostics from explored scores."""
+    explored = list(best_explored.get("all_scores") or [])
+    n_explored_feasible = int(best_explored.get("n_feasible_explored", len(explored)))
+    n_explored_valid = sum(1 for e in explored if bool(e.get("valid")))
+    n_explored_primary_improved = sum(
+        1 for e in explored if float(e.get("fraction_improved", 0.0)) > 1e-9
+    )
+    n_explored_primary_improved_but_invalid = sum(
+        1
+        for e in explored
+        if float(e.get("fraction_improved", 0.0)) > 1e-9 and not bool(e.get("valid"))
+    )
+
+    selected_source = best_explored.get("source")
+    selected_score = best_explored.get("score") or {}
+    selected_valid = bool(selected_score.get("valid", False))
+    selected_fraction_improved = float(selected_score.get("fraction_improved", 0.0))
+
+    reason = "Selected by superscore ordering."
+    if selected_source == "baseline":
+        if (n_explored_primary_improved > 0
+                and n_explored_primary_improved_but_invalid
+                == n_explored_primary_improved):
+            reason = ("Baseline selected: all explored primary-improving "
+                      "candidates were invalid.")
+        elif n_explored_primary_improved == 0:
+            reason = "Baseline selected: no explored candidate improved the primary target."
+        else:
+            reason = ("Baseline selected: explored candidates did not beat baseline "
+                      "under superscore tie-breaks.")
+    elif not selected_valid:
+        reason = ("Selected explored candidate is invalid because no valid explored "
+                  "candidate outranked it.")
+    elif selected_fraction_improved <= 1e-9:
+        reason = ("Selected explored candidate is valid but did not improve the "
+                  "primary target.")
+    else:
+        reason = ("Selected explored candidate is valid and improves the "
+                  "primary target.")
+
+    return {
+        "selected_source": selected_source,
+        "selected_valid": selected_valid,
+        "n_explored_feasible": n_explored_feasible,
+        "n_explored_valid": n_explored_valid,
+        "n_explored_primary_improved": n_explored_primary_improved,
+        "n_explored_primary_improved_but_invalid":
+            n_explored_primary_improved_but_invalid,
+        "selection_reason": reason,
+    }
 
 
 def _pick_query_text(meta: Dict[str, Any], query_type: str) -> str:
@@ -177,6 +352,13 @@ def run_one_pair(
     enable_visual: bool = True,
     query_type: str = "vague",
     verbose: bool = True,
+    temperature: Optional[float] = None,
+    seed: Optional[int] = None,
+    views_dir_override: Optional[Path] = None,
+    trajectory_log_dir: Optional[Path] = None,
+    system_prompt_suffix: Optional[str] = None,
+    replay_bundle_path: Optional[Path] = None,
+    marker_free_maps: bool = False,
 ) -> Dict[str, Any]:
     """Run the agent on one pair and return a result dict.
 
@@ -184,6 +366,9 @@ def run_one_pair(
       enable_visual : True (multimodal) or False (tools-only).
       query_type    : "vague" (no entity reference) or "precise" (names
                       the offending site / region).
+      marker_free_maps : when True with multimodal (enable_visual), every
+                      map uses rendering_v2_no_markers only; ignored when
+                      tools-only.
     """
     from test_agent import run_agent
     from rendering import render_view
@@ -212,6 +397,12 @@ def run_one_pair(
     target_baseline = float(query.target_metric_fn(instance, baseline))
     modality = "multimodal" if enable_visual else "tools_only"
 
+    if marker_free_maps and not enable_visual:
+        raise ValueError(
+            "marker_free_maps=True requires enable_visual=True (multimodal)."
+        )
+    mf = bool(enable_visual and marker_free_maps)
+
     if verbose:
         print(f"\n=== Pair {pair_id}  ({archetype}, {modality}, {query_type}) ===")
         print(f"  base_seed={meta.get('base_seed')}")
@@ -229,20 +420,33 @@ def run_one_pair(
             print(f"  n_split_sites={n_split}  "
                    f"worst_site={worst_j}")
         elif archetype == "shape_niceness":
-            print(f"  mean_NPI={meta.get('mean_npi_baseline', float('nan')):.2f}  "
+            print(f"  meta mean_NPI={meta.get('mean_npi_baseline', float('nan')):.2f}  "
                    f"max_NPI={meta.get('max_npi_baseline', float('nan')):.2f}  "
-                   f"worst_site={meta.get('worst_catchment_site')}")
+                   f"worst_site={meta.get('worst_catchment_site')}  "
+                   f"(live primary = worst-k mean NPI; see query metadata)")
+        if mf:
+            print("  marker_free_maps: True (v2_no_markers only)")
         print(f"  baseline target value: {target_baseline:.3f}")
+
+    log_path: Optional[str] = None
+    if trajectory_log_dir is not None:
+        trajectory_log_dir.mkdir(parents=True, exist_ok=True)
+        log_path = str(trajectory_log_dir / f"{pair_id}_trajectory.json")
 
     t0 = time.time()
     try:
         proposal_dict, final_solution, log, explored_solutions = run_agent(
             instance, baseline, text,
+            query=query,
             annotation_polygons=None,  # vague/precise replaces annotation
             model=model,
             max_iters=max_iters,
-            save_log_path=None,
+            save_log_path=log_path,
             enable_visual=enable_visual,
+            temperature=temperature,
+            seed=seed,
+            system_prompt_suffix=system_prompt_suffix,
+            marker_free_maps=mf,
         )
     except Exception as e:
         traceback.print_exc()
@@ -255,6 +459,11 @@ def run_one_pair(
             "metadata": meta,
             "baseline_target": target_baseline,
             "elapsed_sec": time.time() - t0,
+            "result_schema_version": RESULT_SCHEMA_VERSION,
+            "termination_reason": "error",
+            "baseline_digest": _baseline_solution_digest(baseline),
+            "guard_config": guard_specs_to_public_config(query.guards),
+            "marker_free_maps": mf,
         }
     agent_time = time.time() - t0
 
@@ -271,14 +480,61 @@ def run_one_pair(
             "baseline_target": target_baseline,
             "log_summary": _summarise_log(log),
             "elapsed_sec": agent_time,
+            "result_schema_version": RESULT_SCHEMA_VERSION,
+            "termination_reason": next(
+                (e.get("termination_reason", "unknown")
+                 for e in reversed(log)
+                 if e.get("event") == "trajectory_summary"),
+                "unknown",
+            ),
+            "baseline_digest": _baseline_solution_digest(baseline),
+            "guard_config": guard_specs_to_public_config(query.guards),
+            "marker_free_maps": mf,
         }
 
     # Superscore: score every feasible solution the agent explored and select
     # the best benchmark outcome. submit_proposal only ends the reasoning loop.
-    best_explored = _select_best_explored_solution(
+    best_explored, scored_rows = _select_best_explored_solution(
         query, instance, baseline, explored_solutions)
     new_solution = best_explored["solution"]
     score = best_explored["score"]
+    superscore_diag = _summarise_superscore_diagnostics(best_explored)
+
+    explore_replay_filename: Optional[str] = None
+    if replay_bundle_path is not None:
+        bundle: Dict[str, Any] = {
+            "replay_schema_version": EXPLORE_REPLAY_SCHEMA_VERSION,
+            "pair_id": pair_id,
+            "query_id": query.query_id,
+            "archetype": query.archetype,
+            "query_type": query_type,
+            "modality": modality,
+            "baseline_digest": _baseline_solution_digest(baseline),
+            "guard_config": guard_specs_to_public_config(query.guards),
+            "rows": [
+                {
+                    "explored_index": r["explored_index"],
+                    "source": r.get("source"),
+                    "iteration": r.get("iteration"),
+                    "resolve_index": r.get("resolve_index"),
+                    "n_resolves": r.get("n_resolves", 0),
+                    "n_local_edits": r.get("n_local_edits", 0),
+                    "proposal": r.get("proposal"),
+                    "solution": r["solution"],
+                    "score": r["score"],
+                }
+                for r in scored_rows
+            ],
+        }
+        _write_explore_replay_pickle(replay_bundle_path, bundle)
+        explore_replay_filename = replay_bundle_path.name
+
+    termination_reason = next(
+        (e.get("termination_reason", "unknown")
+         for e in reversed(log)
+         if e.get("event") == "trajectory_summary"),
+        "unknown",
+    )
 
     if verbose:
         n_props = sum(1 for e in log if e.get("event") == "resolve_applied")
@@ -294,6 +550,14 @@ def run_one_pair(
         print(f"  superscore selected: source={best_explored.get('source')}  "
               f"iteration={best_explored.get('iteration')}  "
               f"feasible explored={best_explored.get('n_feasible_explored')}")
+        print(f"  superscore diagnostics: selected_valid="
+              f"{superscore_diag['selected_valid']}  "
+              f"feasible/valid/improved/improved_invalid="
+              f"{superscore_diag['n_explored_feasible']}/"
+              f"{superscore_diag['n_explored_valid']}/"
+              f"{superscore_diag['n_explored_primary_improved']}/"
+              f"{superscore_diag['n_explored_primary_improved_but_invalid']}")
+        print(f"  superscore reason: {superscore_diag['selection_reason']}")
         print(f"  target: {score['target_baseline']:.3f} -> "
                f"{score['target_response']:.3f}  "
                f"({score['fraction_improved']*100:.0f}% improved)  "
@@ -304,8 +568,9 @@ def run_one_pair(
                f"(delta {score['assignment_distance_delta']:+.0f})")
 
     if render_response:
-        views_dir = pair_dir / "views"
-        views_dir.mkdir(exist_ok=True)
+        views_dir = Path(views_dir_override) if views_dir_override else (
+            pair_dir / "views")
+        views_dir.mkdir(parents=True, exist_ok=True)
         # All after-views match the baseline_text_only style — colored
         # service areas + closed candidates + opened sites + assignment
         # lines. Annotation polygon for archetypes that have a natural
@@ -340,7 +605,21 @@ def run_one_pair(
         "pair_id": pair_id,
         "modality": modality,
         "query_type": query_type,
+        "run_config": {
+            "model": model,
+            "temperature": temperature,
+            "seed": seed,
+            "enable_visual": bool(enable_visual),
+            "marker_free_maps": mf,
+            "query_type": query_type,
+            "max_iters": max_iters,
+            "guard_config": guard_specs_to_public_config(query.guards),
+        },
         "status": "completed",
+        "result_schema_version": RESULT_SCHEMA_VERSION,
+        "termination_reason": termination_reason,
+        "baseline_digest": _baseline_solution_digest(baseline),
+        "guard_config": guard_specs_to_public_config(query.guards),
         "metadata": meta,
         "proposal": proposal_dict,
         "score": score,
@@ -352,7 +631,16 @@ def run_one_pair(
             "selected_n_resolves": best_explored["n_resolves"],
             "selected_n_local_edits": best_explored["n_local_edits"],
             "n_feasible_explored": best_explored["n_feasible_explored"],
+            "selected_valid": superscore_diag["selected_valid"],
+            "n_explored_valid": superscore_diag["n_explored_valid"],
+            "n_explored_primary_improved":
+                superscore_diag["n_explored_primary_improved"],
+            "n_explored_primary_improved_but_invalid":
+                superscore_diag["n_explored_primary_improved_but_invalid"],
+            "selection_reason": superscore_diag["selection_reason"],
             "explored_scores": best_explored["all_scores"],
+            "explored_scores_full": best_explored["all_scores_full"],
+            "explore_replay_path": explore_replay_filename,
         },
         "log_summary": _summarise_log(log),
         "elapsed_sec": agent_time,
@@ -387,6 +675,11 @@ def aggregate(results: List[Dict[str, Any]]) -> Dict[str, Any]:
     deltas = [r["score"].get("assignment_distance_delta")
                for r in completed
                if r["score"].get("assignment_distance_delta") is not None]
+    usage_logs = [
+        (r.get("log_summary") or {}).get("usage")
+        for r in completed
+        if (r.get("log_summary") or {}).get("usage")
+    ]
 
     pair_outcomes = []
     for r in results:
@@ -416,11 +709,44 @@ def aggregate(results: List[Dict[str, Any]]) -> Dict[str, Any]:
                 ),
                 "n_local_edits":
                     (r.get("log_summary") or {}).get("n_local_edits", 0),
+                "n_resolves": (r.get("log_summary") or {}).get("n_resolves", 0),
+                "primary_stall_nudges_sent": (
+                    (r.get("log_summary") or {}).get(
+                        "primary_stall_nudges_sent", 0)),
+                "n_submitted_explicit": (
+                    (r.get("log_summary") or {}).get("n_submitted_explicit", 0)),
+                "n_view_solution": (r.get("log_summary") or {}).get(
+                    "n_view_solution", 0),
+                "selected_source": (r.get("superscore") or {}).get(
+                    "selected_source"),
+                "n_explored_feasible": (r.get("superscore") or {}).get(
+                    "n_feasible_explored"),
+                "n_explored_valid": (r.get("superscore") or {}).get(
+                    "n_explored_valid"),
+                "n_explored_primary_improved": (r.get("superscore") or {}).get(
+                    "n_explored_primary_improved"),
+                "n_explored_primary_improved_but_invalid":
+                    (r.get("superscore") or {}).get(
+                        "n_explored_primary_improved_but_invalid"),
+                "selection_reason": (r.get("superscore") or {}).get(
+                    "selection_reason"),
+                "total_tokens": (((r.get("log_summary") or {}).get("usage") or {}).get(
+                    "total_tokens")),
+                "prompt_tokens": (((r.get("log_summary") or {}).get("usage") or {}).get(
+                    "prompt_tokens")),
+                "completion_tokens":
+                    (((r.get("log_summary") or {}).get("usage") or {}).get(
+                        "completion_tokens")),
+                "cached_tokens": (((r.get("log_summary") or {}).get("usage") or {}).get(
+                    "cached_tokens")),
+                "reasoning_tokens":
+                    (((r.get("log_summary") or {}).get("usage") or {}).get(
+                        "reasoning_tokens")),
                 "elapsed_sec": r.get("elapsed_sec"),
             })
         pair_outcomes.append(po)
 
-    return {
+    out: Dict[str, Any] = {
         "n_pairs": len(results),
         "n_completed": len(completed),
         "n_no_proposal": sum(1 for r in results
@@ -448,6 +774,62 @@ def aggregate(results: List[Dict[str, Any]]) -> Dict[str, Any]:
             float(np.median(deltas)) if deltas else None,
         "pair_outcomes": pair_outcomes,
     }
+
+    # Trajectory-style aggregates (from per-pair log_summary).
+    ls_list = [
+        (r.get("log_summary") or {}) for r in completed
+        if r.get("log_summary")
+    ]
+    if ls_list:
+        out["mean_n_resolves"] = float(
+            np.mean([int(x.get("n_resolves", 0)) for x in ls_list]))
+        out["median_n_resolves"] = float(
+            np.median([int(x.get("n_resolves", 0)) for x in ls_list]))
+        out["mean_primary_stall_nudges_sent"] = float(
+            np.mean([int(x.get("primary_stall_nudges_sent", 0))
+                     for x in ls_list]))
+        out["total_primary_stall_nudges_sent"] = int(
+            sum(int(x.get("primary_stall_nudges_sent", 0)) for x in ls_list))
+        out["mean_n_view_solution"] = float(
+            np.mean([int(x.get("n_view_solution", 0)) for x in ls_list]))
+        out["mean_n_submitted_explicit"] = float(
+            np.mean([int(x.get("n_submitted_explicit", 0)) for x in ls_list]))
+
+    # Superscore selection diagnostics across completed pairs.
+    selected_sources: Dict[str, int] = {}
+    improved_invalid_total = 0
+    for r in completed:
+        ss = r.get("superscore") or {}
+        src = str(ss.get("selected_source") or "unknown")
+        selected_sources[src] = selected_sources.get(src, 0) + 1
+        improved_invalid_total += int(
+            ss.get("n_explored_primary_improved_but_invalid", 0))
+    if completed:
+        out["selected_source_counts"] = selected_sources
+        out["total_explored_primary_improved_but_invalid"] = improved_invalid_total
+    if usage_logs:
+        out["mean_total_tokens"] = float(
+            np.mean([u.get("total_tokens", 0) for u in usage_logs]))
+        out["mean_prompt_tokens"] = float(
+            np.mean([u.get("prompt_tokens", 0) for u in usage_logs]))
+        out["mean_completion_tokens"] = float(
+            np.mean([u.get("completion_tokens", 0) for u in usage_logs]))
+        out["mean_cached_tokens"] = float(
+            np.mean([u.get("cached_tokens", 0) for u in usage_logs]))
+        out["mean_reasoning_tokens"] = float(
+            np.mean([u.get("reasoning_tokens", 0) for u in usage_logs]))
+        out["sum_total_tokens"] = int(
+            sum(int(u.get("total_tokens", 0)) for u in usage_logs))
+        out["sum_prompt_tokens"] = int(
+            sum(int(u.get("prompt_tokens", 0)) for u in usage_logs))
+        out["sum_completion_tokens"] = int(
+            sum(int(u.get("completion_tokens", 0)) for u in usage_logs))
+        out["sum_cached_tokens"] = int(
+            sum(int(u.get("cached_tokens", 0)) for u in usage_logs))
+        out["sum_reasoning_tokens"] = int(
+            sum(int(u.get("reasoning_tokens", 0)) for u in usage_logs))
+
+    return out
 
 
 def _is_single_archetype_dir(d: Path) -> bool:
@@ -477,7 +859,13 @@ def run_archetype_dataset(
     first_n: Optional[int],
     skip_existing: bool,
     results_dir_override: Optional[str],
+    temperature: Optional[float] = None,
+    seed: Optional[int] = None,
     verbose: bool = True,
+    views_dir_override: Optional[Path] = None,
+    trajectory_log_dir: Optional[Path] = None,
+    system_prompt_suffix: Optional[str] = None,
+    marker_free_maps: bool = False,
 ) -> Dict[str, Any]:
     """Run the agent across one archetype dataset."""
     with open(dataset_dir / "index.json") as f:
@@ -499,9 +887,11 @@ def run_archetype_dataset(
     for record in pairs:
         pair_id = record["pair_id"]
         result_path = results_dir / f"{pair_id}.json"
+        replay_bundle_path = result_path.with_name(result_path.stem + ".explore_replay.pkl")
         if skip_existing and result_path.exists():
             with open(result_path) as f:
                 result = json.load(f)
+            _merge_cache_result_defaults(result)
             if verbose:
                 print(f"\n=== Pair {pair_id} (cached) ===")
         else:
@@ -515,6 +905,13 @@ def run_archetype_dataset(
                     enable_visual=enable_visual,
                     query_type=query_type,
                     verbose=verbose,
+                    temperature=temperature,
+                    seed=seed,
+                    views_dir_override=views_dir_override,
+                    trajectory_log_dir=trajectory_log_dir,
+                    system_prompt_suffix=system_prompt_suffix,
+                    replay_bundle_path=replay_bundle_path,
+                    marker_free_maps=marker_free_maps,
                 )
             except KeyboardInterrupt:
                 print("\nInterrupted; partial results saved.")
@@ -536,9 +933,204 @@ def run_archetype_dataset(
     agg["modality"] = modality
     agg["query_type"] = query_type
     agg["model"] = model
+    agg["marker_free_maps"] = bool(enable_visual and marker_free_maps)
     with open(results_dir / "aggregate.json", "w") as f:
         json.dump(_make_json_safe(agg), f, indent=2)
     return agg
+
+
+def _annotate_paired_modality_meta(
+    result: Dict[str, Any],
+    *,
+    pair_index: int,
+    modality_key: str,
+    run_order_tokens: List[str],
+) -> None:
+    """Attach reproducibility metadata for default paired-modality runs."""
+    if result.get("status") not in ("completed", "no_proposal", "error"):
+        return
+    result["paired_modality_meta"] = {
+        "counterbalance_scheme": "pair_index_parity",
+        "pair_index_in_subset": pair_index,
+        "modality_for_this_result": modality_key,
+        "run_order_this_pair": list(run_order_tokens),
+    }
+
+
+def run_archetype_dataset_paired(
+    dataset_dir: Path,
+    *,
+    model: str,
+    max_iters: int,
+    query_type: str,
+    no_render: bool,
+    first_n: Optional[int],
+    skip_existing: bool,
+    results_dir_multimodal: Path,
+    results_dir_tools_only: Path,
+    temperature: Optional[float] = None,
+    seed: Optional[int] = None,
+    verbose: bool = True,
+    views_dir_override: Optional[Path] = None,
+    trajectory_log_dir: Optional[Path] = None,
+    system_prompt_suffix: Optional[str] = None,
+    marker_free_maps: bool = False,
+) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    """Run multimodal and tools-only for each pair, counterbalancing order.
+
+    Even pair index (0-based in the selected subset): multimodal first,
+    then tools-only. Odd index: tools-only first, then multimodal.
+    Mitigates simple run-order confounds (latency drift, cache warmup).
+    """
+    with open(dataset_dir / "index.json") as f:
+        index = json.load(f)
+    pairs = index["pairs"]
+    if first_n:
+        pairs = pairs[:first_n]
+
+    results_dir_multimodal.mkdir(parents=True, exist_ok=True)
+    results_dir_tools_only.mkdir(parents=True, exist_ok=True)
+    traj_mm = (trajectory_log_dir / "multimodal"
+               if trajectory_log_dir is not None else None)
+    traj_to = (trajectory_log_dir / "tools_only"
+               if trajectory_log_dir is not None else None)
+
+    archetype_label = index.get("archetype", dataset_dir.name)
+    if verbose:
+        print(f"\n>>> PAIRED MODALITIES  archetype={archetype_label}  "
+               f"|  pairs: {len(pairs)}")
+        print(f"    multimodal results: {results_dir_multimodal}")
+        print(f"    tools_only results: {results_dir_tools_only}")
+        if trajectory_log_dir is not None:
+            print(f"    trajectory logs:    {trajectory_log_dir}/"
+                   f"multimodal | tools_only")
+
+    all_mm: List[Dict[str, Any]] = []
+    all_to: List[Dict[str, Any]] = []
+
+    for pair_index, record in enumerate(pairs):
+        pair_id = record["pair_id"]
+        if pair_index % 2 == 0:
+            sequence: List[Tuple[str, bool, Optional[Path]]] = [
+                ("multimodal", True, traj_mm),
+                ("tools_only", False, traj_to),
+            ]
+            order_tokens = ["multimodal", "tools_only"]
+        else:
+            sequence = [
+                ("tools_only", False, traj_to),
+                ("multimodal", True, traj_mm),
+            ]
+            order_tokens = ["tools_only", "multimodal"]
+
+        if verbose:
+            print(f"\n--- Pair {pair_id}  (counterbalance index {pair_index}: "
+                   f"order {' → '.join(order_tokens)}) ---")
+
+        pair_mm: Optional[Dict[str, Any]] = None
+        pair_to: Optional[Dict[str, Any]] = None
+
+        for modality_key, enable_vis, traj in sequence:
+            pair_dir = dataset_dir / record["pair_dir"]
+            if modality_key == "multimodal":
+                result_path = results_dir_multimodal / f"{pair_id}.json"
+                dest_list = "mm"
+            else:
+                result_path = results_dir_tools_only / f"{pair_id}.json"
+                dest_list = "to"
+
+            if traj is not None:
+                traj.mkdir(parents=True, exist_ok=True)
+
+            cached = bool(skip_existing and result_path.exists())
+            if cached:
+                with open(result_path) as f:
+                    result = json.load(f)
+                _merge_cache_result_defaults(result)
+                if verbose:
+                    print(f"    {modality_key}: (cached)")
+            else:
+                try:
+                    replay_bundle_path = result_path.with_name(
+                        result_path.stem + ".explore_replay.pkl")
+                    result = run_one_pair(
+                        pair_dir,
+                        model=model,
+                        max_iters=max_iters,
+                        render_response=not no_render,
+                        enable_visual=enable_vis,
+                        query_type=query_type,
+                        verbose=verbose,
+                        temperature=temperature,
+                        seed=seed,
+                        views_dir_override=views_dir_override,
+                        trajectory_log_dir=traj,
+                        system_prompt_suffix=system_prompt_suffix,
+                        replay_bundle_path=replay_bundle_path,
+                        marker_free_maps=marker_free_maps if enable_vis else False,
+                    )
+                except KeyboardInterrupt:
+                    print("\nInterrupted; partial paired results saved.")
+                    raise
+                except Exception as e:
+                    print(f"  FATAL pair {pair_id} {modality_key}: {e}")
+                    traceback.print_exc()
+                    result = {
+                        "pair_id": pair_id,
+                        "modality": modality_key,
+                        "status": "error",
+                        "error": str(e)[:300],
+                    }
+                _annotate_paired_modality_meta(
+                    result,
+                    pair_index=pair_index,
+                    modality_key=modality_key,
+                    run_order_tokens=order_tokens,
+                )
+                with open(result_path, "w") as f:
+                    json.dump(_make_json_safe(result), f, indent=2)
+
+            if cached:
+                _annotate_paired_modality_meta(
+                    result,
+                    pair_index=pair_index,
+                    modality_key=modality_key,
+                    run_order_tokens=order_tokens,
+                )
+
+            if dest_list == "mm":
+                pair_mm = result
+            else:
+                pair_to = result
+
+        all_mm.append(pair_mm if pair_mm is not None else {"pair_id": pair_id,
+                                                           "status": "error"})
+        all_to.append(pair_to if pair_to is not None else {"pair_id": pair_id,
+                                                            "status": "error"})
+
+    agg_mm = aggregate(all_mm)
+    agg_mm["archetype"] = archetype_label
+    agg_mm["modality"] = "multimodal"
+    agg_mm["query_type"] = query_type
+    agg_mm["model"] = model
+    agg_mm["paired_modality_benchmark"] = True
+    agg_mm["counterbalance_scheme"] = "pair_index_parity"
+    agg_mm["marker_free_maps"] = bool(marker_free_maps)
+    with open(results_dir_multimodal / "aggregate.json", "w") as f:
+        json.dump(_make_json_safe(agg_mm), f, indent=2)
+
+    agg_to = aggregate(all_to)
+    agg_to["archetype"] = archetype_label
+    agg_to["modality"] = "tools_only"
+    agg_to["query_type"] = query_type
+    agg_to["model"] = model
+    agg_to["paired_modality_benchmark"] = True
+    agg_to["counterbalance_scheme"] = "pair_index_parity"
+    agg_to["marker_free_maps"] = False
+    with open(results_dir_tools_only / "aggregate.json", "w") as f:
+        json.dump(_make_json_safe(agg_to), f, indent=2)
+
+    return agg_mm, agg_to
 
 
 def _print_archetype_summary(agg: Dict[str, Any]):
@@ -566,6 +1158,17 @@ def _print_archetype_summary(agg: Dict[str, Any]):
         print(f"  mean assignment-dist delta  : "
                f"{agg['mean_assignment_distance_delta']:+.0f} voter-km "
                f"(vs baseline {agg['mean_baseline_assignment_distance']:.0f})")
+    if agg.get("selected_source_counts"):
+        print(f"  superscore selected source  : {agg['selected_source_counts']}")
+    if agg.get("total_explored_primary_improved_but_invalid") is not None:
+        print("  explored improved but invalid: "
+              f"{agg['total_explored_primary_improved_but_invalid']}")
+    if agg.get("sum_total_tokens") is not None:
+        print("  token usage (sum prompt/completion/cached): "
+              f"{agg['sum_prompt_tokens']}/"
+              f"{agg['sum_completion_tokens']}/"
+              f"{agg['sum_cached_tokens']}  "
+              f"(total {agg['sum_total_tokens']})")
 
 
 def _print_cross_archetype_rollup(per_archetype: Dict[str, Dict[str, Any]],
@@ -622,8 +1225,14 @@ def main():
                "present."),
     )
     parser.add_argument("--results_dir", default=None,
-                        help="Override per-archetype results directory.")
-    parser.add_argument("--model", default="gpt-4o")
+                        help=("Override results directory. When using the "
+                              "default paired benchmark, interpreted as a parent: "
+                              "<dir>/multimodal and <dir>/tools_only (unless "
+                              "overridden by --results_dir_multimodal / "
+                              "--results_dir_tools_only). When using "
+                              "--no_paired_modalities, this is the single "
+                              "results directory for that run."))
+    parser.add_argument("--model", default="gpt-5.4")
     parser.add_argument("--max_iters", type=int, default=25)
     parser.add_argument("--first_n", type=int, default=None,
                         help="Only run the first N pairs (per archetype).")
@@ -641,7 +1250,97 @@ def main():
                               "specific entity reference. 'precise': names "
                               "the offending site / region. The 2x2 matrix "
                               "is modality x query_type."))
+
+
+    parser.add_argument("--temperature", type=float, default=None,
+                        help="LLM sampling temperature (e.g. 0.0). "
+                             "Omit to use the model's API default.")
+    parser.add_argument("--seed", type=int, default=None,
+                        help="LLM seed for reproducibility (e.g. 42). "
+                             "Omit to use the model's API default.")
+    parser.set_defaults(use_paired_modality_benchmark=True)
+    paired_group = parser.add_mutually_exclusive_group()
+    paired_group.add_argument(
+        "--no_paired_modalities",
+        action="store_false",
+        dest="use_paired_modality_benchmark",
+        help=(
+            "Legacy: run only one modality per invocation (--no_visual for "
+            "tools-only). Default is paired multimodal + tools_only per pair "
+            "with counterbalanced run order "
+            "(even pair index → multimodal first)."
+        ),
+    )
+    paired_group.add_argument(
+        "--paired_modalities",
+        action="store_true",
+        dest="use_paired_modality_benchmark",
+        help=(
+            "Compatibility: paired modality benchmark is already the default. "
+            "Use --no_paired_modalities to disable pairing."
+        ),
+    )
+    parser.add_argument(
+        "--results_parent",
+        default=None,
+        metavar="DIR",
+        help=(
+            "Default paired runs: write to DIR/multimodal and DIR/tools_only. "
+            "Lower priority than --results_dir_multimodal / "
+            "--results_dir_tools_only."
+        ),
+    )
+    parser.add_argument(
+        "--results_dir_multimodal",
+        default=None,
+        metavar="DIR",
+        help=(
+            "Default paired runs only: explicit multimodal results directory."
+        ),
+    )
+    parser.add_argument(
+        "--results_dir_tools_only",
+        default=None,
+        metavar="DIR",
+        help=(
+            "Default paired runs only: explicit tools_only results directory."
+        ),
+    )
+    parser.add_argument(
+        "--trajectory_log_dir",
+        default=None,
+        metavar="DIR",
+        help=(
+            "If set, write full agent trajectories (same schema as "
+            "test_agent.py --save_log) to DIR/{pair_id}_trajectory.json "
+            "per pair. When --dataset_dir is a multi-archetype root, logs "
+            "go under DIR/<archetype_name>/ to avoid pair id collisions."
+        ),
+    )
+    parser.add_argument(
+        "--marker_free_maps",
+        action="store_true",
+        help=(
+            "Multimodal-only: use rendering_v2_no_markers for the initial map, "
+            "every view_solution call, and all auto-attached post-action maps. "
+            "The view_solution tool accepts only layers=['v2_no_markers']. "
+            "Use with --results_parent or explicit results dirs so you do not "
+            "overwrite standard multimodal benchmarks."
+        ),
+    )
     args = parser.parse_args()
+
+    paired = bool(args.use_paired_modality_benchmark)
+    if paired and (
+            bool(args.results_dir_multimodal) ^ bool(args.results_dir_tools_only)):
+        print(
+            "ERROR: default paired benchmark requires BOTH "
+            "--results_dir_multimodal and --results_dir_tools_only if you "
+            "set either one (or omit both and use --results_parent / "
+            "--results_dir / dataset defaults).",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     if "OPENAI_API_KEY" not in os.environ:
         print("ERROR: OPENAI_API_KEY not set", file=sys.stderr)
@@ -653,15 +1352,76 @@ def main():
                file=sys.stderr)
         sys.exit(1)
 
-    enable_visual = not args.no_visual
+    if args.marker_free_maps and not paired and args.no_visual:
+        print(
+            "ERROR: --marker_free_maps requires multimodal runs "
+            "(omit --no_visual with --no_paired_modalities).",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    if paired and args.no_visual:
+        print(
+            "WARNING: default paired benchmark ignores --no_visual (both "
+            "modalities run per pair). Use --no_paired_modalities for "
+            "tools-only-only.",
+            flush=True,
+        )
+
+    enable_visual = not args.no_visual if not paired else True
     modality = "tools_only" if not enable_visual else "multimodal"
-    print(f"Modality: {modality}  |  Query type: {args.query_type}  "
-           f"|  Model: {args.model}")
+    mode_line = ("paired multimodal↔tools_only  |  Query type: "
+                   f"{args.query_type}  |  Model: {args.model}"
+                   if paired else
+                   f"Modality: {modality}  |  Query type: {args.query_type}  "
+                   f"|  Model: {args.model}")
+    print(mode_line)
+    if args.marker_free_maps:
+        print("  marker_free_maps: True (multimodal branch uses v2_no_markers only)")
+    traj_root: Optional[Path] = None
+    if args.trajectory_log_dir:
+        traj_root = Path(args.trajectory_log_dir).expanduser()
+        print(f"Trajectory logs: {traj_root.resolve()}")
 
     if _is_single_archetype_dir(dataset_dir):
         if args.archetypes:
             print("WARNING: --archetypes is ignored when --dataset_dir is a "
                    "single-archetype directory.")
+
+        def _paired_result_paths(ds: Path) -> Tuple[Path, Path]:
+            if args.results_dir_multimodal and args.results_dir_tools_only:
+                return (
+                    Path(args.results_dir_multimodal),
+                    Path(args.results_dir_tools_only),
+                )
+            if args.results_parent:
+                rp = Path(args.results_parent).expanduser()
+                return rp / "multimodal", rp / "tools_only"
+            if args.results_dir:
+                rd = Path(args.results_dir).expanduser()
+                return rd / "multimodal", rd / "tools_only"
+            mm = ds / f"results_multimodal_{args.query_type}"
+            to_ = ds / f"results_tools_only_{args.query_type}"
+            return mm, to_
+
+        if paired:
+            mm_dir, to_dir = _paired_result_paths(dataset_dir)
+            agg_mm, agg_to = run_archetype_dataset_paired(
+                dataset_dir,
+                model=args.model, max_iters=args.max_iters,
+                query_type=args.query_type,
+                no_render=args.no_render, first_n=args.first_n,
+                skip_existing=args.skip_existing,
+                results_dir_multimodal=mm_dir,
+                results_dir_tools_only=to_dir,
+                temperature=args.temperature, seed=args.seed,
+                trajectory_log_dir=traj_root,
+                marker_free_maps=args.marker_free_maps,
+            )
+            _print_archetype_summary(agg_mm)
+            _print_archetype_summary(agg_to)
+            return
+
         agg = run_archetype_dataset(
             dataset_dir,
             model=args.model, max_iters=args.max_iters,
@@ -669,6 +1429,9 @@ def main():
             no_render=args.no_render, first_n=args.first_n,
             skip_existing=args.skip_existing,
             results_dir_override=args.results_dir,
+            temperature=args.temperature, seed=args.seed,
+            trajectory_log_dir=traj_root,
+            marker_free_maps=args.marker_free_maps,
         )
         _print_archetype_summary(agg)
         return
@@ -684,10 +1447,10 @@ def main():
                    f"(single-archetype) nor any per-archetype "
                    f"subdirectories.", file=sys.stderr)
         sys.exit(1)
-    if args.results_dir:
-        print("WARNING: --results_dir is ignored when iterating over a "
-               "multi-archetype root; each archetype writes to its own "
-               "results subdirectory.")
+    if args.results_dir or args.results_parent or args.results_dir_multimodal:
+        print("WARNING: --results_dir / --results_parent / modality-specific "
+               "result overrides are ignored for multi-archetype roots unless "
+               "you use single-archetype --dataset_dir or run per archetype.")
 
     print(f"Multi-archetype root detected: {dataset_dir}")
     print(f"Archetypes to run: {[d.name for d in archetype_dirs]}")
@@ -695,14 +1458,42 @@ def main():
     per_archetype: Dict[str, Dict[str, Any]] = {}
     for arch_dir in archetype_dirs:
         try:
-            agg = run_archetype_dataset(
-                arch_dir,
-                model=args.model, max_iters=args.max_iters,
-                enable_visual=enable_visual, query_type=args.query_type,
-                no_render=args.no_render, first_n=args.first_n,
-                skip_existing=args.skip_existing,
-                results_dir_override=None,
-            )
+            traj_dir = traj_root / arch_dir.name if traj_root else None
+            if paired:
+                mm_dir = arch_dir / f"results_multimodal_{args.query_type}"
+                to_dir = arch_dir / f"results_tools_only_{args.query_type}"
+                agg_mm, agg_to = run_archetype_dataset_paired(
+                    arch_dir,
+                    model=args.model, max_iters=args.max_iters,
+                    query_type=args.query_type,
+                    no_render=args.no_render, first_n=args.first_n,
+                    skip_existing=args.skip_existing,
+                    results_dir_multimodal=mm_dir,
+                    results_dir_tools_only=to_dir,
+                    temperature=args.temperature, seed=args.seed,
+                    trajectory_log_dir=traj_dir,
+                    marker_free_maps=args.marker_free_maps,
+                )
+                _print_archetype_summary(agg_mm)
+                _print_archetype_summary(agg_to)
+                per_archetype[arch_dir.name] = {
+                    "multimodal": agg_mm,
+                    "tools_only": agg_to,
+                }
+            else:
+                agg = run_archetype_dataset(
+                    arch_dir,
+                    model=args.model, max_iters=args.max_iters,
+                    enable_visual=enable_visual, query_type=args.query_type,
+                    no_render=args.no_render, first_n=args.first_n,
+                    skip_existing=args.skip_existing,
+                    results_dir_override=None,
+                    temperature=args.temperature, seed=args.seed,
+                    trajectory_log_dir=traj_dir,
+                    marker_free_maps=args.marker_free_maps,
+                )
+                _print_archetype_summary(agg)
+                per_archetype[arch_dir.name] = agg
         except KeyboardInterrupt:
             print("\nInterrupted; aborting remaining archetypes.")
             break
@@ -710,21 +1501,34 @@ def main():
             print(f"  FATAL on archetype {arch_dir.name}: {e}")
             traceback.print_exc()
             continue
-        _print_archetype_summary(agg)
-        per_archetype[arch_dir.name] = agg
 
-    rollup_dir = dataset_dir / f"results_{modality}_{args.query_type}"
+    rollup_modality = "paired" if paired else modality
+    rollup_dir = dataset_dir / f"results_{rollup_modality}_{args.query_type}"
     rollup_dir.mkdir(parents=True, exist_ok=True)
-    rollup_summary = {
-        "modality": modality, "query_type": args.query_type,
+    rollup_summary: Dict[str, Any] = {
+        "query_type": args.query_type,
         "model": args.model,
         "archetypes": per_archetype,
     }
+    if args.marker_free_maps:
+        rollup_summary["marker_free_maps"] = True
+    if paired:
+        rollup_summary["paired_modalities"] = True
+    else:
+        rollup_summary["modality"] = modality
     with open(rollup_dir / "summary.json", "w") as f:
         json.dump(_make_json_safe(rollup_summary), f, indent=2)
-    _print_cross_archetype_rollup(per_archetype, modality, args.query_type,
-                                    args.model)
-    print(f"\n  cross-archetype summary: {rollup_dir / 'summary.json'}")
+    if paired:
+        print(
+            "\n  (paired modalities: see per-archetype summaries above; "
+            "cross-archetype rollup table skipped — nested mm/to per arch "
+            "in summary.json)",
+            flush=True,
+        )
+    else:
+        _print_cross_archetype_rollup(per_archetype, modality, args.query_type,
+                                       args.model)
+    print(f"\n  multi-archetype summary: {rollup_dir / 'summary.json'}")
 
 
 if __name__ == "__main__":

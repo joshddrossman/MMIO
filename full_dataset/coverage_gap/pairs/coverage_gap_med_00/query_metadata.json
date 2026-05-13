@@ -1,0 +1,249 @@
+{
+  "archetype": "coverage_gap",
+  "current_max_distance_km": 2.858155252355412,
+  "most_stranded_precinct": 56,
+  "most_stranded_distance_km": 2.858155252355412,
+  "best_candidate_idx": 14,
+  "best_candidate_new_max_km": 1.812435532957177,
+  "best_improvement_km": 1.045719719398235,
+  "per_candidate_improvement": {
+    "14": {
+      "improvement_km": 1.045719719398235,
+      "new_max_km": 1.812435532957177
+    },
+    "22": {
+      "improvement_km": 1.045719719398235,
+      "new_max_km": 1.812435532957177
+    },
+    "16": {
+      "improvement_km": 0.9849425291045295,
+      "new_max_km": 1.8732127232508826
+    },
+    "25": {
+      "improvement_km": 0.2577699583899178,
+      "new_max_km": 2.6003852939654943
+    },
+    "1": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "2": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "9": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "12": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "13": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "15": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "17": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "18": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "19": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "20": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "21": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "24": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "26": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "28": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "32": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "33": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "34": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    },
+    "39": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.858155252355412
+    }
+  },
+  "candidates_ranked_by_improvement": [
+    14,
+    22,
+    16,
+    25,
+    1,
+    2,
+    9,
+    12,
+    13,
+    15,
+    17,
+    18,
+    19,
+    20,
+    21,
+    24,
+    26,
+    28,
+    32,
+    33,
+    34,
+    39
+  ],
+  "coverage_gap_center": [
+    1.2076661579067913,
+    7.348624838734546
+  ],
+  "coverage_gap_radius": 7.043261677960461,
+  "affected_precincts": [
+    40,
+    56,
+    57,
+    76,
+    78
+  ],
+  "coverage_gap_distance_threshold": 1.7730584855754503,
+  "coverage_gap_baseline_strand_count": 5,
+  "n_opened": 18,
+  "n_closed_candidates": 22,
+  "min_max_distance_threshold_km": 2.6,
+  "min_improvement_threshold_km": 1.0,
+  "base_seed": 8535,
+  "attempt": 0,
+  "uncapacitated": true,
+  "pair_id": "coverage_gap_med_00",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_max_distance": 2.6,
+    "min_improvement": 1.0
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 5.275119315168809,
+      "A_hull": 6.0389889144213535,
+      "solidity": 0.8735103491532511
+    },
+    "3": {
+      "A": 3.451933031994142,
+      "A_hull": 4.2044392818363185,
+      "solidity": 0.8210210210210208
+    },
+    "4": {
+      "A": 4.742304487260423,
+      "A_hull": 5.357187949799249,
+      "solidity": 0.8852227197737448
+    },
+    "5": {
+      "A": 6.28266962955481,
+      "A_hull": 6.618519734350143,
+      "solidity": 0.9492560091568104
+    },
+    "6": {
+      "A": 3.891315875861721,
+      "A_hull": 5.753642584783214,
+      "solidity": 0.6763221417599297
+    },
+    "7": {
+      "A": 5.530163379712634,
+      "A_hull": 5.973334006717003,
+      "solidity": 0.9258084971464805
+    },
+    "8": {
+      "A": 3.7019267190222473,
+      "A_hull": 3.6299588394232476,
+      "solidity": 1.0
+    },
+    "10": {
+      "A": 8.618469230574986,
+      "A_hull": 10.682811040125248,
+      "solidity": 0.8067604302091953
+    },
+    "11": {
+      "A": 3.6716244539279317,
+      "A_hull": 4.092068382111563,
+      "solidity": 0.8972539339709967
+    },
+    "23": {
+      "A": 3.5983939799500018,
+      "A_hull": 3.782732759273758,
+      "solidity": 0.9512683578104135
+    },
+    "27": {
+      "A": 12.444130198732356,
+      "A_hull": 13.726926087725058,
+      "solidity": 0.9065489330389993
+    },
+    "29": {
+      "A": 9.252291608797758,
+      "A_hull": 10.285093810762351,
+      "solidity": 0.8995826172354533
+    },
+    "30": {
+      "A": 6.545289260372214,
+      "A_hull": 7.237190980025755,
+      "solidity": 0.9043963712491281
+    },
+    "31": {
+      "A": 3.7398045503901423,
+      "A_hull": 3.724653417842984,
+      "solidity": 1.0
+    },
+    "35": {
+      "A": 2.659023762026212,
+      "A_hull": 2.633771874447617,
+      "solidity": 1.0
+    },
+    "36": {
+      "A": 6.764980682306003,
+      "A_hull": 7.50107320522209,
+      "solidity": 0.9018683723278911
+    },
+    "37": {
+      "A": 7.136183429711371,
+      "A_hull": 7.762430241660566,
+      "solidity": 0.9193233571893297
+    },
+    "38": {
+      "A": 3.7019267190222473,
+      "A_hull": 3.5895558192974915,
+      "solidity": 1.0
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "Looking at the assignments, some voters have to travel significantly farther than others to reach their assigned polling place. Reduce the worst-case travel distance any voter faces, but be mindful about not making other precincts much worse.",
+  "precise_text": "Voters in precinct 56 face a 2.9 km trip to their nearest polling place \u2014 far above the typical precinct. Address this worst case, ideally by opening a candidate site closer to it.",
+  "vague_template_idx": 0,
+  "precise_template_idx": 2
+}

@@ -1,0 +1,282 @@
+{
+  "n_pairs": 30,
+  "n_pairs_requested": 30,
+  "archetype": "coverage_gap",
+  "sampling_seed": 42,
+  "tiers_used": [
+    "med"
+  ],
+  "n_per_tier": 30,
+  "pairs": [
+    {
+      "pair_id": "coverage_gap_med_00",
+      "pair_dir": "pairs/coverage_gap_med_00",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 8535,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "coverage_gap_med_01",
+      "pair_dir": "pairs/coverage_gap_med_01",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 8753,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "coverage_gap_med_02",
+      "pair_dir": "pairs/coverage_gap_med_02",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 9276,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_03",
+      "pair_dir": "pairs/coverage_gap_med_03",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 9545,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "coverage_gap_med_04",
+      "pair_dir": "pairs/coverage_gap_med_04",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 9678,
+      "vague_template_idx": 1,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "coverage_gap_med_05",
+      "pair_dir": "pairs/coverage_gap_med_05",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 10061,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_06",
+      "pair_dir": "pairs/coverage_gap_med_06",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 10279,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "coverage_gap_med_07",
+      "pair_dir": "pairs/coverage_gap_med_07",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 10738,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "coverage_gap_med_08",
+      "pair_dir": "pairs/coverage_gap_med_08",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 11190,
+      "vague_template_idx": 1,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "coverage_gap_med_09",
+      "pair_dir": "pairs/coverage_gap_med_09",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 11362,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_10",
+      "pair_dir": "pairs/coverage_gap_med_10",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 11816,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_11",
+      "pair_dir": "pairs/coverage_gap_med_11",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 12213,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_12",
+      "pair_dir": "pairs/coverage_gap_med_12",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 12447,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "coverage_gap_med_13",
+      "pair_dir": "pairs/coverage_gap_med_13",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 12620,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_14",
+      "pair_dir": "pairs/coverage_gap_med_14",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 13082,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_15",
+      "pair_dir": "pairs/coverage_gap_med_15",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 13239,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "coverage_gap_med_16",
+      "pair_dir": "pairs/coverage_gap_med_16",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 14368,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "coverage_gap_med_17",
+      "pair_dir": "pairs/coverage_gap_med_17",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 14416,
+      "vague_template_idx": 4,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_18",
+      "pair_dir": "pairs/coverage_gap_med_18",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 14806,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_19",
+      "pair_dir": "pairs/coverage_gap_med_19",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 15533,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_20",
+      "pair_dir": "pairs/coverage_gap_med_20",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 16132,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "coverage_gap_med_21",
+      "pair_dir": "pairs/coverage_gap_med_21",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 16236,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_22",
+      "pair_dir": "pairs/coverage_gap_med_22",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 16575,
+      "vague_template_idx": 1,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_23",
+      "pair_dir": "pairs/coverage_gap_med_23",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 17006,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "coverage_gap_med_24",
+      "pair_dir": "pairs/coverage_gap_med_24",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 17256,
+      "vague_template_idx": 4,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_25",
+      "pair_dir": "pairs/coverage_gap_med_25",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 17529,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "coverage_gap_med_26",
+      "pair_dir": "pairs/coverage_gap_med_26",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 17688,
+      "vague_template_idx": 4,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "coverage_gap_med_27",
+      "pair_dir": "pairs/coverage_gap_med_27",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 17710,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "coverage_gap_med_28",
+      "pair_dir": "pairs/coverage_gap_med_28",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 17998,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "coverage_gap_med_29",
+      "pair_dir": "pairs/coverage_gap_med_29",
+      "archetype": "coverage_gap",
+      "difficulty": "med",
+      "base_seed": 18486,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    }
+  ]
+}

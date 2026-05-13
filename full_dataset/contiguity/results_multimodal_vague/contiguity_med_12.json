@@ -1,0 +1,417 @@
+{
+  "pair_id": "contiguity_med_12",
+  "modality": "multimodal",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": true,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "7e578e4f4e151500c402727a44dd0ff97016a9206c161cc7c797b8bae83447bf",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 26,
+        "n_components": 2,
+        "components": [
+          [
+            34,
+            41,
+            9,
+            8
+          ],
+          [
+            10
+          ]
+        ],
+        "component_voters": [
+          2636,
+          361
+        ],
+        "largest_component_voters": 2636,
+        "disjoint_excess_voters": 361,
+        "worst_pair_separation_km": 2.188847266495062
+      },
+      {
+        "site": 33,
+        "n_components": 2,
+        "components": [
+          [
+            73
+          ],
+          [
+            5
+          ]
+        ],
+        "component_voters": [
+          773,
+          564
+        ],
+        "largest_component_voters": 773,
+        "disjoint_excess_voters": 564,
+        "worst_pair_separation_km": 1.5255156137275685
+      }
+    ],
+    "n_split_sites_baseline": 2,
+    "total_disjoint_excess_voters_baseline": 925,
+    "worst_culprit_site": 33,
+    "worst_culprit_disjoint_voters": 564,
+    "smallest_component_centroid": [
+      2.7150094735974966,
+      1.5670565944476478
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7938,
+    "attempt": 0,
+    "pair_id": "contiguity_med_12",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 5.8533875407186695,
+        "A_hull": 7.176586449837124,
+        "solidity": 0.8156228008444759
+      },
+      "1": {
+        "A": 2.760031312340598,
+        "A_hull": 3.5718794979924757,
+        "solidity": 0.7727112053729233
+      },
+      "3": {
+        "A": 4.267569000782809,
+        "A_hull": 5.330673467841721,
+        "solidity": 0.800568450971104
+      },
+      "4": {
+        "A": 5.6589480063634765,
+        "A_hull": 6.988459887376582,
+        "solidity": 0.8097560975609757
+      },
+      "11": {
+        "A": 7.472033534506705,
+        "A_hull": 7.772530996692001,
+        "solidity": 0.9613385315139705
+      },
+      "14": {
+        "A": 7.790207317997021,
+        "A_hull": 9.304057978333882,
+        "solidity": 0.8372913556791967
+      },
+      "15": {
+        "A": 4.40645438246509,
+        "A_hull": 4.960733314815281,
+        "solidity": 0.8882667345380508
+      },
+      "16": {
+        "A": 4.787757884901897,
+        "A_hull": 6.151359814146106,
+        "solidity": 0.7783251231527095
+      },
+      "18": {
+        "A": 10.355799095982427,
+        "A_hull": 11.754753667836674,
+        "solidity": 0.8809881847475832
+      },
+      "22": {
+        "A": 6.434180955026389,
+        "A_hull": 6.5667533648140175,
+        "solidity": 0.9798115746971741
+      },
+      "26": {
+        "A": 5.0226004393828445,
+        "A_hull": 7.681624201409056,
+        "solidity": 0.6538461538461539
+      },
+      "30": {
+        "A": 8.598267720512109,
+        "A_hull": 10.03762531249211,
+        "solidity": 0.8566037735849055
+      },
+      "31": {
+        "A": 6.603368601802986,
+        "A_hull": 6.982146915481932,
+        "solidity": 0.9457504520795662
+      },
+      "32": {
+        "A": 5.982172167369511,
+        "A_hull": 6.108431605262494,
+        "solidity": 0.9793303017775941
+      },
+      "33": {
+        "A": 1.4671346683164568,
+        "A_hull": 2.4027171031034573,
+        "solidity": 0.6106148187073043
+      },
+      "37": {
+        "A": 2.4216560187874046,
+        "A_hull": 2.689326027120527,
+        "solidity": 0.9004694835680752
+      },
+      "38": {
+        "A": 3.4241559556576857,
+        "A_hull": 3.460771192646651,
+        "solidity": 0.989419919737322
+      },
+      "39": {
+        "A": 7.701825711471933,
+        "A_hull": 8.560389889144215,
+        "solidity": 0.8997050147492625
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "The map shows polling places whose voters come from disjoint pockets \u2014 same colour on two separate patches with a gap between. Break up any such split-catchment.",
+    "precise_text": "Site 33's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 3,
+    "precise_template_idx": 3
+  },
+  "proposal": null,
+  "score": {
+    "query_id": "contiguity_contiguity_med_12_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 2.0,
+    "target_response": 2.0,
+    "raw_improvement": 0.0,
+    "fraction_improved": 0.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 51491.738904201135,
+        "response": 51491.738904201135,
+        "bound": 54066.325849411194,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.8016453752781654,
+        "response": 1.8016453752781654,
+        "bound": 1.8016453752781654,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 51491.738904201135,
+    "final_assignment_distance": 51491.738904201135,
+    "assignment_distance_delta": 0.0,
+    "success": false
+  },
+  "superscore": {
+    "selected_explored_index": 0,
+    "selected_source": "baseline",
+    "selected_iteration": -1,
+    "selected_resolve_index": null,
+    "selected_n_resolves": 0,
+    "selected_n_local_edits": 0,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 2,
+    "n_explored_primary_improved": 0,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Baseline selected: no explored candidate improved the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "force_assign",
+        "iteration": 3,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 1,
+        "target_response": 2.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 12.764367728828802
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_12_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 51491.738904201135,
+              "response": 51491.738904201135,
+              "bound": 54066.325849411194,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.8016453752781654,
+              "response": 1.8016453752781654,
+              "bound": 1.8016453752781654,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 51491.738904201135,
+          "final_assignment_distance": 51491.738904201135,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "force_assign",
+        "iteration": 3,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 1,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_12_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 2.0,
+          "target_response": 2.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 51491.738904201135,
+              "response": 51504.50327192996,
+              "bound": 54066.325849411194,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.8016453752781654,
+              "response": 1.8016453752781654,
+              "bound": 1.8016453752781654,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 51491.738904201135,
+          "final_assignment_distance": 51504.50327192996,
+          "assignment_distance_delta": 12.764367728828802,
+          "success": false
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_12.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 10,
+    "n_resolves": 0,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 2,
+    "local_edit_tool_counts": {
+      "force_assign": 2
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 14,
+    "tool_call_counts": {
+      "view_solution": 2,
+      "get_current_assignments": 3,
+      "get_precinct_adjacency": 2,
+      "list_sites": 1,
+      "get_distance_matrix": 2,
+      "force_assign": 2,
+      "swap_assignments": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 10,
+    "usage": {
+      "prompt_tokens": 388307,
+      "completion_tokens": 1211,
+      "total_tokens": 389518,
+      "cached_tokens": 290816,
+      "reasoning_tokens": 0
+    },
+    "n_view_solution": 2,
+    "view_purpose_counts": {
+      "baseline_vs_critique": 1,
+      "post_action_vs_baseline": 1
+    },
+    "had_baseline_view": true,
+    "pending_post_action_view_at_end": true
+  },
+  "elapsed_sec": 124.91710591316223,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 12,
+    "modality_for_this_result": "multimodal",
+    "run_order_this_pair": [
+      "multimodal",
+      "tools_only"
+    ]
+  }
+}

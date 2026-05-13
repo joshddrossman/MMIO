@@ -1,0 +1,412 @@
+{
+  "pair_id": "contiguity_med_14",
+  "modality": "multimodal",
+  "query_type": "vague",
+  "run_config": {
+    "model": "gpt-5.4",
+    "temperature": null,
+    "seed": null,
+    "enable_visual": true,
+    "query_type": "vague",
+    "max_iters": 25,
+    "guard_config": [
+      {
+        "name": "total_weighted_distance",
+        "bound_kind": "max_pct_increase",
+        "max_pct_increase": 0.05
+      },
+      {
+        "name": "p90_voter_distance",
+        "bound_kind": "max_abs_increase",
+        "max_abs_increase": 0.0
+      }
+    ]
+  },
+  "status": "completed",
+  "result_schema_version": 1,
+  "termination_reason": "explicit_submit",
+  "baseline_digest": "90558320184b9de2ec7fe176514fdf7bc027e738c1c6578145b5c72663c0f45e",
+  "guard_config": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "metadata": {
+    "archetype": "contiguity",
+    "culprits": [
+      {
+        "site": 9,
+        "n_components": 2,
+        "components": [
+          [
+            19
+          ],
+          [
+            63,
+            47
+          ]
+        ],
+        "component_voters": [
+          2180,
+          595
+        ],
+        "largest_component_voters": 2180,
+        "disjoint_excess_voters": 595,
+        "worst_pair_separation_km": 2.6325689070736655
+      }
+    ],
+    "n_split_sites_baseline": 1,
+    "total_disjoint_excess_voters_baseline": 595,
+    "worst_culprit_site": 9,
+    "worst_culprit_disjoint_voters": 595,
+    "smallest_component_centroid": [
+      6.650242683232436,
+      6.8127360336239375
+    ],
+    "min_split_voters_threshold": 1,
+    "min_separation_threshold_km": 1.8,
+    "base_seed": 7941,
+    "attempt": 0,
+    "pair_id": "contiguity_med_14",
+    "difficulty": "med",
+    "tier_kwargs": {
+      "min_split_voters": 1,
+      "min_separation": 1.8
+    },
+    "per_catchment_solidity": {
+      "0": {
+        "A": 4.90896694527916,
+        "A_hull": 5.492285548344739,
+        "solidity": 0.8937931034482759
+      },
+      "2": {
+        "A": 4.55291533042095,
+        "A_hull": 4.719577788439686,
+        "solidity": 0.9646869983948637
+      },
+      "3": {
+        "A": 4.9518951541627745,
+        "A_hull": 6.21322693871367,
+        "solidity": 0.7969924812030075
+      },
+      "4": {
+        "A": 7.376076361708039,
+        "A_hull": 8.209388651801719,
+        "solidity": 0.8984927714549374
+      },
+      "5": {
+        "A": 2.8862907502335804,
+        "A_hull": 3.7688442211055286,
+        "solidity": 0.7658291457286431
+      },
+      "6": {
+        "A": 4.2094896593520374,
+        "A_hull": 4.305446832150704,
+        "solidity": 0.9777126099706746
+      },
+      "7": {
+        "A": 5.1640110098229846,
+        "A_hull": 6.1854498623772125,
+        "solidity": 0.8348642580118393
+      },
+      "8": {
+        "A": 3.588293224918563,
+        "A_hull": 4.453170374485494,
+        "solidity": 0.8057839523674509
+      },
+      "9": {
+        "A": 4.1211080528269495,
+        "A_hull": 7.793995101133808,
+        "solidity": 0.5287542523894381
+      },
+      "10": {
+        "A": 4.90896694527916,
+        "A_hull": 5.063003459508596,
+        "solidity": 0.9695760598503746
+      },
+      "11": {
+        "A": 6.800333324916038,
+        "A_hull": 8.405090780535845,
+        "solidity": 0.8090731560763107
+      },
+      "13": {
+        "A": 7.262442867604355,
+        "A_hull": 7.3318855584454905,
+        "solidity": 0.9905286722920619
+      },
+      "18": {
+        "A": 6.896290497714705,
+        "A_hull": 7.411429004318073,
+        "solidity": 0.9304940374787053
+      },
+      "21": {
+        "A": 9.007348299285372,
+        "A_hull": 10.054039039418193,
+        "solidity": 0.8958935074720586
+      },
+      "23": {
+        "A": 10.353273907224565,
+        "A_hull": 11.878487916971793,
+        "solidity": 0.8715986394557824
+      },
+      "32": {
+        "A": 3.5706169036135456,
+        "A_hull": 3.6690992651700727,
+        "solidity": 0.9731589814177561
+      },
+      "35": {
+        "A": 5.335723845357441,
+        "A_hull": 5.302896391505264,
+        "solidity": 1.0
+      },
+      "36": {
+        "A": 5.113507234665792,
+        "A_hull": 5.028913411277493,
+        "solidity": 1.0
+      }
+    },
+    "globally_clustered_sites": [],
+    "clustered_sites_radius": 1.35,
+    "clustered_sites_min_sites": 4,
+    "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+    "precise_text": "Polling place 9 has a fragmented service area \u2014 voters in separated pockets are all routed to it. Fix the topology, but be mindful about causing this issue elsewhere.",
+    "vague_template_idx": 2,
+    "precise_template_idx": 2
+  },
+  "proposal": {
+    "force_assign": [
+      [
+        35,
+        18
+      ]
+    ],
+    "rationale": "Precinct 35 is a detached west-side pocket relative to site 23 and is adjacent to site-18 territory. Fix precinct 35 to site 18 to enforce a more contiguous catchment structure, then let the optimizer globally rebalance surrounding assignments under capacity so fragmented service areas are reduced without changing the site budget unnecessarily."
+  },
+  "score": {
+    "query_id": "contiguity_contiguity_med_14_vague",
+    "archetype": "contiguity",
+    "target_direction": "minimize",
+    "target_baseline": 1.0,
+    "target_response": 0.0,
+    "raw_improvement": 1.0,
+    "fraction_improved": 1.0,
+    "guards": [
+      {
+        "name": "total_weighted_distance",
+        "baseline": 51549.579568725145,
+        "response": 51750.76630349066,
+        "bound": 54127.0585471614,
+        "violation": 0.0,
+        "passed": true
+      },
+      {
+        "name": "p90_voter_distance",
+        "baseline": 1.7052347309597382,
+        "response": 1.7052347309597382,
+        "bound": 1.7052347309597382,
+        "violation": 0.0,
+        "passed": true
+      }
+    ],
+    "all_guards_passed": true,
+    "feasible": true,
+    "valid": true,
+    "baseline_assignment_distance": 51549.579568725145,
+    "final_assignment_distance": 51750.76630349066,
+    "assignment_distance_delta": 201.1867347655134,
+    "success": true
+  },
+  "superscore": {
+    "selected_explored_index": 1,
+    "selected_source": "resolve",
+    "selected_iteration": 7,
+    "selected_resolve_index": 1,
+    "selected_n_resolves": 1,
+    "selected_n_local_edits": 2,
+    "n_feasible_explored": 2,
+    "selected_valid": true,
+    "n_explored_valid": 2,
+    "n_explored_primary_improved": 1,
+    "n_explored_primary_improved_but_invalid": 0,
+    "selection_reason": "Selected explored candidate is valid and improves the primary target.",
+    "explored_scores": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "target_response": 1.0,
+        "fraction_improved": 0.0,
+        "valid": true,
+        "success": false,
+        "assignment_distance_delta": 0.0
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 7,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 2,
+        "target_response": 0.0,
+        "fraction_improved": 1.0,
+        "valid": true,
+        "success": true,
+        "assignment_distance_delta": 201.1867347655134
+      }
+    ],
+    "explored_scores_full": [
+      {
+        "explored_index": 0,
+        "source": "baseline",
+        "iteration": -1,
+        "resolve_index": null,
+        "n_resolves": 0,
+        "n_local_edits": 0,
+        "proposal": null,
+        "score": {
+          "query_id": "contiguity_contiguity_med_14_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 1.0,
+          "raw_improvement": 0.0,
+          "fraction_improved": 0.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 51549.579568725145,
+              "response": 51549.579568725145,
+              "bound": 54127.0585471614,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.7052347309597382,
+              "response": 1.7052347309597382,
+              "bound": 1.7052347309597382,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 51549.579568725145,
+          "final_assignment_distance": 51549.579568725145,
+          "assignment_distance_delta": 0.0,
+          "success": false
+        }
+      },
+      {
+        "explored_index": 1,
+        "source": "resolve",
+        "iteration": 7,
+        "resolve_index": 1,
+        "n_resolves": 1,
+        "n_local_edits": 2,
+        "proposal": {
+          "force_assign": [
+            [
+              35,
+              18
+            ]
+          ],
+          "rationale": "Precinct 35 is a detached west-side pocket relative to site 23 and is adjacent to site-18 territory. Fix precinct 35 to site 18 to enforce a more contiguous catchment structure, then let the optimizer globally rebalance surrounding assignments under capacity so fragmented service areas are reduced without changing the site budget unnecessarily."
+        },
+        "score": {
+          "query_id": "contiguity_contiguity_med_14_vague",
+          "archetype": "contiguity",
+          "target_direction": "minimize",
+          "target_baseline": 1.0,
+          "target_response": 0.0,
+          "raw_improvement": 1.0,
+          "fraction_improved": 1.0,
+          "guards": [
+            {
+              "name": "total_weighted_distance",
+              "baseline": 51549.579568725145,
+              "response": 51750.76630349066,
+              "bound": 54127.0585471614,
+              "violation": 0.0,
+              "passed": true
+            },
+            {
+              "name": "p90_voter_distance",
+              "baseline": 1.7052347309597382,
+              "response": 1.7052347309597382,
+              "bound": 1.7052347309597382,
+              "violation": 0.0,
+              "passed": true
+            }
+          ],
+          "all_guards_passed": true,
+          "feasible": true,
+          "valid": true,
+          "baseline_assignment_distance": 51549.579568725145,
+          "final_assignment_distance": 51750.76630349066,
+          "assignment_distance_delta": 201.1867347655134,
+          "success": true
+        }
+      }
+    ],
+    "explore_replay_path": "contiguity_med_14.explore_replay.pkl"
+  },
+  "log_summary": {
+    "n_assistant_messages": 10,
+    "n_resolves": 1,
+    "n_resolves_infeasible": 0,
+    "n_local_edits": 2,
+    "local_edit_tool_counts": {
+      "force_assign": 2
+    },
+    "n_submitted_explicit": 1,
+    "n_tool_calls": 16,
+    "tool_call_counts": {
+      "view_solution": 3,
+      "get_current_assignments": 3,
+      "get_precinct_adjacency": 1,
+      "list_sites": 2,
+      "get_distance_matrix": 2,
+      "force_assign": 3,
+      "resolve": 1,
+      "submit_proposal": 1
+    },
+    "primary_stall_nudges_sent": 0,
+    "n_model_calls": 10,
+    "usage": {
+      "prompt_tokens": 303916,
+      "completion_tokens": 1392,
+      "total_tokens": 305308,
+      "cached_tokens": 251648,
+      "reasoning_tokens": 0
+    },
+    "n_view_solution": 3,
+    "view_purpose_counts": {
+      "baseline_vs_critique": 1,
+      "post_action_vs_baseline": 2
+    },
+    "had_baseline_view": true,
+    "pending_post_action_view_at_end": false
+  },
+  "elapsed_sec": 97.19930815696716,
+  "paired_modality_meta": {
+    "counterbalance_scheme": "pair_index_parity",
+    "pair_index_in_subset": 14,
+    "modality_for_this_result": "multimodal",
+    "run_order_this_pair": [
+      "multimodal",
+      "tools_only"
+    ]
+  }
+}
