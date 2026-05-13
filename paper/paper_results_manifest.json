@@ -1,0 +1,47 @@
+{
+  "manifest_schema_version": 1,
+  "benchmark_version": "v2",
+  "generated_at_utc": "2026-05-13T22:19:11.046637+00:00",
+  "repo_root": "/Users/cat2510/MMIO",
+  "git": {
+    "commit": "8b63771628272507819435da46e7bf516813e8a3",
+    "branch": "homework-5-mmai-submission",
+    "is_dirty": true,
+    "porcelain": [
+      "?? .mplconfig/",
+      "?? josh_paper.pdf",
+      "?? old_scripts/",
+      "?? out_old/",
+      "?? verbose_logs/"
+    ]
+  },
+  "shape_niceness_default_success_fraction_from_queries_py": 0.02,
+  "official_fraction_thresholds": {
+    "coverage_gap": 0.3,
+    "contiguity": 0.5,
+    "shape_niceness": 0.02
+  },
+  "default_guard_specs": [
+    {
+      "name": "total_weighted_distance",
+      "bound_kind": "max_pct_increase",
+      "max_pct_increase": 0.05
+    },
+    {
+      "name": "p90_voter_distance",
+      "bound_kind": "max_abs_increase",
+      "max_abs_increase": 0.0
+    }
+  ],
+  "key_file_sha256": {
+    "queries.py": "eb26d8ca336d0e4c173fb6514c78c872f6be02e820eab93905be5c89e9e55108",
+    "analysis/sweep.py": "4fe14628b5968e1366abfc1a43add677fad9224d896b21406d7ecbf62a716ecf",
+    "run_dataset.py": "706cce703890379c618ee41dc834e560129cc5f802c88fc588b150a84a663daf",
+    "test_agent.py": "d91188ef1c92a27b2a10961fe6c9544662f14994ea37330459c6c5989619b399"
+  },
+  "results_roots_documented": [
+    "full_dataset",
+    "out/runs"
+  ],
+  "notes": "Headline success in JSON is run-time score.success; pair metadata may include success_threshold_fraction_improved. Regenerate after changing queries.py, analysis/sweep.py, or agent scoring paths. Field git.commit is HEAD at generation time (often the parent of the commit that adds this file); use key_file_sha256 for exact code."
+}
