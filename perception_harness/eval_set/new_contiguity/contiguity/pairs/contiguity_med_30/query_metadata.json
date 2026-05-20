@@ -1,0 +1,161 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 0,
+      "n_components": 2,
+      "components": [
+        [
+          66,
+          11
+        ],
+        [
+          15
+        ]
+      ],
+      "component_voters": [
+        3409,
+        68
+      ],
+      "largest_component_voters": 3409,
+      "disjoint_excess_voters": 68,
+      "worst_pair_separation_km": 2.341561489916413
+    },
+    {
+      "site": 32,
+      "n_components": 2,
+      "components": [
+        [
+          68
+        ],
+        [
+          70
+        ]
+      ],
+      "component_voters": [
+        741,
+        574
+      ],
+      "largest_component_voters": 741,
+      "disjoint_excess_voters": 574,
+      "worst_pair_separation_km": 1.5511173396151305
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 642,
+  "worst_culprit_site": 32,
+  "worst_culprit_disjoint_voters": 574,
+  "smallest_component_centroid": [
+    6.167426536656779,
+    0.33179140736796553
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7962,
+  "attempt": 0,
+  "pair_id": "contiguity_med_30",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 3.9544455948082122,
+      "A_hull": 5.9859599505063015,
+      "solidity": 0.6606201223370596
+    },
+    "1": {
+      "A": 3.305472084038282,
+      "A_hull": 3.4077422287315975,
+      "solidity": 0.969988884772138
+    },
+    "3": {
+      "A": 4.709477033408247,
+      "A_hull": 5.863488295750106,
+      "solidity": 0.8031869078380708
+    },
+    "4": {
+      "A": 4.300396454634985,
+      "A_hull": 5.8533875407186695,
+      "solidity": 0.7346850733390855
+    },
+    "5": {
+      "A": 3.1792126461452996,
+      "A_hull": 4.959470720436353,
+      "solidity": 0.6410386965376782
+    },
+    "6": {
+      "A": 3.9519204060503528,
+      "A_hull": 5.456932905734703,
+      "solidity": 0.7242017584451644
+    },
+    "8": {
+      "A": 3.9367692735031947,
+      "A_hull": 4.039039418196512,
+      "solidity": 0.9746795873710531
+    },
+    "10": {
+      "A": 8.924017070276005,
+      "A_hull": 9.970707810408827,
+      "solidity": 0.8950234266177032
+    },
+    "12": {
+      "A": 7.828085149364916,
+      "A_hull": 8.867200323224163,
+      "solidity": 0.8828136124163463
+    },
+    "16": {
+      "A": 11.072952703214566,
+      "A_hull": 11.466882149440671,
+      "solidity": 0.9656463334067387
+    },
+    "17": {
+      "A": 5.99227292240095,
+      "A_hull": 6.391252746142772,
+      "solidity": 0.937574081390755
+    },
+    "27": {
+      "A": 7.239716168783618,
+      "A_hull": 7.672786040756546,
+      "solidity": 0.943557676485108
+    },
+    "30": {
+      "A": 8.37857629857832,
+      "A_hull": 9.224514532461301,
+      "solidity": 0.9082945524226665
+    },
+    "31": {
+      "A": 7.206888714931442,
+      "A_hull": 8.004848362415093,
+      "solidity": 0.9003154574132491
+    },
+    "32": {
+      "A": 1.6287467488194745,
+      "A_hull": 2.436807151334562,
+      "solidity": 0.6683937823834198
+    },
+    "35": {
+      "A": 4.267569000782809,
+      "A_hull": 4.504936744021617,
+      "solidity": 0.9473094170403588
+    },
+    "36": {
+      "A": 7.025075124365547,
+      "A_hull": 7.5061235827378106,
+      "solidity": 0.9359125315391085
+    },
+    "39": {
+      "A": 4.105956920279791,
+      "A_hull": 4.807959394964772,
+      "solidity": 0.8539915966386558
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "There are visible service-area splits: opened sites whose catchments appear in disconnected regions. Eliminate them.",
+  "precise_text": "Site 32's catchment looks split on the map \u2014 same color appearing in two disconnected patches. Repair the contiguity, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 4,
+  "precise_template_idx": 3
+}

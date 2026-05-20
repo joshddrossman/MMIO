@@ -1,0 +1,34 @@
+{
+  "cells": [
+    {
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "task": "identify",
+      "renderer": "v2_no_markers",
+      "prompt": "multimodal_full",
+      "model": "openai_vlm_tools:gpt-5.4",
+      "n": 30,
+      "mean_score": 0.23715999999999998
+    },
+    {
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "task": "identify",
+      "renderer": "v2_no_markers",
+      "prompt": "tools_only",
+      "model": "openai_vlm_tools:gpt-5.4",
+      "n": 30,
+      "mean_score": 0.19703333333333334
+    },
+    {
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "task": "identify",
+      "renderer": "v2_no_markers",
+      "prompt": "with_attribution",
+      "model": "openai_vlm_tools:gpt-5.4",
+      "n": 30,
+      "mean_score": 0.5479433333333333
+    }
+  ]
+}

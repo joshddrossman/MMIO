@@ -1,0 +1,144 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 6,
+      "n_components": 2,
+      "components": [
+        [
+          77,
+          79
+        ],
+        [
+          1,
+          4,
+          3
+        ]
+      ],
+      "component_voters": [
+        1353,
+        825
+      ],
+      "largest_component_voters": 1353,
+      "disjoint_excess_voters": 825,
+      "worst_pair_separation_km": 2.1447797573240384
+    }
+  ],
+  "n_split_sites_baseline": 1,
+  "total_disjoint_excess_voters_baseline": 825,
+  "worst_culprit_site": 6,
+  "worst_culprit_disjoint_voters": 825,
+  "smallest_component_centroid": [
+    2.8194539744095324,
+    2.7334224792745423
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7956,
+  "attempt": 0,
+  "pair_id": "contiguity_med_25",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 5.989747733643091,
+      "A_hull": 6.403878689932073,
+      "solidity": 0.9353312302839117
+    },
+    "1": {
+      "A": 6.951844650387617,
+      "A_hull": 8.097017752076969,
+      "solidity": 0.858568532668018
+    },
+    "2": {
+      "A": 4.613519860609581,
+      "A_hull": 4.6829625514507205,
+      "solidity": 0.9851712051765976
+    },
+    "3": {
+      "A": 4.047877578849019,
+      "A_hull": 4.3698391454761225,
+      "solidity": 0.9263218722912457
+    },
+    "6": {
+      "A": 4.300396454634985,
+      "A_hull": 7.9215171334057235,
+      "solidity": 0.5428753586228882
+    },
+    "7": {
+      "A": 2.0757051589606323,
+      "A_hull": 1.9885861468144745,
+      "solidity": 1.0
+    },
+    "8": {
+      "A": 3.704451907780107,
+      "A_hull": 3.866063988283125,
+      "solidity": 0.9581972566949705
+    },
+    "12": {
+      "A": 6.229640665639757,
+      "A_hull": 7.006136208681598,
+      "solidity": 0.8891692196792217
+    },
+    "13": {
+      "A": 2.8989166940228785,
+      "A_hull": 3.5617787429610357,
+      "solidity": 0.8138957816377174
+    },
+    "14": {
+      "A": 10.681548445746321,
+      "A_hull": 11.954243579707581,
+      "solidity": 0.893536121673004
+    },
+    "18": {
+      "A": 5.537738945986213,
+      "A_hull": 5.92788060907553,
+      "solidity": 0.9341853035143769
+    },
+    "20": {
+      "A": 8.275043559506074,
+      "A_hull": 9.119719199010124,
+      "solidity": 0.9073792053163509
+    },
+    "25": {
+      "A": 6.815484457463196,
+      "A_hull": 7.315471831519406,
+      "solidity": 0.9316534345875044
+    },
+    "27": {
+      "A": 6.1008560389889155,
+      "A_hull": 7.129870457816721,
+      "solidity": 0.8556755799539582
+    },
+    "30": {
+      "A": 6.312971894649126,
+      "A_hull": 6.805383702431758,
+      "solidity": 0.9276437847866419
+    },
+    "31": {
+      "A": 3.9544455948082122,
+      "A_hull": 4.155198101058055,
+      "solidity": 0.9516864175022789
+    },
+    "36": {
+      "A": 6.527612939067196,
+      "A_hull": 7.310421454003686,
+      "solidity": 0.8929188255613127
+    },
+    "38": {
+      "A": 5.989747733643091,
+      "A_hull": 6.261205525113002,
+      "solidity": 0.9566444847751564
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "The map shows polling places whose voters come from disjoint pockets \u2014 same colour on two separate patches with a gap between. Break up any such split-catchment.",
+  "precise_text": "Polling place 6's service area is split into disconnected pockets \u2014 its catchment isn't a single contiguous region. Fix the split, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 0
+}

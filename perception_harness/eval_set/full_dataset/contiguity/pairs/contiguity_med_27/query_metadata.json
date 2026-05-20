@@ -1,0 +1,167 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 1,
+      "n_components": 2,
+      "components": [
+        [
+          31
+        ],
+        [
+          19,
+          21
+        ]
+      ],
+      "component_voters": [
+        1992,
+        647
+      ],
+      "largest_component_voters": 1992,
+      "disjoint_excess_voters": 647,
+      "worst_pair_separation_km": 1.4073627247298397
+    },
+    {
+      "site": 2,
+      "n_components": 2,
+      "components": [
+        [
+          1,
+          10,
+          9,
+          8,
+          3,
+          74,
+          73
+        ],
+        [
+          0
+        ]
+      ],
+      "component_voters": [
+        4174,
+        763
+      ],
+      "largest_component_voters": 4174,
+      "disjoint_excess_voters": 763,
+      "worst_pair_separation_km": 2.7718449936866634
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 1410,
+  "worst_culprit_site": 2,
+  "worst_culprit_disjoint_voters": 763,
+  "smallest_component_centroid": [
+    2.667148057000547,
+    4.303629584874497
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7958,
+  "attempt": 0,
+  "pair_id": "contiguity_med_27",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 2.2903462033787028,
+      "A_hull": 2.580742910532562,
+      "solidity": 0.8874755381604699
+    },
+    "1": {
+      "A": 2.9494204691800716,
+      "A_hull": 4.503674149642688,
+      "solidity": 0.6548920661620408
+    },
+    "2": {
+      "A": 6.598318224287266,
+      "A_hull": 9.494709729552287,
+      "solidity": 0.6949468085106381
+    },
+    "4": {
+      "A": 3.6514229438650543,
+      "A_hull": 4.531451225979142,
+      "solidity": 0.8057954862078575
+    },
+    "5": {
+      "A": 3.6135451124971594,
+      "A_hull": 4.030201257544001,
+      "solidity": 0.8966165413533835
+    },
+    "7": {
+      "A": 3.4191055781419664,
+      "A_hull": 5.157698037928335,
+      "solidity": 0.6629130966952265
+    },
+    "19": {
+      "A": 8.44928158379839,
+      "A_hull": 9.153809247241233,
+      "solidity": 0.9230344827586207
+    },
+    "20": {
+      "A": 5.618544986237722,
+      "A_hull": 6.001111083053459,
+      "solidity": 0.9362507889753839
+    },
+    "21": {
+      "A": 7.098305598343477,
+      "A_hull": 8.60710588116462,
+      "solidity": 0.8247029485110752
+    },
+    "25": {
+      "A": 5.55794045604909,
+      "A_hull": 8.310396202116106,
+      "solidity": 0.6687936797326043
+    },
+    "28": {
+      "A": 7.850811848185653,
+      "A_hull": 8.326809929042193,
+      "solidity": 0.9428354814253226
+    },
+    "29": {
+      "A": 8.724527158405092,
+      "A_hull": 9.341935809701772,
+      "solidity": 0.9339099878361945
+    },
+    "30": {
+      "A": 7.830610338122775,
+      "A_hull": 8.251054266306404,
+      "solidity": 0.9490436113236422
+    },
+    "31": {
+      "A": 6.888714931441126,
+      "A_hull": 8.503573142092373,
+      "solidity": 0.8100965107646622
+    },
+    "33": {
+      "A": 7.171536072321407,
+      "A_hull": 7.145021590363879,
+      "solidity": 1.0
+    },
+    "35": {
+      "A": 4.532713820358072,
+      "A_hull": 4.594580944925633,
+      "solidity": 0.9865347622973345
+    },
+    "37": {
+      "A": 5.830660841897933,
+      "A_hull": 6.983409509860862,
+      "solidity": 0.8349303923341169
+    },
+    "38": {
+      "A": 2.931744147875054,
+      "A_hull": 2.845887730107825,
+      "solidity": 1.0
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+  "precise_text": "Polling place 2's service area is split into disconnected pockets \u2014 its catchment isn't a single contiguous region. Fix the split, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 0
+}

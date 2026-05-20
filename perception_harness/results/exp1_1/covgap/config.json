@@ -1,0 +1,23 @@
+{
+  "renderers": [
+    "v2"
+  ],
+  "prompts": [
+    "tools_only",
+    "with_attribution",
+    "multimodal_full"
+  ],
+  "models": [
+    "openai_vlm_tools:gpt-5.4"
+  ],
+  "archetypes": [
+    "coverage_gap"
+  ],
+  "difficulties": null,
+  "tasks": [
+    "identify"
+  ],
+  "first_n": null,
+  "n_rows": 30,
+  "ground_truth": "/Users/joshuadrossman/Documents/MMAI/Final Project (FR Tho)/perception_harness/eval_set/ground_truth.csv"
+}

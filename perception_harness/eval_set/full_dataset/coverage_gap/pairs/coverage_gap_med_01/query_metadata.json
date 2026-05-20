@@ -1,0 +1,249 @@
+{
+  "archetype": "coverage_gap",
+  "current_max_distance_km": 3.006616782109575,
+  "most_stranded_precinct": 66,
+  "most_stranded_distance_km": 3.006616782109575,
+  "best_candidate_idx": 17,
+  "best_candidate_new_max_km": 1.8941843781147016,
+  "best_improvement_km": 1.1124324039948734,
+  "per_candidate_improvement": {
+    "17": {
+      "improvement_km": 1.1124324039948734,
+      "new_max_km": 1.8941843781147016
+    },
+    "19": {
+      "improvement_km": 1.1124324039948734,
+      "new_max_km": 1.8941843781147016
+    },
+    "22": {
+      "improvement_km": 1.1124324039948734,
+      "new_max_km": 1.8941843781147016
+    },
+    "28": {
+      "improvement_km": 1.1124324039948734,
+      "new_max_km": 1.8941843781147016
+    },
+    "36": {
+      "improvement_km": 1.1124324039948734,
+      "new_max_km": 1.8941843781147016
+    },
+    "25": {
+      "improvement_km": 1.043628428760294,
+      "new_max_km": 1.9629883533492811
+    },
+    "26": {
+      "improvement_km": 0.8569627384387135,
+      "new_max_km": 2.1496540436708615
+    },
+    "3": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "4": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "6": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "8": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "10": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "11": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "13": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "15": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "18": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "20": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "24": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "27": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "29": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "31": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    },
+    "39": {
+      "improvement_km": 0.0,
+      "new_max_km": 3.006616782109575
+    }
+  },
+  "candidates_ranked_by_improvement": [
+    17,
+    19,
+    22,
+    28,
+    36,
+    25,
+    26,
+    3,
+    4,
+    6,
+    8,
+    10,
+    11,
+    13,
+    15,
+    18,
+    20,
+    24,
+    27,
+    29,
+    31,
+    39
+  ],
+  "coverage_gap_center": [
+    8.489415232317542,
+    7.280155460117259
+  ],
+  "coverage_gap_radius": 4.579655106577572,
+  "affected_precincts": [
+    16,
+    42,
+    52,
+    58,
+    66
+  ],
+  "coverage_gap_distance_threshold": 1.8740730931189866,
+  "coverage_gap_baseline_strand_count": 5,
+  "n_opened": 18,
+  "n_closed_candidates": 22,
+  "min_max_distance_threshold_km": 2.6,
+  "min_improvement_threshold_km": 1.0,
+  "base_seed": 8753,
+  "attempt": 0,
+  "uncapacitated": true,
+  "pair_id": "coverage_gap_med_01",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_max_distance": 2.6,
+    "min_improvement": 1.0
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 2.2928713921365627,
+      "A_hull": 2.38125299866165,
+      "solidity": 0.9628844114528102
+    },
+    "1": {
+      "A": 6.757405116032424,
+      "A_hull": 7.603343349915408,
+      "solidity": 0.888741281966124
+    },
+    "2": {
+      "A": 5.189262897401582,
+      "A_hull": 5.910204287770512,
+      "solidity": 0.8780175176244392
+    },
+    "5": {
+      "A": 4.206964470594177,
+      "A_hull": 5.13244615034974,
+      "solidity": 0.8196801968019679
+    },
+    "7": {
+      "A": 6.358425292290599,
+      "A_hull": 7.216989469962883,
+      "solidity": 0.8810356892932117
+    },
+    "9": {
+      "A": 4.287770510845686,
+      "A_hull": 4.403929193707229,
+      "solidity": 0.9736238532110094
+    },
+    "12": {
+      "A": 9.775005681674706,
+      "A_hull": 11.49970960329285,
+      "solidity": 0.8500219587176108
+    },
+    "14": {
+      "A": 7.055377389459863,
+      "A_hull": 7.78768212923916,
+      "solidity": 0.9059662775616084
+    },
+    "16": {
+      "A": 4.141309562889827,
+      "A_hull": 4.826898310648721,
+      "solidity": 0.8579649489929377
+    },
+    "21": {
+      "A": 11.030024494330952,
+      "A_hull": 14.317820257064207,
+      "solidity": 0.7703703703703709
+    },
+    "23": {
+      "A": 8.474533471376986,
+      "A_hull": 9.946718517209163,
+      "solidity": 0.851992891596852
+    },
+    "30": {
+      "A": 10.668922501957022,
+      "A_hull": 12.902451958283878,
+      "solidity": 0.8268910852333891
+    },
+    "32": {
+      "A": 3.436781899446984,
+      "A_hull": 3.369864397363703,
+      "solidity": 1.0
+    },
+    "33": {
+      "A": 3.3963788793212295,
+      "A_hull": 3.2701194414282466,
+      "solidity": 1.0
+    },
+    "34": {
+      "A": 4.11858286406909,
+      "A_hull": 4.069341683290827,
+      "solidity": 1.0
+    },
+    "35": {
+      "A": 1.8332870382061062,
+      "A_hull": 1.7499558091967378,
+      "solidity": 1.0
+    },
+    "37": {
+      "A": 3.7524304941794404,
+      "A_hull": 3.75243049417944,
+      "solidity": 1.0
+    },
+    "38": {
+      "A": 4.232216358172774,
+      "A_hull": 4.7839701017651075,
+      "solidity": 0.8846661388229085
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "The worst-served precinct in this plan is significantly farther from any opened polling place than the typical precinct. Find a way to lower the maximum travel distance.",
+  "precise_text": "Voters in precinct 66 face a 3.0 km trip to their nearest polling place \u2014 far above the typical precinct. Address this worst case, ideally by opening a candidate site closer to it.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 2
+}

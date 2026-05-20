@@ -1,0 +1,162 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 1,
+      "n_components": 3,
+      "components": [
+        [
+          25
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ]
+      ],
+      "component_voters": [
+        2120,
+        755,
+        89
+      ],
+      "largest_component_voters": 2120,
+      "disjoint_excess_voters": 844,
+      "worst_pair_separation_km": 3.318224263848489
+    },
+    {
+      "site": 39,
+      "n_components": 2,
+      "components": [
+        [
+          75,
+          79,
+          68
+        ],
+        [
+          27
+        ]
+      ],
+      "component_voters": [
+        3210,
+        246
+      ],
+      "largest_component_voters": 3210,
+      "disjoint_excess_voters": 246,
+      "worst_pair_separation_km": 2.5677704408442366
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 1090,
+  "worst_culprit_site": 1,
+  "worst_culprit_disjoint_voters": 844,
+  "smallest_component_centroid": [
+    7.12926333796643,
+    2.8921201753448096
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.0,
+  "base_seed": 15839,
+  "attempt": 0,
+  "pair_id": "contiguity_hard_00",
+  "difficulty": "hard",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.0
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 3.5933436024342824,
+      "A_hull": 3.525163505972072,
+      "solidity": 1.0
+    },
+    "1": {
+      "A": 3.3534506704376157,
+      "A_hull": 6.859675260725739,
+      "solidity": 0.48886434750598207
+    },
+    "2": {
+      "A": 3.0933562283780716,
+      "A_hull": 3.4039544455948083,
+      "solidity": 0.9087537091988132
+    },
+    "3": {
+      "A": 3.4039544455948088,
+      "A_hull": 4.283982727708897,
+      "solidity": 0.7945770704391395
+    },
+    "5": {
+      "A": 5.7650059341935815,
+      "A_hull": 6.8003333249160365,
+      "solidity": 0.8477534348310437
+    },
+    "6": {
+      "A": 5.6943006489735115,
+      "A_hull": 6.132420898462161,
+      "solidity": 0.9285567222565368
+    },
+    "7": {
+      "A": 5.820560086866494,
+      "A_hull": 6.622307517486933,
+      "solidity": 0.8789323164918971
+    },
+    "8": {
+      "A": 4.166561450468423,
+      "A_hull": 5.1905254917805115,
+      "solidity": 0.8027243979567015
+    },
+    "11": {
+      "A": 8.891189616423828,
+      "A_hull": 9.067952829474006,
+      "solidity": 0.9805068226120855
+    },
+    "12": {
+      "A": 6.396303123658495,
+      "A_hull": 6.814221863084265,
+      "solidity": 0.9386696312766354
+    },
+    "20": {
+      "A": 5.424105451882529,
+      "A_hull": 6.75993030479028,
+      "solidity": 0.8023907358983942
+    },
+    "21": {
+      "A": 7.684149390166916,
+      "A_hull": 8.579328804828156,
+      "solidity": 0.8956585724797651
+    },
+    "24": {
+      "A": 2.7322542360041417,
+      "A_hull": 3.1476477866720542,
+      "solidity": 0.8680304853590052
+    },
+    "28": {
+      "A": 3.5201131284563525,
+      "A_hull": 3.5062245902881237,
+      "solidity": 1.0
+    },
+    "30": {
+      "A": 9.742178227822532,
+      "A_hull": 10.926491755258704,
+      "solidity": 0.8916108158077193
+    },
+    "34": {
+      "A": 7.3659756066766,
+      "A_hull": 7.299058104593318,
+      "solidity": 1.0
+    },
+    "35": {
+      "A": 7.615969293704706,
+      "A_hull": 8.09575515769804,
+      "solidity": 0.940736119775421
+    },
+    "39": {
+      "A": 6.744779172243126,
+      "A_hull": 10.47700815635969,
+      "solidity": 0.6437695830320559
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4
+}

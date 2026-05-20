@@ -1,0 +1,17 @@
+{
+  "renderers": [
+    "base"
+  ],
+  "prompts": [
+    "zero_shot"
+  ],
+  "models": [
+    "tool_oracle"
+  ],
+  "archetypes": null,
+  "difficulties": null,
+  "tasks": null,
+  "first_n": null,
+  "n_rows": 2,
+  "ground_truth": "/sessions/nifty-quirky-volta/mnt/Final Project (FR Tho)/perception_harness/dev/_verify_fixture/ground_truth.csv"
+}

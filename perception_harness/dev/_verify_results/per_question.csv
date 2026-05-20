@@ -1,0 +1,3 @@
+pair_id,archetype,difficulty,task,renderer,prompt,model,raw_response,parsed_answer,score,elapsed_sec,error
+contiguity_synth_00,contiguity,easy,identify,base,zero_shot,tool_oracle,"{""split_sites"": [0, 1]}","{""split_sites"": [0, 1]}",1.0000,0.003,
+contiguity_synth_00,contiguity,easy,describe,base,zero_shot,tool_oracle,"2 service area(s) are non-contiguous: their assigned precincts form disjoint, disconnected, separated patches rather than one contiguous region. The same color appears in split, visually-disjoint pockets.","{""text"": ""2 service area(s) are non-contiguous: their assigned precincts form disjoint, disconnected, separated patches rather than one contiguous region. The same color appears in split, visually-disjoint pockets.""}",1.0000,0.000,

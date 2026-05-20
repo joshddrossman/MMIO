@@ -1,0 +1,25 @@
+{
+  "n_per_archetype": 30,
+  "n_per_tier": 30,
+  "tiers": [
+    "med"
+  ],
+  "archetypes": {
+    "cluster": {
+      "n_pairs": 30,
+      "path": "full_dataset/cluster"
+    },
+    "coverage_gap": {
+      "n_pairs": 30,
+      "path": "full_dataset/coverage_gap"
+    },
+    "contiguity": {
+      "n_pairs": 30,
+      "path": "full_dataset/contiguity"
+    },
+    "shape_niceness": {
+      "n_pairs": 30,
+      "path": "full_dataset/shape_niceness"
+    }
+  }
+}

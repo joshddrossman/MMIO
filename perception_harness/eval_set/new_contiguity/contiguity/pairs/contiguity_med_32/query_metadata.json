@@ -1,0 +1,163 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 29,
+      "n_components": 2,
+      "components": [
+        [
+          27,
+          28
+        ],
+        [
+          56,
+          53
+        ]
+      ],
+      "component_voters": [
+        1382,
+        1307
+      ],
+      "largest_component_voters": 1382,
+      "disjoint_excess_voters": 1307,
+      "worst_pair_separation_km": 2.0307208004795743
+    },
+    {
+      "site": 34,
+      "n_components": 2,
+      "components": [
+        [
+          66,
+          75
+        ],
+        [
+          29
+        ]
+      ],
+      "component_voters": [
+        3232,
+        414
+      ],
+      "largest_component_voters": 3232,
+      "disjoint_excess_voters": 414,
+      "worst_pair_separation_km": 2.307724081181625
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 1721,
+  "worst_culprit_site": 29,
+  "worst_culprit_disjoint_voters": 1307,
+  "smallest_component_centroid": [
+    6.575490487829965,
+    5.7696377852530425
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7964,
+  "attempt": 0,
+  "pair_id": "contiguity_med_32",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 6.886189742683267,
+      "A_hull": 7.220777253099669,
+      "solidity": 0.9536632278370346
+    },
+    "3": {
+      "A": 3.7448549279058616,
+      "A_hull": 3.8976288477563688,
+      "solidity": 0.9608033689666347
+    },
+    "4": {
+      "A": 5.585717532385546,
+      "A_hull": 5.7069265927628114,
+      "solidity": 0.9787610619469023
+    },
+    "5": {
+      "A": 5.080679780813616,
+      "A_hull": 5.71955253655211,
+      "solidity": 0.8883002207505516
+    },
+    "6": {
+      "A": 2.67417489457337,
+      "A_hull": 3.9279311128506866,
+      "solidity": 0.6808100289296046
+    },
+    "7": {
+      "A": 4.1034317315219315,
+      "A_hull": 4.090805787732634,
+      "solidity": 1.0
+    },
+    "14": {
+      "A": 8.373525921062601,
+      "A_hull": 8.378576298578318,
+      "solidity": 0.9993972272453288
+    },
+    "17": {
+      "A": 4.664023635766774,
+      "A_hull": 4.906441756521296,
+      "solidity": 0.9505918682449828
+    },
+    "20": {
+      "A": 8.312921390873969,
+      "A_hull": 9.941668139693443,
+      "solidity": 0.8361696723393448
+    },
+    "22": {
+      "A": 7.3659756066766,
+      "A_hull": 7.994747607383652,
+      "solidity": 0.9213518635502213
+    },
+    "24": {
+      "A": 4.7221029771975465,
+      "A_hull": 6.040251508800282,
+      "solidity": 0.7817725752508363
+    },
+    "25": {
+      "A": 6.590742658013688,
+      "A_hull": 6.8495745056943,
+      "solidity": 0.9622119815668205
+    },
+    "26": {
+      "A": 6.557915204161512,
+      "A_hull": 6.689225019570213,
+      "solidity": 0.9803699509248773
+    },
+    "29": {
+      "A": 4.653922880735336,
+      "A_hull": 7.593242594883966,
+      "solidity": 0.6129032258064518
+    },
+    "32": {
+      "A": 6.785182192368881,
+      "A_hull": 8.35963738289437,
+      "solidity": 0.8116598701102555
+    },
+    "34": {
+      "A": 6.467008408878565,
+      "A_hull": 9.59192949672988,
+      "solidity": 0.6742135053310518
+    },
+    "35": {
+      "A": 4.681699957071792,
+      "A_hull": 5.175374359233353,
+      "solidity": 0.9046108807026104
+    },
+    "37": {
+      "A": 3.7574808716951598,
+      "A_hull": 3.648897755107195,
+      "solidity": 1.0
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "Some opened sites cover patches of precincts that aren't joined to each other. Each polling place's catchment should be a single connected region. Reassign so no site has a fragmented service area.",
+  "precise_text": "The catchment of polling place 29 is non-contiguous: its assigned precincts come in disjoint clumps. Reassign so the service area is one connected piece, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 2,
+  "precise_template_idx": 1
+}

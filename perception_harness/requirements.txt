@@ -1,0 +1,8 @@
+# Perception harness dependencies. The harness imports from
+# ../instance_generator, so anything there is also needed (numpy,
+# matplotlib, gurobipy if you regenerate pairs).
+numpy
+matplotlib
+scipy            # ConvexHull for per-catchment solidity (build_eval_set)
+openai>=1.40
+python-dotenv

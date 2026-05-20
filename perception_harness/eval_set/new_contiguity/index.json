@@ -1,0 +1,13 @@
+{
+  "n_per_archetype": 50,
+  "n_per_tier": 50,
+  "tiers": [
+    "med"
+  ],
+  "archetypes": {
+    "contiguity": {
+      "n_pairs": 50,
+      "path": "new_contiguity/contiguity"
+    }
+  }
+}

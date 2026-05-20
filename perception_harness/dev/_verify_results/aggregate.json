@@ -1,0 +1,24 @@
+{
+  "cells": [
+    {
+      "archetype": "contiguity",
+      "difficulty": "easy",
+      "task": "describe",
+      "renderer": "base",
+      "prompt": "zero_shot",
+      "model": "tool_oracle",
+      "n": 1,
+      "mean_score": 1.0
+    },
+    {
+      "archetype": "contiguity",
+      "difficulty": "easy",
+      "task": "identify",
+      "renderer": "base",
+      "prompt": "zero_shot",
+      "model": "tool_oracle",
+      "n": 1,
+      "mean_score": 1.0
+    }
+  ]
+}

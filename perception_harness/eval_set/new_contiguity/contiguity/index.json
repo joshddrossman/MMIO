@@ -1,0 +1,462 @@
+{
+  "n_pairs": 50,
+  "n_pairs_requested": 50,
+  "archetype": "contiguity",
+  "sampling_seed": 42,
+  "tiers_used": [
+    "med"
+  ],
+  "n_per_tier": 50,
+  "pairs": [
+    {
+      "pair_id": "contiguity_med_00",
+      "pair_dir": "pairs/contiguity_med_00",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7920,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_01",
+      "pair_dir": "pairs/contiguity_med_01",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7921,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_02",
+      "pair_dir": "pairs/contiguity_med_02",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7923,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_03",
+      "pair_dir": "pairs/contiguity_med_03",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7924,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_04",
+      "pair_dir": "pairs/contiguity_med_04",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7926,
+      "vague_template_idx": 1,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_05",
+      "pair_dir": "pairs/contiguity_med_05",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7927,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_06",
+      "pair_dir": "pairs/contiguity_med_06",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7928,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_07",
+      "pair_dir": "pairs/contiguity_med_07",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7929,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_08",
+      "pair_dir": "pairs/contiguity_med_08",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7931,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_09",
+      "pair_dir": "pairs/contiguity_med_09",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7932,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_10",
+      "pair_dir": "pairs/contiguity_med_10",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7934,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_11",
+      "pair_dir": "pairs/contiguity_med_11",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7937,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_12",
+      "pair_dir": "pairs/contiguity_med_12",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7938,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_13",
+      "pair_dir": "pairs/contiguity_med_13",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7939,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_14",
+      "pair_dir": "pairs/contiguity_med_14",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7941,
+      "vague_template_idx": 2,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_15",
+      "pair_dir": "pairs/contiguity_med_15",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7943,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_16",
+      "pair_dir": "pairs/contiguity_med_16",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7946,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_17",
+      "pair_dir": "pairs/contiguity_med_17",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7947,
+      "vague_template_idx": 4,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_18",
+      "pair_dir": "pairs/contiguity_med_18",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7948,
+      "vague_template_idx": 4,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_19",
+      "pair_dir": "pairs/contiguity_med_19",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7950,
+      "vague_template_idx": 1,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_20",
+      "pair_dir": "pairs/contiguity_med_20",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7951,
+      "vague_template_idx": 0,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_21",
+      "pair_dir": "pairs/contiguity_med_21",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7952,
+      "vague_template_idx": 3,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_22",
+      "pair_dir": "pairs/contiguity_med_22",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7953,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_23",
+      "pair_dir": "pairs/contiguity_med_23",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7954,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_24",
+      "pair_dir": "pairs/contiguity_med_24",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7955,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_25",
+      "pair_dir": "pairs/contiguity_med_25",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7956,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_26",
+      "pair_dir": "pairs/contiguity_med_26",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7957,
+      "vague_template_idx": 1,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_27",
+      "pair_dir": "pairs/contiguity_med_27",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7958,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_28",
+      "pair_dir": "pairs/contiguity_med_28",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7960,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_29",
+      "pair_dir": "pairs/contiguity_med_29",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7961,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_30",
+      "pair_dir": "pairs/contiguity_med_30",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7962,
+      "vague_template_idx": 4,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_31",
+      "pair_dir": "pairs/contiguity_med_31",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7963,
+      "vague_template_idx": 1,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_32",
+      "pair_dir": "pairs/contiguity_med_32",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7964,
+      "vague_template_idx": 2,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_33",
+      "pair_dir": "pairs/contiguity_med_33",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7965,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_34",
+      "pair_dir": "pairs/contiguity_med_34",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7966,
+      "vague_template_idx": 0,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_35",
+      "pair_dir": "pairs/contiguity_med_35",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7968,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_36",
+      "pair_dir": "pairs/contiguity_med_36",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7969,
+      "vague_template_idx": 2,
+      "precise_template_idx": 0
+    },
+    {
+      "pair_id": "contiguity_med_37",
+      "pair_dir": "pairs/contiguity_med_37",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7971,
+      "vague_template_idx": 3,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_38",
+      "pair_dir": "pairs/contiguity_med_38",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7973,
+      "vague_template_idx": 1,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_39",
+      "pair_dir": "pairs/contiguity_med_39",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7974,
+      "vague_template_idx": 2,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_40",
+      "pair_dir": "pairs/contiguity_med_40",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7975,
+      "vague_template_idx": 4,
+      "precise_template_idx": 2
+    },
+    {
+      "pair_id": "contiguity_med_41",
+      "pair_dir": "pairs/contiguity_med_41",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7976,
+      "vague_template_idx": 0,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_42",
+      "pair_dir": "pairs/contiguity_med_42",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7977,
+      "vague_template_idx": 3,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_43",
+      "pair_dir": "pairs/contiguity_med_43",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7978,
+      "vague_template_idx": 0,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_44",
+      "pair_dir": "pairs/contiguity_med_44",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7979,
+      "vague_template_idx": 3,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_45",
+      "pair_dir": "pairs/contiguity_med_45",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7983,
+      "vague_template_idx": 2,
+      "precise_template_idx": 4
+    },
+    {
+      "pair_id": "contiguity_med_46",
+      "pair_dir": "pairs/contiguity_med_46",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7984,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_47",
+      "pair_dir": "pairs/contiguity_med_47",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7985,
+      "vague_template_idx": 4,
+      "precise_template_idx": 1
+    },
+    {
+      "pair_id": "contiguity_med_48",
+      "pair_dir": "pairs/contiguity_med_48",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7986,
+      "vague_template_idx": 1,
+      "precise_template_idx": 3
+    },
+    {
+      "pair_id": "contiguity_med_49",
+      "pair_dir": "pairs/contiguity_med_49",
+      "archetype": "contiguity",
+      "difficulty": "med",
+      "base_seed": 7987,
+      "vague_template_idx": 3,
+      "precise_template_idx": 0
+    }
+  ]
+}

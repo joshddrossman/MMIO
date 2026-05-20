@@ -1,0 +1,3 @@
+pair_id,archetype,difficulty,task,answer_json,source_dir
+contiguity_synth_00,contiguity,easy,identify,"{""split_sites"": [0, 1]}",dev/_verify_fixture/pairs/contiguity_synth_00
+contiguity_synth_00,contiguity,easy,describe,"{""concepts"": [""disjoint"", ""split"", ""disconnected"", ""non-contiguous"", ""separated""]}",dev/_verify_fixture/pairs/contiguity_synth_00

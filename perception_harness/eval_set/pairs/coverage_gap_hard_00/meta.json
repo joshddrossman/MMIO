@@ -1,0 +1,231 @@
+{
+  "archetype": "coverage_gap",
+  "current_max_distance_km": 2.6876011833524243,
+  "most_stranded_precinct": 74,
+  "most_stranded_distance_km": 2.6876011833524243,
+  "best_candidate_idx": 36,
+  "best_candidate_new_max_km": 1.9338831649182853,
+  "best_improvement_km": 0.753718018434139,
+  "per_candidate_improvement": {
+    "36": {
+      "improvement_km": 0.753718018434139,
+      "new_max_km": 1.9338831649182853
+    },
+    "2": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "5": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "6": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "9": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "10": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "11": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "14": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "15": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "16": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "18": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "20": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "21": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "22": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "23": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "25": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "28": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "30": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "31": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "32": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "33": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    },
+    "34": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.6876011833524243
+    }
+  },
+  "candidates_ranked_by_improvement": [
+    36,
+    2,
+    5,
+    6,
+    9,
+    10,
+    11,
+    14,
+    15,
+    16,
+    18,
+    20,
+    21,
+    22,
+    23,
+    25,
+    28,
+    30,
+    31,
+    32,
+    33,
+    34
+  ],
+  "n_opened": 18,
+  "n_closed_candidates": 22,
+  "min_max_distance_threshold_km": 2.2,
+  "min_improvement_threshold_km": 0.6,
+  "base_seed": 15865,
+  "attempt": 0,
+  "uncapacitated": true,
+  "pair_id": "coverage_gap_hard_00",
+  "difficulty": "hard",
+  "tier_kwargs": {
+    "min_max_distance": 2.2,
+    "min_improvement": 0.6
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 5.153910254791546,
+      "A_hull": 6.560440392919371,
+      "solidity": 0.7856043110084681
+    },
+    "1": {
+      "A": 2.1767127092750185,
+      "A_hull": 2.349688139188406,
+      "solidity": 0.9263836646963991
+    },
+    "3": {
+      "A": 7.4442564581702495,
+      "A_hull": 7.964445342289337,
+      "solidity": 0.9346861128725429
+    },
+    "4": {
+      "A": 9.800257569253302,
+      "A_hull": 10.985833691068413,
+      "solidity": 0.8920813699574758
+    },
+    "7": {
+      "A": 3.206989722481756,
+      "A_hull": 3.449407843236282,
+      "solidity": 0.9297218155197658
+    },
+    "8": {
+      "A": 4.328173530971441,
+      "A_hull": 4.945582182268123,
+      "solidity": 0.8751595608884354
+    },
+    "12": {
+      "A": 11.11588091209818,
+      "A_hull": 11.923941314613264,
+      "solidity": 0.9322321050402376
+    },
+    "13": {
+      "A": 7.424054948107372,
+      "A_hull": 7.538951036589985,
+      "solidity": 0.9847596717467763
+    },
+    "17": {
+      "A": 5.302896391505266,
+      "A_hull": 5.430418423777175,
+      "solidity": 0.976517089049059
+    },
+    "19": {
+      "A": 4.871089113911266,
+      "A_hull": 4.7625059973232995,
+      "solidity": 1.0
+    },
+    "24": {
+      "A": 8.15635968788667,
+      "A_hull": 8.098280346455896,
+      "solidity": 1.0
+    },
+    "26": {
+      "A": 4.467058912653721,
+      "A_hull": 4.948107371025983,
+      "solidity": 0.902781321765757
+    },
+    "27": {
+      "A": 5.315522335294564,
+      "A_hull": 6.48468473018358,
+      "solidity": 0.8197040498442371
+    },
+    "29": {
+      "A": 4.84078684881695,
+      "A_hull": 5.319310118431353,
+      "solidity": 0.910040351293615
+    },
+    "35": {
+      "A": 5.454407716976845,
+      "A_hull": 5.811721926213985,
+      "solidity": 0.9385183575928743
+    },
+    "37": {
+      "A": 3.3408247266483175,
+      "A_hull": 3.3496628873008243,
+      "solidity": 0.99736147757256
+    },
+    "38": {
+      "A": 3.956970783566072,
+      "A_hull": 4.046614984470087,
+      "solidity": 0.9778471138845561
+    },
+    "39": {
+      "A": 4.6513976919774755,
+      "A_hull": 5.148859877275827,
+      "solidity": 0.9033840117704757
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4
+}

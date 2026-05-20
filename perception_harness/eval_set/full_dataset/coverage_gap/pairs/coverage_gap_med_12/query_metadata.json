@@ -1,0 +1,249 @@
+{
+  "archetype": "coverage_gap",
+  "current_max_distance_km": 2.8530192770665788,
+  "most_stranded_precinct": 34,
+  "most_stranded_distance_km": 2.8530192770665788,
+  "best_candidate_idx": 29,
+  "best_candidate_new_max_km": 1.7747503727569673,
+  "best_improvement_km": 1.0782689043096114,
+  "per_candidate_improvement": {
+    "29": {
+      "improvement_km": 1.0782689043096114,
+      "new_max_km": 1.7747503727569673
+    },
+    "14": {
+      "improvement_km": 0.5245647509192004,
+      "new_max_km": 2.3284545261473784
+    },
+    "17": {
+      "improvement_km": 0.033901930021216664,
+      "new_max_km": 2.819117347045362
+    },
+    "3": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "4": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "7": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "8": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "9": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "10": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "11": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "12": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "16": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "18": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "19": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "22": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "23": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "25": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "26": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "28": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "35": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "36": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    },
+    "38": {
+      "improvement_km": 0.0,
+      "new_max_km": 2.8530192770665788
+    }
+  },
+  "candidates_ranked_by_improvement": [
+    29,
+    14,
+    17,
+    3,
+    4,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    16,
+    18,
+    19,
+    22,
+    23,
+    25,
+    26,
+    28,
+    35,
+    36,
+    38
+  ],
+  "coverage_gap_center": [
+    7.884134649937359,
+    8.613978850535492
+  ],
+  "coverage_gap_radius": 4.96020021226719,
+  "affected_precincts": [
+    34,
+    46,
+    48,
+    57,
+    78
+  ],
+  "coverage_gap_distance_threshold": 1.7240191940707363,
+  "coverage_gap_baseline_strand_count": 5,
+  "n_opened": 18,
+  "n_closed_candidates": 22,
+  "min_max_distance_threshold_km": 2.6,
+  "min_improvement_threshold_km": 1.0,
+  "base_seed": 12447,
+  "attempt": 0,
+  "uncapacitated": true,
+  "pair_id": "coverage_gap_med_12",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_max_distance": 2.6,
+    "min_improvement": 1.0
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 2.8357869750763873,
+      "A_hull": 2.768869472993106,
+      "solidity": 1.0
+    },
+    "1": {
+      "A": 3.6362718113178962,
+      "A_hull": 4.177924799878792,
+      "solidity": 0.870353581142339
+    },
+    "2": {
+      "A": 8.131107800308074,
+      "A_hull": 8.555339511628494,
+      "solidity": 0.950413223140496
+    },
+    "5": {
+      "A": 4.512512310295195,
+      "A_hull": 5.48976035958688,
+      "solidity": 0.8219871205151794
+    },
+    "6": {
+      "A": 5.307946769020985,
+      "A_hull": 5.617282391858791,
+      "solidity": 0.9449314452685998
+    },
+    "13": {
+      "A": 5.0049241180778266,
+      "A_hull": 5.33193606222065,
+      "solidity": 0.9386691925171682
+    },
+    "15": {
+      "A": 7.472033534506705,
+      "A_hull": 7.854599631322441,
+      "solidity": 0.9512940041793926
+    },
+    "20": {
+      "A": 5.0226004393828445,
+      "A_hull": 5.99227292240095,
+      "solidity": 0.8381795195954488
+    },
+    "21": {
+      "A": 7.209413903689302,
+      "A_hull": 7.951819398500035,
+      "solidity": 0.9066370276278187
+    },
+    "24": {
+      "A": 7.615969293704706,
+      "A_hull": 8.296507663947878,
+      "solidity": 0.9179729112768228
+    },
+    "27": {
+      "A": 6.1185323602939325,
+      "A_hull": 6.451857276331405,
+      "solidity": 0.9483365949119376
+    },
+    "30": {
+      "A": 8.724527158405092,
+      "A_hull": 9.459357086942246,
+      "solidity": 0.9223171382808333
+    },
+    "31": {
+      "A": 6.009949243705968,
+      "A_hull": 6.492260296457161,
+      "solidity": 0.9257098405289771
+    },
+    "32": {
+      "A": 7.007398803060529,
+      "A_hull": 7.615969293704702,
+      "solidity": 0.9200928381962868
+    },
+    "33": {
+      "A": 3.6792000202015105,
+      "A_hull": 3.9834852655235977,
+      "solidity": 0.9236133122028528
+    },
+    "34": {
+      "A": 3.699401530264388,
+      "A_hull": 3.6223832731496675,
+      "solidity": 1.0
+    },
+    "37": {
+      "A": 3.5832428474028437,
+      "A_hull": 3.6135451124971603,
+      "solidity": 0.9916142557651989
+    },
+    "39": {
+      "A": 5.436731395671827,
+      "A_hull": 5.537738945986213,
+      "solidity": 0.9817601459188326
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "There's at least one precinct stranded far from any opened polling place \u2014 its travel distance is well above the rest of the county. Bring the maximum travel distance down.",
+  "precise_text": "Precinct 34 is the worst-served in this plan \u2014 its voters travel 2.9 km to reach their assigned polling place, much farther than typical. Reduce the maximum travel distance any precinct faces, but be mindful about not making other precincts worse.",
+  "vague_template_idx": 1,
+  "precise_template_idx": 0
+}

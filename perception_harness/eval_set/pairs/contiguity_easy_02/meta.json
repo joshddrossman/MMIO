@@ -1,0 +1,185 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 1,
+      "n_components": 2,
+      "components": [
+        [
+          1,
+          9,
+          10,
+          7,
+          4,
+          14
+        ],
+        [
+          67
+        ]
+      ],
+      "component_voters": [
+        3370,
+        368
+      ],
+      "largest_component_voters": 3370,
+      "disjoint_excess_voters": 368,
+      "worst_pair_separation_km": 3.413029113457942
+    },
+    {
+      "site": 7,
+      "n_components": 2,
+      "components": [
+        [
+          0,
+          77,
+          75,
+          74,
+          71
+        ],
+        [
+          5
+        ]
+      ],
+      "component_voters": [
+        3235,
+        764
+      ],
+      "largest_component_voters": 3235,
+      "disjoint_excess_voters": 764,
+      "worst_pair_separation_km": 2.12399279554852
+    },
+    {
+      "site": 34,
+      "n_components": 2,
+      "components": [
+        [
+          73,
+          18
+        ],
+        [
+          22
+        ]
+      ],
+      "component_voters": [
+        2706,
+        350
+      ],
+      "largest_component_voters": 2706,
+      "disjoint_excess_voters": 350,
+      "worst_pair_separation_km": 1.6709032449683334
+    }
+  ],
+  "n_split_sites_baseline": 3,
+  "total_disjoint_excess_voters_baseline": 1482,
+  "worst_culprit_site": 7,
+  "worst_culprit_disjoint_voters": 764,
+  "smallest_component_centroid": [
+    3.111907142766724,
+    2.623191524372493
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 3.0,
+  "base_seed": 8,
+  "attempt": 0,
+  "pair_id": "contiguity_easy_02",
+  "difficulty": "easy",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 3.0
+  },
+  "per_catchment_solidity": {
+    "1": {
+      "A": 4.992298174288528,
+      "A_hull": 10.10959319209111,
+      "solidity": 0.49381790932933683
+    },
+    "2": {
+      "A": 5.477134415797582,
+      "A_hull": 8.186661952980986,
+      "solidity": 0.6690314620604566
+    },
+    "5": {
+      "A": 4.780182318628318,
+      "A_hull": 4.845837226332669,
+      "solidity": 0.9864512767066181
+    },
+    "6": {
+      "A": 3.2170904775131945,
+      "A_hull": 4.241054518825283,
+      "solidity": 0.7585590949687406
+    },
+    "7": {
+      "A": 6.075604151410318,
+      "A_hull": 9.426529633090077,
+      "solidity": 0.6445218323064558
+    },
+    "8": {
+      "A": 7.045276634428424,
+      "A_hull": 7.618494482462564,
+      "solidity": 0.9247596950613193
+    },
+    "10": {
+      "A": 5.802883765561476,
+      "A_hull": 6.699325774601652,
+      "solidity": 0.866189219751225
+    },
+    "11": {
+      "A": 5.754905179162143,
+      "A_hull": 7.133658240953512,
+      "solidity": 0.8067256637168142
+    },
+    "12": {
+      "A": 8.136158177823793,
+      "A_hull": 8.50736092522916,
+      "solidity": 0.9563668744434553
+    },
+    "15": {
+      "A": 5.434206206913967,
+      "A_hull": 5.4783970101765105,
+      "solidity": 0.9919336252592764
+    },
+    "18": {
+      "A": 4.903916567763441,
+      "A_hull": 6.036463725663494,
+      "solidity": 0.8123823467893747
+    },
+    "21": {
+      "A": 8.191712330496706,
+      "A_hull": 9.285119062649937,
+      "solidity": 0.8822409573021484
+    },
+    "27": {
+      "A": 7.179111638594986,
+      "A_hull": 9.204313022398422,
+      "solidity": 0.7799725651577506
+    },
+    "30": {
+      "A": 6.845786722557512,
+      "A_hull": 7.479609100780283,
+      "solidity": 0.9152599594868334
+    },
+    "34": {
+      "A": 3.5049619959091944,
+      "A_hull": 5.206939218706599,
+      "solidity": 0.6731328806983511
+    },
+    "35": {
+      "A": 4.631196181914599,
+      "A_hull": 5.753642584783215,
+      "solidity": 0.8049155145929338
+    },
+    "38": {
+      "A": 3.1160829271988084,
+      "A_hull": 3.343349915406177,
+      "solidity": 0.93202416918429
+    },
+    "39": {
+      "A": 5.919042448423021,
+      "A_hull": 6.407666473068863,
+      "solidity": 0.923743842364532
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4
+}

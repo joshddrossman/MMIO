@@ -1,0 +1,165 @@
+{
+  "archetype": "contiguity",
+  "culprits": [
+    {
+      "site": 4,
+      "n_components": 2,
+      "components": [
+        [
+          16,
+          19,
+          18
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "component_voters": [
+        1411,
+        1253
+      ],
+      "largest_component_voters": 1411,
+      "disjoint_excess_voters": 1253,
+      "worst_pair_separation_km": 1.9251163072239212
+    },
+    {
+      "site": 13,
+      "n_components": 2,
+      "components": [
+        [
+          42,
+          6,
+          11
+        ],
+        [
+          4
+        ]
+      ],
+      "component_voters": [
+        3792,
+        165
+      ],
+      "largest_component_voters": 3792,
+      "disjoint_excess_voters": 165,
+      "worst_pair_separation_km": 1.7520448666528934
+    }
+  ],
+  "n_split_sites_baseline": 2,
+  "total_disjoint_excess_voters_baseline": 1418,
+  "worst_culprit_site": 4,
+  "worst_culprit_disjoint_voters": 1253,
+  "smallest_component_centroid": [
+    4.200149320193498,
+    1.6296294651749035
+  ],
+  "min_split_voters_threshold": 1,
+  "min_separation_threshold_km": 1.8,
+  "base_seed": 7952,
+  "attempt": 0,
+  "pair_id": "contiguity_med_21",
+  "difficulty": "med",
+  "tier_kwargs": {
+    "min_split_voters": 1,
+    "min_separation": 1.8
+  },
+  "per_catchment_solidity": {
+    "0": {
+      "A": 2.9847731117901066,
+      "A_hull": 3.25496830888109,
+      "solidity": 0.9169899146625289
+    },
+    "2": {
+      "A": 8.896239993939547,
+      "A_hull": 10.83811014873362,
+      "solidity": 0.8208294501397948
+    },
+    "3": {
+      "A": 4.166561450468423,
+      "A_hull": 5.052902704477159,
+      "solidity": 0.8245877061469268
+    },
+    "4": {
+      "A": 3.090831039620212,
+      "A_hull": 4.916542511552739,
+      "solidity": 0.6286594761171034
+    },
+    "5": {
+      "A": 5.732178480341406,
+      "A_hull": 6.242266609429055,
+      "solidity": 0.918284789644013
+    },
+    "8": {
+      "A": 5.739754046614985,
+      "A_hull": 6.475846569531071,
+      "solidity": 0.8863326184441415
+    },
+    "13": {
+      "A": 5.0933057246029145,
+      "A_hull": 6.230903260018689,
+      "solidity": 0.8174265450861193
+    },
+    "17": {
+      "A": 4.628670993156739,
+      "A_hull": 5.595818287416986,
+      "solidity": 0.8271660649819493
+    },
+    "18": {
+      "A": 10.088129087649303,
+      "A_hull": 13.148657862175197,
+      "solidity": 0.7672364125216057
+    },
+    "19": {
+      "A": 3.8105098356102123,
+      "A_hull": 4.681699957071791,
+      "solidity": 0.8139158576051782
+    },
+    "21": {
+      "A": 5.105931668392213,
+      "A_hull": 5.213252190601249,
+      "solidity": 0.9794139016711065
+    },
+    "23": {
+      "A": 7.987172041110074,
+      "A_hull": 10.17019772227974,
+      "solidity": 0.785350713842334
+    },
+    "25": {
+      "A": 7.388702305497337,
+      "A_hull": 8.242216105653897,
+      "solidity": 0.8964460784313727
+    },
+    "26": {
+      "A": 8.38110148733618,
+      "A_hull": 10.903765056437969,
+      "solidity": 0.768642890226957
+    },
+    "31": {
+      "A": 6.838211156283933,
+      "A_hull": 6.91017903588293,
+      "solidity": 0.9895852366161159
+    },
+    "33": {
+      "A": 2.1918638418221765,
+      "A_hull": 2.4809979545971057,
+      "solidity": 0.8834605597964379
+    },
+    "34": {
+      "A": 4.9518951541627745,
+      "A_hull": 5.003661523698896,
+      "solidity": 0.9896543022962405
+    },
+    "36": {
+      "A": 3.9317188959874754,
+      "A_hull": 4.175399611120931,
+      "solidity": 0.9416389476867252
+    }
+  },
+  "globally_clustered_sites": [],
+  "clustered_sites_radius": 1.35,
+  "clustered_sites_min_sites": 4,
+  "vague_text": "The map shows polling places whose voters come from disjoint pockets \u2014 same colour on two separate patches with a gap between. Break up any such split-catchment.",
+  "precise_text": "The catchment of polling place 4 is non-contiguous: its assigned precincts come in disjoint clumps. Reassign so the service area is one connected piece, but be mindful about causing this issue elsewhere.",
+  "vague_template_idx": 3,
+  "precise_template_idx": 1
+}
